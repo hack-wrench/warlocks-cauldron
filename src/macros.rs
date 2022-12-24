@@ -90,6 +90,18 @@ macro_rules! valued_enum {
                 self.into()
             }
 
+            pub fn key_variants() -> Vec<String> {
+                vec![
+                    $( stringify!($id).to_string(), )*
+                ]
+            }
+
+            pub fn variants() -> Vec<$name> {
+                vec![
+                    $( $name::$id, )*
+                ]
+            }
+
             $v fn is_recognized(&self) -> bool {
                 matches!(self, $( &$name::$id )|*)
             }

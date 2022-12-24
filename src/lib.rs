@@ -6,6 +6,8 @@
 
 #[macro_use] extern crate lazy_static;
 
+pub mod random;
+pub mod providers;
 pub mod enums;
 pub mod data;
 

@@ -2,6 +2,9 @@ use crate::data::parsed::*;
 
 #[test]
 fn parse_locales() {
+    #[cfg(test)]
+    assert_eq!(TEST.lang_code, "locale_template");
+
     #[cfg(feature = "cs")]
     assert_eq!(CS.lang_code, "cs");
 
