@@ -6,11 +6,9 @@
 
 #[macro_use] extern crate lazy_static;
 
-extern crate strum_macros;
-extern crate strum;
-
 pub mod enums;
-mod data;
+pub mod data;
+
 mod macros;
 
 #[cfg(test)]

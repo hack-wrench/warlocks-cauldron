@@ -1,15 +1,8 @@
-use strum_macros::Display;
+use crate::{
+    data::{parser::ParsedData, parsed::*},
+    valued_enum,
+};
 
-#[doc(hidden)]
-#[derive(Display)]
-#[strum(serialize_all = "kebab-case")]
-pub(crate) enum TestLocale {
-    TEST_TEST,
-    TEST,
-}
-
-#[derive(Display)]
-#[strum(serialize_all = "kebab-case")]
 pub enum Locale {
     #[cfg(feature = "cs")]
     CS,
@@ -20,32 +13,14 @@ pub enum Locale {
     #[cfg(feature = "de")]
     DE,
 
-    #[cfg(feature = "de-at")]
-    DE_AT,
-
-    #[cfg(feature = "de-ch")]
-    DE_CH,
-
     #[cfg(feature = "el")]
     EL,
 
     #[cfg(feature = "en")]
     EN,
 
-    #[cfg(feature = "en-au")]
-    EN_AU,
-
-    #[cfg(feature = "en-ca")]
-    EN_CA,
-
-    #[cfg(feature = "en-gb")]
-    EN_GB,
-
     #[cfg(feature = "es")]
     ES,
-
-    #[cfg(feature = "es-mx")]
-    ES_MX,
 
     #[cfg(feature = "et")]
     ET,
@@ -80,9 +55,6 @@ pub enum Locale {
     #[cfg(feature = "nl")]
     NL,
 
-    #[cfg(feature = "nl-be")]
-    NL_BE,
-
     #[cfg(feature = "no")]
     NO,
 
@@ -91,9 +63,6 @@ pub enum Locale {
 
     #[cfg(feature = "pt")]
     PT,
-
-    #[cfg(feature = "pt-br")]
-    PT_BR,
 
     #[cfg(feature = "ru")]
     RU,
@@ -112,6 +81,90 @@ pub enum Locale {
 
     #[cfg(feature = "zh")]
     ZH,
+}
+
+impl Into<ParsedData> for Locale {
+    fn into(self) -> ParsedData {
+        match self {
+            #[cfg(feature = "cs")]
+            Self::CS => CS.clone(),
+        
+            #[cfg(feature = "da")]
+            Self::DA => DA.clone(),
+        
+            #[cfg(feature = "de")]
+            Self::DE => DE.clone(),
+        
+            #[cfg(feature = "el")]
+            Self::EL => EL.clone(),
+        
+            #[cfg(feature = "en")]
+            Self::EN => EN.clone(),
+    
+            #[cfg(feature = "es")]
+            Self::ES => ES.clone(),
+        
+            #[cfg(feature = "et")]
+            Self::ET => ET.clone(),
+        
+            #[cfg(feature = "fa")]
+            Self::FA => FA.clone(),
+        
+            #[cfg(feature = "fi")]
+            Self::FI => FI.clone(),
+        
+            #[cfg(feature = "fr")]
+            Self::FR => FR.clone(),
+        
+            #[cfg(feature = "hu")]
+            Self::HU => HU.clone(),
+        
+            #[cfg(feature = "is")]
+            Self::IS => IS.clone(),
+        
+            #[cfg(feature = "it")]
+            Self::IT => IT.clone(), 
+        
+            #[cfg(feature = "ja")]
+            Self::JA => JA.clone(),
+        
+            #[cfg(feature = "kk")]
+            Self::KK => KK.clone(),
+        
+            #[cfg(feature = "ko")]
+            Self::KO => KO.clone(),
+        
+            #[cfg(feature = "nl")]
+            Self::NL => NL.clone(),
+        
+            #[cfg(feature = "no")]
+            Self::NO => NO.clone(),
+        
+            #[cfg(feature = "pl")]
+            Self::PL => PL.clone(),
+        
+            #[cfg(feature = "pt")]
+            Self::PT => PT.clone(),
+        
+            #[cfg(feature = "ru")]
+            Self::RU => RU.clone(),
+        
+            #[cfg(feature = "sk")]
+            Self::SK => SK.clone(),
+        
+            #[cfg(feature = "sv")]
+            Self::SV => SV.clone(),
+        
+            #[cfg(feature = "tr")]
+            Self::TR => TR.clone(),
+        
+            #[cfg(feature = "uk")]
+            Self::UK => UK.clone(),
+        
+            #[cfg(feature = "zh")]
+            Self::ZH => ZH.clone(), 
+        }
+    }
 }
 
 
@@ -137,135 +190,120 @@ impl Into<(u16, u16)> for PortRange {
 
 
 #[cfg(any(feature = "payment", feature = "person"))]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum Gender {
-    MALE,
-    FEMALE,
+valued_enum! {
+    pub enum Gender(&'static str) {
+        MALE = "male"
+        FEMALE = "female"
+    }
 }
 
 
 #[cfg(feature = "person")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum TitleType {
-    TYPICAL,
-    ACADEMIC,
+valued_enum! {
+    pub enum TitleType(&'static str) {
+        TYPICAL = "typical"
+        ACADEMIC = "academic"
+    }
 }
-
 
 #[cfg(feature = "payment")]
-#[derive(Display)]
-pub enum CardType {
-    #[strum(serialize = "Visa")]
-    VISA,
-    
-    #[strum(serialize = "MasterCard")]
-    MASTER_CARD,
-    
-    #[strum(serialize = "American Express")]
-    AMERICAN_EXPRESS,
+valued_enum! {
+    pub enum CardType(&'static str) {
+        VISA = "Visa"
+        MASTER_CARD = "MasterCard"
+        AMERICAN_EXPRESS = "American Express"
+    }
 }
+
 
 
 #[cfg(feature = "cryptographic")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum Algorithm {
-    MD5,
-    SHA1,
-    SHA224,
-    SHA256,
-    SHA384,
-    SHA512,
-    BLAKE2B,
-    BLAKE2S,
+valued_enum! {
+    pub enum Algorithm(&'static str) {
+        MD5 = "md5"
+        SHA1 = "sha1"
+        SHA224 = "sha224"
+        SHA256 = "sha256"
+        SHA384 = "sha384"
+        SHA512 = "sha512"
+        BLAKE2B = "blake2b"
+        BLAKE2S = "blake2s"
+    }
 }
 
 
 #[cfg(feature = "internet")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum TLDType {
-    CCTLD,
-    GTLD,
-    GEOTLD,
-    UTLD,
-    STLD,
+valued_enum! {
+    pub enum TLDType(&'static str) {
+        CCTLD = "cctld"
+        GTLD = "gtld"
+        GEOTLD = "geotld"
+        UTLD = "utld"
+        STLD = "stld"
+    }
 }
-
 
 #[cfg(feature = "file")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum FileType {
-    SOURCE,
-    TEXT,
-    DATA,
-    AUDIO,
-    VIDEO,
-    IMAGE,
-    EXECUTABLE,
-    COMPRESSED,
+valued_enum! {
+    pub enum FileType(&'static str) {
+        SOURCE = "source"
+        TEXT = "text"
+        DATA = "data"
+        AUDIO = "audio"
+        VIDEO = "video"
+        IMAGE = "image"
+        EXECUTABLE = "executable"
+        COMPRESSED = "compressed"
+    }
 }
-
 
 #[cfg(any(feature = "file", feature = "internet"))]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum MimeType {
-    APPLICATION,
-    AUDIO,
-    IMAGE,
-    MESSAGE,
-    TEXT,
-    VIDEO,
+valued_enum! {
+    pub enum MimeType(&'static str) {
+        APPLICATION = "application"
+        AUDIO = "audio"
+        IMAGE = "image"
+        MESSAGE = "message"
+        TEXT = "text"
+        VIDEO = "video"
+    }
 }
-
 
 
 #[cfg(feature = "science")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum MetricPrefixSign {
-    POSITIVE,
-    NEGATIVE,
+valued_enum! {
+    pub enum MetricPrefixSign(&'static str) {
+        POSITIVE = "positive"
+        NEGATIVE = "negative"
+    }
 }
-
 
 #[cfg(feature = "address")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum CountryCode {
-    A2,
-    A3,
-    NUMERIC,
-    IOC,
-    FIFA,
+valued_enum! {
+    pub enum CountryCode(&'static str) {
+        A2 = "a2"
+        A3 = "a3"
+        NUMERIC = "numeric"
+        IOC = "ioc"
+        FIFA = "fifa"
+    }
 }
-
 
 #[cfg(feature = "code")]
-#[derive(Display)]
-pub enum ISBNFormat {
-    #[strum(serialize = "isbn-13")]
-    ISBN13,
-
-    #[strum(serialize = "isbn-10")]
-    ISBN10,
+valued_enum! {
+    pub enum ISBNFormat(&'static str) {
+        ISBN13 = "isbn-13"
+        ISBN10 = "isbn-10"
+    }
 }
-
 
 #[cfg(feature = "code")]
-#[derive(Display)]
-pub enum EANFormat {
-    #[strum(serialize = "ean-8")]
-    EAN8,
-    
-    #[strum(serialize = "ean-13")]
-    EAN13,
+valued_enum! {
+    pub enum EANFormat(&'static str)  {
+        EAN8 = "ean-8"
+        EAN13 = "ean-13"
+    }
 }
-
 
 #[cfg(feature = "science")]
 pub enum MeasureUnit {
@@ -325,101 +363,85 @@ impl Into<(&str, &str)> for MeasureUnit {
 
 
 #[cfg(feature = "numeric")]
-#[derive(Display)]
-pub enum NumType {
-    #[strum(serialize = "floats")]
-    FLOAT,
-
-    #[strum(serialize = "integers")]
-    INTEGER,
-
-    #[strum(serialize = "complexes")]
-    COMPLEX,
-
-    #[strum(serialize = "decimals")]
-    DECIMAL,
+valued_enum! {
+    pub enum NumType(&'static str) {
+        FLOAT = "floats"
+        INTEGER = "integers"
+        COMPLEX = "complexes"
+        DECIMAL = "decimals"
+    }
 }
-
 
 #[cfg(feature = "binaryfile")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum VideoFile {
-    MP4,
-    MOV,
+valued_enum! {
+    pub enum VideoFile(&'static str) {
+        MP4 = "mp4"
+        MOV = "mov"
+    }
 }
-
 
 #[cfg(feature = "binaryfile")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum AudioFile {
-    MP3,
-    AAC,
+valued_enum! {
+    pub enum AudioFile(&'static str) {
+        MP3 = "mp3"
+        AAC = "aac"
+    }
 }
-
 
 #[cfg(feature = "binaryfile")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum ImageFile {
-    JPG,
-    PNG,
-    GIF,
+valued_enum! {
+    pub enum ImageFile(&'static str) {
+        JPG = "jpg"
+        PNG = "png"
+        GIF = "gif"
+    }
 }
-
 
 #[cfg(feature = "binaryfile")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum DocumentFile {
-    PDF,
-    DOCX,
-    PPTX,
-    XLSX,
+valued_enum! {
+    pub enum DocumentFile(&'static str) {
+        PDF = "pdf"
+        DOCX = "docx"
+        PPTX = "pptx"
+        XLSX = "xlsx"
+    }
 }
-
 
 #[cfg(feature = "binaryfile")]
-#[derive(Display)]
-pub enum CompressedFile {
-    #[strum(serialize = "zip")]
-    ZIP,
-
-    #[strum(serialize = "gz")]
-    GZIP,
+valued_enum! {
+    pub enum CompressedFile(&'static str) {
+        ZIP = "zip"
+        GZIP = "gz"
+    }
 }
-
 
 #[cfg(feature = "internet")]
-#[derive(Display)]
-#[strum(serialize_all = "lowercase")]
-pub enum URLScheme {
-    WS,
-    WSS,
-    FTP,
-    SFTP,
-    HTTP,
-    HTTPS,
+valued_enum! {
+    pub enum URLScheme(&'static str) {
+        WS = "ws"
+        WSS = "wss"
+        FTP = "ftp"
+        SFTP = "sftp"
+        HTTP = "http"
+        HTTPS = "https"
+    }
 }
-
 
 #[cfg(feature = "date")]
-#[derive(Display)]
-#[strum(serialize_all = "camel_case")]
-pub enum TimezoneRegion {
-    AFRICA,
-    AMERICA,
-    ANTARCTICA,
-    ARCTIC,
-    ASIA,
-    ATLANTIC,
-    AUSTRALIA,
-    EUROPE,
-    INDIAN,
-    PACIFIC,
+valued_enum! {
+    pub enum TimezoneRegion(&'static str) {
+        AFRICA = "Africa"
+        AMERICA = "America"
+        ANTARCTICA = "Antarctica"
+        ARCTIC = "Arctic"
+        ASIA = "Asia"
+        ATLANTIC = "Atlantic"
+        AUSTRALIA = "Australia"
+        EUROPE = "Europe"
+        INDIAN = "Indian"
+        PACIFIC = "Pacific"
+    }
 }
-
 
 #[cfg(feature = "development")]
 pub enum DSNType {

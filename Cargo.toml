@@ -1,15 +1,15 @@
 [package]
-name    = "coincidences-are-accidental"
+name    = "warlocks-cauldron"
 version = "0.0.1"
 edition = "2021"
 
-repository = "https://github.com/HentaiStorm/coincidences-are-accidental/"
-homepage   = "https://github.com/HentaiStorm/coincidences-are-accidental/"
+repository = "https://github.com/HentaiStorm/warlocks-cauldron/"
+homepage   = "https://github.com/HentaiStorm/warlocks-cauldron/"
 license    = "GNU General Public License v3.0"
 authors    = ["HS <github.com/HentaiStorm>"]
 
 keywords   = ["faker", "data", "generator", "random"]
-publish    = ["coincidences-are-accidental"]
+publish    = ["warlocks-cauldron"]
 readme     = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -17,19 +17,21 @@ readme     = "README.md"
 [dependencies]
 itertools = "0.10.5"
 lazy_static = "1.4.0"
+serde_json = "1.0.91"
 
-strum_macros = "0.24.3"
-strum = "0.11.0"
+[dependencies.serde]
+version = "1.0.151"
+features = ["derive"]
 
 
 [features]
 default = ["all_locales", "all_providers"]
 
 all_locales = [
-    "cs", "da", "de", "de-at", "de-ch", "el", "en", "en-au",
-    "en-ca", "en-gb", "es", "es-mx", "et", "fa", "fi", "fr",
-    "hu", "is", "it", "ja", "kk", "ko", "nl", "nl-be", "no",
-    "pl", "pt", "pt-br", "ru", "sk", "sv", "tr", "uk", "zh",
+    "cs", "da", "de", "el", "en", "es", "et", 
+    "fa", "fi", "fr", "hu", "is", "it", "ja",
+    "kk", "ko", "nl", "no", "pl", "pt", 
+    "ru", "sk", "sv", "tr", "uk", "zh",
 ]
 
 cs    = []
