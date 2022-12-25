@@ -1,5 +1,6 @@
+use super::serializers::*;
 use serde_json::{from_str, Value};
-use std::include_str;
+use std::{include_str, ops::Add};
 
 
 type S = &'static str;
@@ -8,12 +9,12 @@ type Payload = (S, S, S, S, S, S, S);
 #[derive(Clone)]
 pub struct ParsedData {
     pub lang_code: String,
-    pub address: Value,
-    pub datetime: Value,
-    pub finance: Value,
-    pub food: Value,
-    pub person: Value,
-    pub text: Value,
+    pub address: Address,
+    pub datetime: Datetime,
+    pub finance: Finance,
+    pub food: Food,
+    pub person: Person,
+    pub text: Text,
 }
 
 impl From<Payload> for ParsedData {
