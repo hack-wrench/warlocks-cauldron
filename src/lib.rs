@@ -6,12 +6,16 @@
 
 #[macro_use] extern crate lazy_static;
 
-pub mod random;
-pub mod providers;
-pub mod enums;
-pub mod data;
+pub(crate) mod data;
+pub(crate) mod random;
+
+mod providers;
+mod enums;
 
 mod macros;
 
 #[cfg(test)]
 mod tests;
+
+pub use providers::*;
+pub use enums::*;

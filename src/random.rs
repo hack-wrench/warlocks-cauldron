@@ -1,7 +1,6 @@
 use itertools::Itertools;
 use rand::prelude::*;
 
-
 pub fn randints(amount: usize, a: u32, b: u32) -> Vec<u32> {
     Vec::with_capacity(amount).into_iter()
         .map(|_: u32| rand::thread_rng().gen_range(a..b))

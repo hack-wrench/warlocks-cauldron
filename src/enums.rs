@@ -83,8 +83,8 @@ pub enum Locale {
     ZH,
 }
 
-impl Into<&ParsedData> for Locale {
-    fn into(self) -> &'static ParsedData {
+impl Locale {
+    pub(crate) fn get_data(&self) -> &'static ParsedData {
         match self {
             #[cfg(feature = "cs")]
             Self::CS => &CS,
