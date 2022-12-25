@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "date")]
 lazy_static! {
-    static ref ROMAN_NUMS: List = list! [
+    pub static ref ROMAN_NUMS: List = list! [
         "I",
         "II",
         "III",
@@ -27,7 +27,7 @@ lazy_static! {
         "XXI"
     ];
     
-    static ref TIMEZONES: List = list! [
+    pub static ref TIMEZONES: List = list! [
         "Africa/Abidjan",
         "Africa/Accra",
         "Africa/Addis_Ababa",
@@ -454,7 +454,7 @@ lazy_static! {
         "Pacific/Wallis"
     ];
 
-    static ref GMT_OFFSETS: List = list! [
+    pub static ref GMT_OFFSETS: List = list! [
         "UTC",
         "UTC +04:30",
         "UTC +02:00",
@@ -495,7 +495,7 @@ lazy_static! {
         "UTC +08:30"
     ];
     
-    static ref DATETIME_LOCALES: StrDict = dict! {
+    pub static ref DATETIME_LOCALES: StrDict = dict! {
         "da" => "da_DK",
         "de" => "de_DE",
         "de-at" => "de_AT",

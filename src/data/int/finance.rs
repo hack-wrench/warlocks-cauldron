@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "finance")]
 lazy_static! {
-    static ref CURRENCY_ISO_CODES: List = list! [
+    pub static ref CURRENCY_ISO_CODES: List = list! [
         "AED",
         "AFN",
         "ALL",
@@ -185,7 +185,7 @@ lazy_static! {
         "ZWL"
     ];
     
-    static ref CRYPTOCURRENCY_ISO_CODES: List = list! [
+    pub static ref CRYPTOCURRENCY_ISO_CODES: List = list! [
         "BCH",
         "BNB",
         "BTC",
@@ -207,7 +207,7 @@ lazy_static! {
         "ZEC"
     ];
     
-    static ref CURRENCY_SYMBOLS: StrDict = dict! {
+    pub static ref CURRENCY_SYMBOLS: StrDict = dict! {
         "cs" => "Kč",
         "da" => "kr",
         "de" => "€",
@@ -245,15 +245,15 @@ lazy_static! {
         "default" => "$"
     };
     
-    static ref CRYPTOCURRENCY_SYMBOLS: List = list! [
+    pub static ref CRYPTOCURRENCY_SYMBOLS: List = list! [
         "₿",
         "Ł",
         "Ξ"
     ];
     
-    static ref STOCK_EXCHANGES: List = list! ["NYSE", "NASDAQ", "AMEX", "JPX", "SSE", "HKEX", "Euronext"];
+    pub static ref STOCK_EXCHANGES: List = list! ["NYSE", "NASDAQ", "AMEX", "JPX", "SSE", "HKEX", "Euronext"];
     
-    static ref STOCK_TICKERS: List = list! [
+    pub static ref STOCK_TICKERS: List = list! [
         "A",
         "AA",
         "AABA",
@@ -7216,7 +7216,7 @@ lazy_static! {
         "ZYXI"
     ];
     
-    static ref STOCK_NAMES: List = list! [
+    pub static ref STOCK_NAMES: List = list! [
         "1-800 FLOWERS.COM",
         "10x Genomics",
         "111",

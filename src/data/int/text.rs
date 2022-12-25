@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "text")]
 lazy_static! {
-    static ref SAFE_COLORS: List = list! [
+    pub static ref SAFE_COLORS: List = list! [
         "#1abc9c",
         "#16a085",
         "#2ecc71",

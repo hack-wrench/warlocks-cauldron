@@ -6,7 +6,6 @@ use std::{include_str, ops::Add};
 type S = &'static str;
 type Payload = (S, S, S, S, S, S, S);
 
-#[derive(Clone)]
 pub struct ParsedData {
     pub lang_code: String,
     pub address: Address,

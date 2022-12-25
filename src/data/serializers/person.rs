@@ -1,7 +1,7 @@
 use super::dependencies::*;
 
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Person {
     pub academic_degree: Vec<String>,
     pub gender: Vec<String>,
@@ -23,7 +23,7 @@ pub struct Person {
 }
 
 
-#[derive(Serialize, Deserialize, PartialEq, Debug, Clone)]
+#[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub struct NationalityMap {
     pub female: Vec<String>,
     pub male: Vec<String>,
@@ -37,7 +37,7 @@ pub enum NationalityOption {
 }
 
 
-#[derive(Serialize, Deserialize, PartialEq, Debug, Clone)]
+#[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub struct SurnamesMap {
     pub female: Vec<String>,
     pub male: Vec<String>,
@@ -74,25 +74,25 @@ impl Person {
     }
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Names {
     pub female: Vec<String>,
     pub male: Vec<String>,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Title {
     pub female: Female,
     pub male: Male,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Female {
     pub typical: Vec<String>,
     pub academic: Vec<String>,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Male {
     pub typical: Vec<String>,
     pub academic: Vec<String>,

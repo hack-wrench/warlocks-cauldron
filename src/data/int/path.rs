@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "path")]
 lazy_static! {
-    static ref PLATFORMS: RecDict = dict! {
+    pub static ref PLATFORMS: RecDict = dict! {
         "linux" => dict! {
             "home" => "/home/"
         },

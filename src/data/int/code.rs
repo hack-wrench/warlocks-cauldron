@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "code")]
 lazy_static! {
-    static ref IMEI_TACS: List = list! [
+    pub static ref IMEI_TACS: List = list! [
         "01124500",
         "01161200",
         "01194800",
@@ -35,7 +35,7 @@ lazy_static! {
         "35511405"
     ];
     
-    static ref ISBN_GROUPS: StrDict = dict! {
+    pub static ref ISBN_GROUPS: StrDict = dict! {
         "cs" => "80",
         "da" => "87",
         "de" => "3",
@@ -73,17 +73,17 @@ lazy_static! {
         "default" => "#"
     };
     
-    static ref ISBN_MASKS: StrDict = dict! {
+    pub static ref ISBN_MASKS: StrDict = dict! {
         "isbn-13" => "###-{0}-#####-###-#",
         "isbn-10" => "{0}-#####-###-#"
     };
     
-    static ref EAN_MASKS: StrDict = dict! {
+    pub static ref EAN_MASKS: StrDict = dict! {
         "ean-8" => "########",
         "ean-13" => "#############"
     };
     
-    static ref LOCALE_CODES: List = list! [
+    pub static ref LOCALE_CODES: List = list! [
         "af",
         "ar-ae",
         "ar-bh",

@@ -1,7 +1,7 @@
 use super::dependencies::*;
 
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Food {
     pub dishes: Vec<String>,
     pub drinks: Vec<String>,

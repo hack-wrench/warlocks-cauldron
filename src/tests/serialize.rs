@@ -1,5 +1,5 @@
 use crate::data::parsed::TEST;
-use crate::data::{NationalityOption, SurnamesOption};
+use crate::data::serializers::{NationalityOption, SurnamesOption};
 
 
 #[test]
@@ -31,10 +31,10 @@ fn serialize_data() {
     assert_eq!(fin.company._type.abbr, vec!["Test"]);
     assert_eq!(fin.company._type.title, vec!["Test"]);
     assert_eq!(fin.currency_code, "Test");
-    assert_eq!(fin.price_format, "# Test");
-    assert_eq!(fin.numeric_decimal, ".");
-    assert_eq!(fin.numeric_thousands, ",");
-    assert_eq!(fin.numeric_frac_digits, 2);
+    assert_eq!(fin.price_format, Some("# Test".to_string()));
+    assert_eq!(fin.numeric_decimal, Some(".".to_string()));
+    assert_eq!(fin.numeric_thousands, Some(",".to_string()));
+    assert_eq!(fin.numeric_frac_digits, Some(2));
 
     let food = &TEST.food;
     assert_eq!(food.dishes, vec!["Test"]);

@@ -83,86 +83,86 @@ pub enum Locale {
     ZH,
 }
 
-impl Into<ParsedData> for Locale {
-    fn into(self) -> ParsedData {
+impl Into<&ParsedData> for Locale {
+    fn into(self) -> &'static ParsedData {
         match self {
             #[cfg(feature = "cs")]
-            Self::CS => CS.clone(),
+            Self::CS => &CS,
         
             #[cfg(feature = "da")]
-            Self::DA => DA.clone(),
+            Self::DA => &DA,
         
             #[cfg(feature = "de")]
-            Self::DE => DE.clone(),
+            Self::DE => &DE,
         
             #[cfg(feature = "el")]
-            Self::EL => EL.clone(),
+            Self::EL => &EL,
         
             #[cfg(feature = "en")]
-            Self::EN => EN.clone(),
+            Self::EN => &EN,
     
             #[cfg(feature = "es")]
-            Self::ES => ES.clone(),
+            Self::ES => &ES,
         
             #[cfg(feature = "et")]
-            Self::ET => ET.clone(),
+            Self::ET => &ET,
         
             #[cfg(feature = "fa")]
-            Self::FA => FA.clone(),
+            Self::FA => &FA,
         
             #[cfg(feature = "fi")]
-            Self::FI => FI.clone(),
+            Self::FI => &FI,
         
             #[cfg(feature = "fr")]
-            Self::FR => FR.clone(),
+            Self::FR => &FR,
         
             #[cfg(feature = "hu")]
-            Self::HU => HU.clone(),
+            Self::HU => &HU,
         
             #[cfg(feature = "is")]
-            Self::IS => IS.clone(),
+            Self::IS => &IS,
         
             #[cfg(feature = "it")]
-            Self::IT => IT.clone(), 
+            Self::IT => &IT, 
         
             #[cfg(feature = "ja")]
-            Self::JA => JA.clone(),
+            Self::JA => &JA,
         
             #[cfg(feature = "kk")]
-            Self::KK => KK.clone(),
+            Self::KK => &KK,
         
             #[cfg(feature = "ko")]
-            Self::KO => KO.clone(),
+            Self::KO => &KO,
         
             #[cfg(feature = "nl")]
-            Self::NL => NL.clone(),
+            Self::NL => &NL,
         
             #[cfg(feature = "no")]
-            Self::NO => NO.clone(),
+            Self::NO => &NO,
         
             #[cfg(feature = "pl")]
-            Self::PL => PL.clone(),
+            Self::PL => &PL,
         
             #[cfg(feature = "pt")]
-            Self::PT => PT.clone(),
+            Self::PT => &PT,
         
             #[cfg(feature = "ru")]
-            Self::RU => RU.clone(),
+            Self::RU => &RU,
         
             #[cfg(feature = "sk")]
-            Self::SK => SK.clone(),
+            Self::SK => &SK,
         
             #[cfg(feature = "sv")]
-            Self::SV => SV.clone(),
+            Self::SV => &SV,
         
             #[cfg(feature = "tr")]
-            Self::TR => TR.clone(),
+            Self::TR => &TR,
         
             #[cfg(feature = "uk")]
-            Self::UK => UK.clone(),
+            Self::UK => &UK,
         
             #[cfg(feature = "zh")]
-            Self::ZH => ZH.clone(), 
+            Self::ZH => &ZH, 
         }
     }
 }

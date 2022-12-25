@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(any(feature = "internet", feature = "person"))]
 lazy_static! {
-    static ref HTTP_METHODS: List = list! [
+    pub static ref HTTP_METHODS: List = list! [
         "GET",
         "POST",
         "PUT",
@@ -14,7 +14,7 @@ lazy_static! {
         "HEAD"
     ];
     
-    static ref HTTP_STATUS_CODES: List = list! [
+    pub static ref HTTP_STATUS_CODES: List = list! [
         100,
         101,
         102,
@@ -78,7 +78,7 @@ lazy_static! {
         511
     ];
     
-    static ref HTTP_STATUS_MSGS: List = list! [
+    pub static ref HTTP_STATUS_MSGS: List = list! [
         "100 Continue",
         "101 Switching Protocols",
         "102 Processing",
@@ -142,7 +142,7 @@ lazy_static! {
         "511 Network Authentication Required"
     ];
     
-    static ref TLD: ListDict = dict! {
+    pub static ref TLD: ListDict = dict! {
         "cctld" => list! [
             ".ac",
             ".ad",
@@ -1030,7 +1030,7 @@ lazy_static! {
         ]
     };
 
-    static ref EMAIL_DOMAINS: List = list! [
+    pub static ref EMAIL_DOMAINS: List = list! [
         "@duck.com",
         "@gmail.com",
         "@yandex.com",
@@ -1042,7 +1042,7 @@ lazy_static! {
         "@example.org"
     ];
 
-    static ref EMOJI: List = list! [
+    pub static ref EMOJI: List = list! [
         ":bowtie:",
         ":smile:",
         ":laughing:",
@@ -1921,7 +1921,7 @@ lazy_static! {
         ":shipit:"
     ];
 
-    static ref USER_AGENTS: List = list! [
+    pub static ref USER_AGENTS: List = list! [
         "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; de) Opera 8.0",
         "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; de) Opera 8.02",
         "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; en) Opera 8.0",
@@ -1950,7 +1950,7 @@ lazy_static! {
         "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 9.26"
     ];
 
-    static ref PUBLIC_DNS: List = list! [
+    pub static ref PUBLIC_DNS: List = list! [
         "1.0.0.1",
         "1.1.1.1",
         "149.112.112.112",

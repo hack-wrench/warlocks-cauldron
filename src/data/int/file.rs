@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "file")]
 lazy_static! {
-    static ref EXTENSIONS: ListDict = dict! {
+    pub static ref EXTENSIONS: ListDict = dict! {
         "source" => list! [
             ".a",
             ".asm",
@@ -100,7 +100,7 @@ lazy_static! {
         ]
     };
     
-    static ref MIME_TYPES: ListDict = dict! {
+    pub static ref MIME_TYPES: ListDict = dict! {
         "application" => list! [
             "application/1d-interleaved-parityfec",
             "application/3gpdash-qoe-report+xml",

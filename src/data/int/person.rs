@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(any(feature = "internet", feature = "path", feature = "person"))]
 lazy_static! {
-    static ref BLOOD_GROUPS: List = list! [
+    pub static ref BLOOD_GROUPS: List = list! [
         "O+",
         "A+",
         "B+",
@@ -14,13 +14,13 @@ lazy_static! {
         "AB−"
     ];
 
-    static ref GENDER_SYMBOLS: List = list! [
+    pub static ref GENDER_SYMBOLS: List = list! [
         "♂",
         "♀",
         "⚲"
     ];
     
-    static ref USERNAMES: List = list! [
+    pub static ref USERNAMES: List = list! [
         "aaa",
         "aaron",
         "abandoned",

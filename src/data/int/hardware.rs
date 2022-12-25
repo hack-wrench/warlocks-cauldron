@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "hardware")]
 lazy_static! {
-    static ref RESOLUTIONS: List = list! [
+    pub static ref RESOLUTIONS: List = list! [
         "1152x768",
         "1280x854",
         "1440x960",
@@ -30,7 +30,7 @@ lazy_static! {
         "3840x2400"
     ];
     
-    static ref SCREEN_SIZES: List = list! [
+    pub static ref SCREEN_SIZES: List = list! [
         "14″",
         "12.1″",
         "12″",
@@ -50,7 +50,7 @@ lazy_static! {
         "40″"
     ];
     
-    static ref CPU: List = list! [
+    pub static ref CPU: List = list! [
         "AMD Ryzen 7 1800X",
         "AMD Ryzen 7 1700",
         "AMD Ryzen™ Threadripper™",
@@ -64,7 +64,7 @@ lazy_static! {
         "Apple M2"
     ];
     
-    static ref RAM_TYPES: List = list! [
+    pub static ref RAM_TYPES: List = list! [
         "SDRAM",
         "DDR",
         "DDR2",
@@ -73,7 +73,7 @@ lazy_static! {
         "DDR5"
     ];
     
-    static ref RAM_SIZES: List = list! [
+    pub static ref RAM_SIZES: List = list! [
         "4GB",
         "8GB",
         "12GB",
@@ -83,7 +83,7 @@ lazy_static! {
         "128GB"
     ];
 
-    static ref GENERATION: List = list! [
+    pub static ref GENERATION: List = list! [
         "2nd Generation",
         "3rd Generation",
         "4th Generation",
@@ -94,7 +94,7 @@ lazy_static! {
         "9th Generation"
     ];
     
-    static ref CPU_CODENAMES: List = list! [
+    pub static ref CPU_CODENAMES: List = list! [
         "Ivytown",
         "Haswell",
         "Fortville",
@@ -108,7 +108,7 @@ lazy_static! {
         "Cannonlake"
     ];
     
-    static ref HDD_SSD_MANUFACTURERS: List = list! [
+    pub static ref HDD_SSD_MANUFACTURERS: List = list! [
         "Western Digital",
         "Seagate",
         "Samsung",
@@ -118,7 +118,7 @@ lazy_static! {
         "SanDisk"
     ];
     
-    static ref CAPACITY: List = list! [
+    pub static ref CAPACITY: List = list! [
         "64GB SSD",
         "128GB SSD",
         "256GB SDD",
@@ -134,10 +134,10 @@ lazy_static! {
         "8TB HDD"
     ];
     
-    static ref HDD_SSD: List = iproduct!(HDD_SSD_MANUFACTURERS.iter(), CAPACITY.iter())
+    pub static ref HDD_SSD: List = iproduct!(HDD_SSD_MANUFACTURERS.iter(), CAPACITY.iter())
         .map(|(m, c)| format!("{} {}", m, c)).collect();
     
-    static ref GRAPHICS: List = list! [
+    pub static ref GRAPHICS: List = list! [
         "AMD Radeon PRO WX 8200",
         "AMD Radeon Pro W5700",
         "AMD Radeon RX 5500 XT",
@@ -221,7 +221,7 @@ lazy_static! {
         "Nvidia Titan V"
     ];
     
-    static ref MANUFACTURERS: List = list! [
+    pub static ref MANUFACTURERS: List = list! [
         "Apple",
         "Acer",
         "Dell",
@@ -236,7 +236,7 @@ lazy_static! {
         "Xiomi"
     ];
     
-    static ref PHONE_MODELS: List = list! [
+    pub static ref PHONE_MODELS: List = list! [
         "iPhone SE",
         "iPhone X",
         "iPhone XS",

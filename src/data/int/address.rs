@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(any(feature = "address", feature = "person"))]
 lazy_static! {
-    static ref COUNTRY_CODES: ListDict = dict! {
+    pub static ref COUNTRY_CODES: ListDict = dict! {
         "a2" => list! [
             "AD",
             "AE",
@@ -1183,7 +1183,7 @@ lazy_static! {
         ]
     };
 
-    static ref SHORTENED_ADDRESS_FMT: List = list! [
+    pub static ref SHORTENED_ADDRESS_FMT: List = list! [
         "cs",
         "da",
         "de",
@@ -1200,9 +1200,9 @@ lazy_static! {
         "sv"
     ];
 
-    static ref CONTINENT_CODES: List = list! ["AF", "NA", "OC", "AN", "AS", "EU", "SA"];
+    pub static ref CONTINENT_CODES: List = list! ["AF", "NA", "OC", "AN", "AS", "EU", "SA"];
 
-    static ref CALLING_CODES: List = list! [
+    pub static ref CALLING_CODES: List = list! [
         "+1",
         "+7",
         "+20",

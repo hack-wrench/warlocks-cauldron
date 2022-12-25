@@ -1,7 +1,7 @@
 use super::dependencies::*;
 
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Address {
     pub address_fmt: String,
     pub city: Vec<String>,
@@ -15,7 +15,7 @@ pub struct Address {
     pub street: Street,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Country {
     pub current_locale: String,
 
@@ -23,13 +23,13 @@ pub struct Country {
     pub name: Vec<String>,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct State {
     pub abbr: Vec<String>,
     pub name: Vec<String>,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize)]
 pub struct Street {
     pub name: Vec<String>,
 

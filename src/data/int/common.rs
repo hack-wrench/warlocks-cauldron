@@ -2,7 +2,7 @@ use super::dependencies::*;
 
 
 lazy_static! {
-    static ref COMMON_LETTERS: StrDict = dict! {
+    pub static ref COMMON_LETTERS: StrDict = dict! {
         "\t" => "\t",
         " " => " ",
         "А" => "A",
@@ -57,7 +57,7 @@ lazy_static! {
         "я" => "ja"
     };
 
-    static ref ROMANIZATION_DICT: RecDict  = dict! {
+    pub static ref ROMANIZATION_DICT: RecDict  = dict! {
         "kk" => dict! {
             "Ё" => "Yo",
             "І" => "I",

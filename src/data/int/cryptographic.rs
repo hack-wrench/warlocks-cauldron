@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "cryptographic")]
 lazy_static! {
-    static ref WORDLIST: List = list! [
+    pub static ref WORDLIST: List = list! [
         "abandon",
         "ability",
         "able",

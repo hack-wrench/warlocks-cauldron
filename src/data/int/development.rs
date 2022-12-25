@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(any(feature = "development", feature = "path"))]
 lazy_static! {
-    static ref LICENSES: List = list! [
+    pub static ref LICENSES: List = list! [
         "Apache License, 2.0 (Apache-2.0)",
         "The BSD 3-Clause License",
         "The BSD 2-Clause License",
@@ -15,7 +15,7 @@ lazy_static! {
         "Eclipse Public License (EPL-1.0)"
     ];
     
-    static ref PROGRAMMING_LANGS: List = list! [
+    pub static ref PROGRAMMING_LANGS: List = list! [
         "ASP",
         "Assembly",
         "AutoIt",
@@ -78,7 +78,7 @@ lazy_static! {
         "Z shell"
     ];
     
-    static ref OS: List = list! [
+    pub static ref OS: List = list! [
         "Arch",
         "CentOS",
         "Debian",
@@ -104,7 +104,7 @@ lazy_static! {
         "openSUSE"
     ];
     
-    static ref FOLDERS: List = list! [
+    pub static ref FOLDERS: List = list! [
         "Development",
         "Downloads",
         "Documents",
@@ -118,7 +118,7 @@ lazy_static! {
         "Study"
     ];
     
-    static ref PROJECT_NAMES: List = list! [
+    pub static ref PROJECT_NAMES: List = list! [
         "aardonyx",
         "abelisaurus",
         "achelousaurus",

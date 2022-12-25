@@ -3,7 +3,7 @@ use super::dependencies::*;
 
 #[cfg(feature = "transport")]
 lazy_static! {
-    static ref CARS: List = list! [
+    pub static ref CARS: List = list! [
         "Alfa Romeo 145",
         "Alfa Romeo 146",
         "Alfa Romeo 147",
@@ -898,7 +898,7 @@ lazy_static! {
         "Škoda Yeti"
     ];
 
-    static ref AIRPLANES: List = list! [
+    pub static ref AIRPLANES: List = list! [
         "Aerospatiale SN.601 Corvette",
         "Airbus A220-100",
         "Airbus A220-300",
@@ -1196,7 +1196,7 @@ lazy_static! {
     ];
     
     
-    static ref VR_CODES: List = list! [
+    pub static ref VR_CODES: List = list! [
         "A",
         "ABH",
         "AFG",
@@ -1428,7 +1428,7 @@ lazy_static! {
         "ZW"
     ];
 
-    static ref VRC_BY_LOCALES: StrDict = dict! {
+    pub static ref VRC_BY_LOCALES: StrDict = dict! {
         "cs" => "CZ",
         "da" => "DK",
         "de" => "D",
@@ -1465,7 +1465,7 @@ lazy_static! {
         "zh" => "CHN"
     };
 
-    static ref AUTO_MANUFACTURERS: List = list! [
+    pub static ref AUTO_MANUFACTURERS: List = list! [
         "Abarth",
         "Alfa Romeo",
         "Aston Martin",
