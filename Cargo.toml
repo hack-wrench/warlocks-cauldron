@@ -3,10 +3,10 @@ name    = "warlocks-cauldron"
 version = "0.0.1"
 edition = "2021"
 
-repository = "https://github.com/HentaiStorm/warlocks-cauldron/"
-homepage   = "https://github.com/HentaiStorm/warlocks-cauldron/"
+repository = "https://github.com/hack-wrench/warlocks-cauldron/"
+homepage   = "https://github.com/hack-wrench/warlocks-cauldron/"
 license    = "GNU General Public License v3.0"
-authors    = ["HS <github.com/HentaiStorm>"]
+authors    = ["HS <github.com/hack-wrench>"]
 
 keywords   = ["faker", "data", "generator", "random"]
 publish    = ["warlocks-cauldron"]
