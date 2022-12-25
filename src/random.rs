@@ -14,7 +14,7 @@ pub fn urandom(size: usize) -> Vec<u8> {
         .collect()
 }
 
-pub fn generate_string(str_seq: String, length: usize) -> String {
+pub fn generate_string(str_seq: &'static str, length: usize) -> String {
     Vec::with_capacity(length).into_iter()
         .map(|_: u8| get_random_element(str_seq.chars()).to_string())
         .collect::<Vec<String>>()
@@ -23,17 +23,20 @@ pub fn generate_string(str_seq: String, length: usize) -> String {
 
 
 // e.g mask = "@###", char = "@", digit = "#")
-pub fn custom_code(mask: String, char: char, digit: char) -> String {
-    mask.chars().filter_map(|c| {
-        if c == char {
-            return Some(get_random_element(
-                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".chars()
-            ).to_string())
-        } else if c == digit {
-            return Some(rand::thread_rng().gen_range(0..8).to_string())
-        }
+pub fn custom_code(mask: &'static str, char: &'static str, digit: &'static str) -> String {
+    let char = char.chars().next().expect("Invalid 'char' argument!");
+    let digit = digit.chars().next().expect("Invalid 'digit' argument!");
 
-        None
+    mask.chars().map(|c| {
+        if c == char {
+            get_random_element(
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".chars()
+            ).to_string()
+        } else if c == digit {
+            rand::thread_rng().gen_range(0..10).to_string()
+        } else {
+            c.to_string()
+        }
     }).join("")
 }
 
