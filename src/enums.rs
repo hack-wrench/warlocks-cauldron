@@ -3,6 +3,8 @@ use crate::{
     valued_enum,
 };
 
+
+/// This enum provides access to the supported locales from one place
 pub enum Locale {
     #[cfg(feature = "cs")]
     CS,
@@ -169,6 +171,7 @@ impl Locale {
 
 
 #[cfg(feature = "internet")]
+/// Represents port ranges
 pub enum PortRange {
     ALL,
     WELL_KNOWN,
@@ -191,6 +194,7 @@ impl Into<(u16, u16)> for PortRange {
 
 #[cfg(any(feature = "payment", feature = "person"))]
 valued_enum! {
+    /// Represents genders
     pub enum Gender(&'static str) {
         MALE = "male"
         FEMALE = "female"
@@ -200,6 +204,7 @@ valued_enum! {
 
 #[cfg(feature = "person")]
 valued_enum! {
+    /// Represents title types
     pub enum TitleType(&'static str) {
         TYPICAL = "typical"
         ACADEMIC = "academic"
@@ -208,6 +213,7 @@ valued_enum! {
 
 #[cfg(feature = "payment")]
 valued_enum! {
+    /// Provides credit card types
     pub enum CardType(&'static str) {
         VISA = "Visa"
         MASTER_CARD = "MasterCard"
@@ -219,6 +225,7 @@ valued_enum! {
 
 #[cfg(feature = "cryptographic")]
 valued_enum! {
+    /// Provides algorithms which available
     pub enum Algorithm(&'static str) {
         MD5 = "md5"
         SHA1 = "sha1"
@@ -234,6 +241,7 @@ valued_enum! {
 
 #[cfg(feature = "internet")]
 valued_enum! {
+    /// Provides top level domain types
     pub enum TLDType(&'static str) {
         CCTLD = "cctld"
         GTLD = "gtld"
@@ -245,6 +253,7 @@ valued_enum! {
 
 #[cfg(feature = "file")]
 valued_enum! {
+    /// Provides file types
     pub enum FileType(&'static str) {
         SOURCE = "source"
         TEXT = "text"
@@ -259,6 +268,7 @@ valued_enum! {
 
 #[cfg(any(feature = "file", feature = "internet"))]
 valued_enum! {
+    /// Provides common mime types
     pub enum MimeType(&'static str) {
         APPLICATION = "application"
         AUDIO = "audio"
@@ -272,6 +282,7 @@ valued_enum! {
 
 #[cfg(feature = "science")]
 valued_enum! {
+    /// Provides prefix signs
     pub enum MetricPrefixSign(&'static str) {
         POSITIVE = "positive"
         NEGATIVE = "negative"
@@ -280,6 +291,7 @@ valued_enum! {
 
 #[cfg(feature = "address")]
 valued_enum! {
+    /// Provides types of country codes
     pub enum CountryCode(&'static str) {
         A2 = "a2"
         A3 = "a3"
@@ -291,6 +303,7 @@ valued_enum! {
 
 #[cfg(feature = "code")]
 valued_enum! {
+    /// Provides formats of ISBN
     pub enum ISBNFormat(&'static str) {
         ISBN13 = "isbn-13"
         ISBN10 = "isbn-10"
@@ -299,6 +312,7 @@ valued_enum! {
 
 #[cfg(feature = "code")]
 valued_enum! {
+    /// Provides formats of EAN
     pub enum EANFormat(&'static str)  {
         EAN8 = "ean-8"
         EAN13 = "ean-13"
@@ -306,6 +320,7 @@ valued_enum! {
 }
 
 #[cfg(feature = "science")]
+/// Provide unit names
 pub enum MeasureUnit {
     MASS,
     INFORMATION,
@@ -364,6 +379,7 @@ impl Into<(&str, &str)> for MeasureUnit {
 
 #[cfg(feature = "numeric")]
 valued_enum! {
+    /// Provides the number types
     pub enum NumType(&'static str) {
         FLOAT = "floats"
         INTEGER = "integers"
@@ -374,6 +390,7 @@ valued_enum! {
 
 #[cfg(feature = "binaryfile")]
 valued_enum! {
+    /// Provides the vide file types
     pub enum VideoFile(&'static str) {
         MP4 = "mp4"
         MOV = "mov"
@@ -382,6 +399,7 @@ valued_enum! {
 
 #[cfg(feature = "binaryfile")]
 valued_enum! {
+    /// Provides the audio file types
     pub enum AudioFile(&'static str) {
         MP3 = "mp3"
         AAC = "aac"
@@ -390,6 +408,7 @@ valued_enum! {
 
 #[cfg(feature = "binaryfile")]
 valued_enum! {
+    /// Provides the image file types
     pub enum ImageFile(&'static str) {
         JPG = "jpg"
         PNG = "png"
@@ -399,6 +418,7 @@ valued_enum! {
 
 #[cfg(feature = "binaryfile")]
 valued_enum! {
+    /// Provides the document file types
     pub enum DocumentFile(&'static str) {
         PDF = "pdf"
         DOCX = "docx"
@@ -409,6 +429,7 @@ valued_enum! {
 
 #[cfg(feature = "binaryfile")]
 valued_enum! {
+    /// Provides the compressed file types
     pub enum CompressedFile(&'static str) {
         ZIP = "zip"
         GZIP = "gz"
@@ -417,6 +438,7 @@ valued_enum! {
 
 #[cfg(feature = "internet")]
 valued_enum! {
+    /// Provides URL schemes
     pub enum URLScheme(&'static str) {
         WS = "ws"
         WSS = "wss"
@@ -429,6 +451,7 @@ valued_enum! {
 
 #[cfg(feature = "date")]
 valued_enum! {
+    /// Provides regions of timezones
     pub enum TimezoneRegion(&'static str) {
         AFRICA = "Africa"
         AMERICA = "America"
@@ -444,6 +467,7 @@ valued_enum! {
 }
 
 #[cfg(feature = "development")]
+/// Provides URI and port of DSN
 pub enum DSNType {
     POSTGRES,
     MYSQL,

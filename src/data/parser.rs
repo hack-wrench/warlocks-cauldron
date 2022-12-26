@@ -6,6 +6,7 @@ use std::{include_str, ops::Add};
 type S = &'static str;
 type Payload = (S, S, S, S, S, S, S);
 
+/// Contains compile-time parsed json of specified locale
 pub struct ParsedData {
     pub lang_code: String,
     pub address: Address,

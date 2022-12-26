@@ -1,6 +1,8 @@
 mod dependecies;
 
+#[cfg(feature = "address")]
 mod address;
+
 mod binaryfile;
 mod choice;
 mod cryptographic;
@@ -19,4 +21,5 @@ mod science;
 mod text;
 mod transport;
 
+#[cfg(feature = "address")]
 pub use address::Address;
