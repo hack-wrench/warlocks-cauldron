@@ -6,7 +6,9 @@ mod address;
 #[cfg(feature = "code")]
 mod code;
 
+#[cfg(feature = "cryptographic")]
 mod cryptographic;
+
 mod date;
 mod development;
 mod file;
@@ -27,3 +29,6 @@ pub use address::{Address, Coordinates, FloatNumber};
 
 #[cfg(feature = "code")]
 pub use code::Code;
+
+#[cfg(feature = "cryptographic")]
+pub use cryptographic::Cryptographic;

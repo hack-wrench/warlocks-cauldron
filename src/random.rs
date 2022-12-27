@@ -8,7 +8,16 @@ use rand::prelude::*;
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
 pub fn randint(a: i32, b: i32) -> i32 {
-    rand::thread_rng().gen_range(a..b)
+    StdRng::from_entropy().gen_range(a..b)
+}
+
+/// Get random u8 in range from a to b
+/// 
+/// # Arguments
+/// * `a` - Minimum value of range
+/// * `b` - Maximum value of range
+pub fn rand_u8(a: u8, b: u8) -> u8 {
+    StdRng::from_entropy().gen_range(a..b)
 }
 
 /// Generate vec of random i32
@@ -18,9 +27,7 @@ pub fn randint(a: i32, b: i32) -> i32 {
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
 pub fn randints(amount: usize, a: i32, b: i32) -> Vec<i32> {
-    Vec::with_capacity(amount).into_iter()
-        .map(|_: i32| randint(a, b))
-        .collect()
+    (0..amount).map(|_| randint(a, b)).collect()
 }
 
 /// Return a bytes object containing random bytes
@@ -28,9 +35,7 @@ pub fn randints(amount: usize, a: i32, b: i32) -> Vec<i32> {
 /// # Arguments
 /// * `size` - The size of u8 vector
 pub fn urandom(size: usize) -> Vec<u8> {
-    Vec::with_capacity(size).into_iter()
-        .map(|_: u8| randint(0, 8) as u8)
-        .collect()
+    (0..size).map(|_| rand_u8(u8::MIN, u8::MAX)).collect()
 }
 
 /// Generate random string created from string sequence
@@ -93,8 +98,8 @@ pub fn randstr(unique: bool, length: usize) -> String {
     if unique {
         uuid::Uuid::new_v4().to_string()
     } else {
-        Vec::with_capacity(length).into_iter()
-            .map(|_: u8| get_random_element(
+        (0..length)
+            .map(|_| get_random_element(
                 "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".chars()
             ).to_string())
             .collect::<Vec<String>>().join("")
