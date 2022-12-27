@@ -15,6 +15,7 @@ readme     = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+luhn = "1.0.1"
 itertools = "0.10.5"
 lazy_static = "1.4.0"
 serde_json = "1.0.91"
@@ -79,15 +80,11 @@ uk    = []
 zh    = []
 
 all_providers = [
-    "address", "binaryfile", "choice", "code",
-    "cryptographic", "date", "development",
-    "file", "finance", "food", "hardware",
-    "internet", "numeric", "path", "payment",
-    "person", "science", "text", "transport",
+    "address", "code", "cryptographic", "date", "development",
+    "file", "finance", "food", "hardware", "internet", "numeric", 
+    "path", "payment", "person", "science", "text", "transport",
 ]
 address       = []
-binaryfile    = []
-choice        = []
 code          = []
 cryptographic = []
 date          = []

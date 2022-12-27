@@ -36,6 +36,9 @@ impl std::fmt::Display for Coordinates {
 }
 
 
+/// Struct for generate fake address data.
+///
+/// This struct provides all the data related to geographical location.
 pub struct Address(pub Locale);
 
 impl Address {

@@ -3,8 +3,9 @@ mod dependecies;
 #[cfg(feature = "address")]
 mod address;
 
-mod binaryfile;
-mod choice;
+#[cfg(feature = "code")]
+mod code;
+
 mod cryptographic;
 mod date;
 mod development;
@@ -22,4 +23,7 @@ mod text;
 mod transport;
 
 #[cfg(feature = "address")]
-pub use address::Address;
+pub use address::{Address, Coordinates, FloatNumber};
+
+#[cfg(feature = "code")]
+pub use code::Code;

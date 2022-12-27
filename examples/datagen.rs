@@ -1,6 +1,8 @@
-use warlocks_cauldron::{Address, Locale};
+use warlocks_cauldron::{Locale, Address, Code};
 
 fn main() {
     let address = Address(Locale::EN);
-    println!("Address:\n{}\n", address.full_address());
+    println!("Address: {}", address.full_address());
+
+    println!("IMEI: {}", Code::imei());
 }
