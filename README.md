@@ -6,5 +6,5 @@ By default features include all locales & providers
 ```toml
 [dependencies.warlocks-cauldron]
 git = "https://github.com/hack-wrench/warlocks-cauldron"
-features = ["all_locales", "all_providers"]
+# features = ["en", "address"] # e.g
 ```
