@@ -1,8 +1,7 @@
 use blake2::{Digest, digest::core_api::CoreWrapper};
-use itertools::Itertools;
+pub use uuid::Uuid;
 
 use super::dependecies::*;
-pub use uuid::Uuid;
 
 
 /// Struct that provides cryptographic data
@@ -86,7 +85,7 @@ impl Cryptographic {
 
     /// Generate BIP-39-compatible mnemonic phrase
     pub fn mnemonic_phrase() -> String {
-        (0..randint(12, 24)).map(|_| get_random_element(WORDLIST.iter()))
-            .join(" ")
+        get_random_elements(WORDLIST.iter(), rand_u32(12, 24))
+            .iter().join(" ")
     }
 }

@@ -104,15 +104,12 @@ pub fn uniform(a: f32, b: f32) -> f32 {
 /// # Arguments
 /// * `unique` - Generate only unique values base on uuid4
 /// * `length` - Length of string, does not affect the result with unique bool
-pub fn randstr(unique: bool, length: usize) -> String {
+pub fn randstr(unique: bool, length: u32) -> String {
     if unique {
         uuid::Uuid::new_v4().to_string()
     } else {
-        (0..length)
-            .map(|_| get_random_element(
-                "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".chars()
-            ).to_string())
-            .collect::<Vec<String>>().join("")
+        get_random_elements("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".chars(), length)
+            .iter().map(|c| c.to_string()).join("")
     }
 }
 
@@ -125,4 +122,15 @@ pub fn randstr(unique: bool, length: usize) -> String {
 /// * `iter` - Iterator for choose random element
 pub fn get_random_element<T, V: Iterator<Item = T>>(iter: V) -> T {
     iter.choose(&mut rand::thread_rng()).unwrap()
+}
+
+/// Get random elements from random iterator
+/// 
+/// *Use clear and uniterated arg*
+/// 
+/// # Arguments
+/// * `iter` - Iterator for choose random element
+/// * `quantity` - Quantity of iterator
+pub fn get_random_elements<T, V: Iterator<Item = T> + Clone>(iter: V, quantity: u32) -> Vec<T> {
+    (0..quantity).map(|_| iter.clone().choose(&mut rand::thread_rng()).unwrap()).collect()
 }

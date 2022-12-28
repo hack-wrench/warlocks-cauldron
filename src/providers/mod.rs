@@ -23,6 +23,8 @@ mod path;
 mod payment;
 mod person;
 mod science;
+
+#[cfg(feature = "text")]
 mod text;
 mod transport;
 
@@ -36,4 +38,7 @@ pub use code::Code;
 pub use cryptographic::{Cryptographic, Uuid};
 
 #[cfg(feature = "date")]
-pub use date::{Datetime, DateTime, Local, Utc, Duration};
+pub use date::{Datetime, DateTime, Local, Utc, Duration, TimestampType};
+
+#[cfg(feature = "text")]
+pub use text::Text;

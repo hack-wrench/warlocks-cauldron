@@ -8,5 +8,7 @@ fn main() {
 
     println!("Mnemonic Phrase: {}", Cryptographic::mnemonic_phrase());
 
-    println!("Datetime: {}", Datetime::datetime(1984, 2077))
+    println!("Datetime: {}", Datetime::datetime(1984, 2077));
+
+    println!("Words: {:?}", Text(Locale::EN).words(5));
 }

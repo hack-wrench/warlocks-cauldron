@@ -1,3 +1,5 @@
+pub use itertools::Itertools;
+
 pub use rand::Rng;
 
 pub use crate::{
