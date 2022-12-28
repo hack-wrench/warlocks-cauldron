@@ -1,4 +1,4 @@
-use super::dependecies::*;
+use super::dependencies::*;
 
 
 /// A struct for generating text data

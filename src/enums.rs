@@ -5,6 +5,7 @@ use crate::{
 
 
 /// This enum provides access to the supported locales from one place
+#[derive(Clone)]
 pub enum Locale {
     #[cfg(feature = "cs")]
     CS,

@@ -1,4 +1,4 @@
-use super::dependecies::*;
+use super::dependencies::*;
 pub use chrono::{prelude::*, Duration};
 use chrono_tz::Tz;
 

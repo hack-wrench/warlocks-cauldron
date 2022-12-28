@@ -1,4 +1,4 @@
-use super::dependecies::*;
+use super::dependencies::*;
 
 
 pub enum DDType {

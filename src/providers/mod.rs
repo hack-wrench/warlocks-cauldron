@@ -1,4 +1,7 @@
-mod dependecies;
+mod dependencies;
+
+mod complex;
+pub use complex::ComplexProvider;
 
 #[cfg(feature = "address")]
 mod address;
@@ -42,3 +45,4 @@ pub use date::{Datetime, DateTime, Local, Utc, Duration, TimestampType};
 
 #[cfg(feature = "text")]
 pub use text::Text;
+

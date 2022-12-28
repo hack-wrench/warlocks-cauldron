@@ -1,7 +1,7 @@
 use blake2::{Digest, digest::core_api::CoreWrapper};
 pub use uuid::Uuid;
 
-use super::dependecies::*;
+use super::dependencies::*;
 
 
 /// Struct that provides cryptographic data

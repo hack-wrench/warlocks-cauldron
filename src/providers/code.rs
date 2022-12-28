@@ -1,4 +1,4 @@
-use super::dependecies::*;
+use super::dependencies::*;
 
 
 /// A struct, which provides methods for generating codes

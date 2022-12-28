@@ -1,8 +1,7 @@
 use warlocks_cauldron::*;
 
 fn main() {
-    let address = Address(Locale::EN);
-    println!("Address: {}", address.full_address());
+    println!("Address: {}", Address(Locale::EN).full_address());
 
     println!("IMEI: {}", Code::imei());
 
