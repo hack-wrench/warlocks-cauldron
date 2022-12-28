@@ -7,4 +7,6 @@ fn main() {
     println!("IMEI: {}", Code::imei());
 
     println!("Mnemonic Phrase: {}", Cryptographic::mnemonic_phrase());
+
+    println!("Datetime: {}", Datetime::datetime(1984, 2077))
 }

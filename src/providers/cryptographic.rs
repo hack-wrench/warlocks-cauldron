@@ -2,9 +2,10 @@ use blake2::{Digest, digest::core_api::CoreWrapper};
 use itertools::Itertools;
 
 use super::dependecies::*;
+pub use uuid::Uuid;
 
 
-/// A struct, which provides methods for generating codes
+/// Struct that provides cryptographic data
 pub struct Cryptographic;
 
 impl Cryptographic {

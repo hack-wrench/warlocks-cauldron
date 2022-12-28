@@ -8,7 +8,7 @@ use rand::prelude::*;
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
 pub fn randint(a: i32, b: i32) -> i32 {
-    StdRng::from_entropy().gen_range(a..b)
+    StdRng::from_entropy().gen_range(a..=b)
 }
 
 /// Get random u8 in range from a to b
@@ -17,7 +17,17 @@ pub fn randint(a: i32, b: i32) -> i32 {
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
 pub fn rand_u8(a: u8, b: u8) -> u8 {
-    StdRng::from_entropy().gen_range(a..b)
+    StdRng::from_entropy().gen_range(a..=b)
+}
+
+
+/// Get random u32 in range from a to b
+/// 
+/// # Arguments
+/// * `a` - Minimum value of range
+/// * `b` - Maximum value of range
+pub fn rand_u32(a: u32, b: u32) -> u32 {
+    StdRng::from_entropy().gen_range(a..=b)
 }
 
 /// Generate vec of random i32

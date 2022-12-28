@@ -89,12 +89,12 @@ impl Address {
     }
 
     /// Get a random street name
-    pub fn street_name(&self) -> &String {
+    pub fn street_name(&self) -> &str {
         get_random_element(self.data().address.street.name.iter())
     }
 
     /// Get a random street suffix
-    pub fn street_suffix(&self) -> &String {
+    pub fn street_suffix(&self) -> &str {
         get_random_element(self.data().address.street.suffix.iter())
     }
 
@@ -142,7 +142,7 @@ impl Address {
     /// 
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
-    pub fn state(&self, abbr: bool) -> &String {
+    pub fn state(&self, abbr: bool) -> &str {
         get_random_element(
             match abbr {
                 true => self.data().address.state.abbr.iter(),
@@ -155,7 +155,7 @@ impl Address {
     /// 
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
-    pub fn region(&self, abbr: bool) -> &String {
+    pub fn region(&self, abbr: bool) -> &str {
         self.state(abbr)
     }
 
@@ -163,7 +163,7 @@ impl Address {
     /// 
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
-    pub fn province(&self, abbr: bool) -> &String {
+    pub fn province(&self, abbr: bool) -> &str {
         self.state(abbr)
     }
 
@@ -171,7 +171,7 @@ impl Address {
     /// 
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
-    pub fn federal_subject(&self, abbr: bool) -> &String {
+    pub fn federal_subject(&self, abbr: bool) -> &str {
         self.state(abbr)
     }
 
@@ -179,7 +179,7 @@ impl Address {
     /// 
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
-    pub fn prefecture(&self, abbr: bool) -> &String {
+    pub fn prefecture(&self, abbr: bool) -> &str {
         self.state(abbr)
     }
 
@@ -194,7 +194,7 @@ impl Address {
     }
 
     /// Get a random calling code of random country
-    pub fn calling_code(&self) -> &String {
+    pub fn calling_code(&self) -> &str {
         get_random_element(CALLING_CODES.iter())
     }
 
@@ -202,7 +202,7 @@ impl Address {
     /// 
     /// # Arguments
     /// * `code` - Return code of continent
-    pub fn continent(&self, code: bool) -> &String {
+    pub fn continent(&self, code: bool) -> &str {
         get_random_element(match code {
             true => self.data().address.continent.iter(),
             false => CONTINENT_CODES.iter(),
@@ -213,7 +213,7 @@ impl Address {
     /// 
     /// # Arguments
     /// * `code` - CountryCode enum
-    pub fn country_code(&self, code: CountryCode) -> Option<&String> {
+    pub fn country_code(&self, code: CountryCode) -> Option<&str> {
         match COUNTRY_CODES.get(code.value()) {
             None => None,
             Some(cc) => Some(get_random_element(cc.iter())),
@@ -224,7 +224,7 @@ impl Address {
     /// 
     /// # Arguments
     /// * `current_locale` - Get country name by current locale
-    pub fn country(&self, current_locale: bool) -> &String {
+    pub fn country(&self, current_locale: bool) -> &str {
         match current_locale {
             false => get_random_element(self.data().address.country.name.iter()),
             true => &self.data().address.country.current_locale,
@@ -232,7 +232,7 @@ impl Address {
     }
 
     /// Get a random city
-    pub fn city(&self) -> &String {
+    pub fn city(&self) -> &str {
         get_random_element(self.data().address.city.iter())
     }
 

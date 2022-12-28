@@ -23,6 +23,9 @@ blake2 = "0.10.6"
 base64 = "0.20.0"
 hex = "0.4.3"
 
+chrono-tz = "0.8.1"
+chrono = "0.4.23"
+
 luhn = "1.0.1"
 itertools = "0.10.5"
 lazy_static = "1.4.0"

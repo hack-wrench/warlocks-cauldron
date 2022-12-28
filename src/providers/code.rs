@@ -6,7 +6,7 @@ pub struct Code;
 
 impl Code {
     /// Get a random locale code (MS-LCID)
-    pub fn locale_code() -> &'static String {
+    pub fn locale_code() -> &'static str {
         get_random_element(LOCALE_CODES.iter())
     }
 
