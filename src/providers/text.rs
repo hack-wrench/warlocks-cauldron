@@ -10,6 +10,8 @@ impl Text {
     
 
     /// Get an alphabet for current locale
+    /// 
+    /// return example: Alphabet
     ///
     /// # Arguments
     /// * `lower_case` - Return alphabet in lower case
@@ -21,11 +23,15 @@ impl Text {
     }
 
     /// Get an alphabet for current locale
+    /// 
+    /// return example: critical
     pub fn level(&self) -> &str {
         get_random_element(self.data().text.level.iter())
     }
 
     /// Generate the text
+    /// 
+    /// return example: 
     /// 
     /// # Arguments
     /// * `quantity` - Quantity of sentences.
@@ -35,16 +41,22 @@ impl Text {
     }
 
     /// Get a random sentence from text
+    /// 
+    /// return example: Sentence
     pub fn sentence(&self) -> String {
         self.text(1)
     }
 
     /// Get a random title
+    /// 
+    /// return example: The title
     pub fn title(&self) -> String {
         self.text(1)
     }
     
     /// Generate a vec of random words
+    /// 
+    /// return example: vec!\[science, network, god, octopus, love\]
     /// 
     /// # Arguments
     /// * `quantity` - Quantity of words
@@ -53,31 +65,43 @@ impl Text {
     }
 
     /// Get a random word
+    /// 
+    /// return example: Science
     pub fn word(&self) -> &str {
         self.words(1).first().unwrap()
     }
 
     /// Get a random swear word
+    /// 
+    /// return example: Damn
     pub fn swear_word(&self) -> &str {
         get_random_element(self.data().text.words.bad.iter())
     }
 
     /// Get a random quote from movie
+    /// 
+    /// return example:  Bond... James Bond
     pub fn quote(&self) -> &str {
         get_random_element(self.data().text.quotes.iter())
     }
 
     /// Get a random quote from movie
+    /// 
+    /// return example: No
     pub fn answer(&self) -> &str {
         get_random_element(self.data().text.answers.iter())
     }
 
     /// Get a random name of color
+    /// 
+    /// return example: Red
     pub fn color(&self) -> &str {
         get_random_element(self.data().text.color.iter())
     }
 
     /// Generate a random hex color
+    /// 
+    /// return example: #d8346b
     /// 
     /// # Arguments
     /// * `safe` - Get safe Flat UI hex color
@@ -90,6 +114,8 @@ impl Text {
 
     /// Generate a random rgb color tuple
     /// 
+    /// return example: (252, 85, 32)
+    ///
     /// # Arguments
     /// * `safe` - Get safe RGB tuple
     pub fn rgb_color(safe: bool) -> (u8, u8, u8) {

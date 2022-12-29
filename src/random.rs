@@ -1,6 +1,20 @@
 use itertools::Itertools;
 use rand::prelude::*;
 
+#[cfg(feature = "internet")]
+use num_bigint::BigUint;
+
+
+/// Get random bigint in range from a to b
+/// 
+/// # Arguments
+/// * `a` - Minimum value of range
+/// * `b` - Maximum value of range
+#[cfg(feature = "internet")]
+pub fn randbigint(a: u128, b: u128) -> BigUint {
+    BigUint::from_bytes_be(&rand_u128(a, b).to_be_bytes())
+}
+
 
 /// Get random i32 in range from a to b
 /// 
@@ -8,6 +22,33 @@ use rand::prelude::*;
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
 pub fn randint(a: i32, b: i32) -> i32 {
+    StdRng::from_entropy().gen_range(a..=b)
+}
+
+/// Get random u128 in range from a to b
+/// 
+/// # Arguments
+/// * `a` - Minimum value of range
+/// * `b` - Maximum value of range
+pub fn rand_u128(a: u128, b: u128) -> u128 {
+    StdRng::from_entropy().gen_range(a..=b)
+}
+
+/// Get random u32 in range from a to b
+/// 
+/// # Arguments
+/// * `a` - Minimum value of range
+/// * `b` - Maximum value of range
+pub fn rand_u32(a: u32, b: u32) -> u32 {
+    StdRng::from_entropy().gen_range(a..=b)
+}
+
+/// Get random u16 in range from a to b
+/// 
+/// # Arguments
+/// * `a` - Minimum value of range
+/// * `b` - Maximum value of range
+pub fn rand_u16(a: u16, b: u16) -> u16 {
     StdRng::from_entropy().gen_range(a..=b)
 }
 
@@ -20,15 +61,17 @@ pub fn rand_u8(a: u8, b: u8) -> u8 {
     StdRng::from_entropy().gen_range(a..=b)
 }
 
-
-/// Get random u32 in range from a to b
+/// Get random usize in range from a to b
 /// 
 /// # Arguments
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
-pub fn rand_u32(a: u32, b: u32) -> u32 {
+pub fn rand_usize(a: usize, b: usize) -> usize {
     StdRng::from_entropy().gen_range(a..=b)
 }
+
+
+
 
 /// Generate vec of random i32
 /// 

@@ -58,6 +58,6 @@ impl File {
         let name = re.replace_all(word, replacer);
         let ext = Self::extension(file_type);
 
-        format!("{}{}", name, ext)
+        format!("{name}{ext}")
     }
 }

@@ -135,7 +135,7 @@ lazy_static! {
     ];
     
     pub static ref HDD_SSD: List = iproduct!(HDD_SSD_MANUFACTURERS.iter(), CAPACITY.iter())
-        .map(|(m, c)| format!("{} {}", m, c)).collect();
+        .map(|(m, c)| format!("{m} {c}")).collect();
     
     pub static ref GRAPHICS: List = list! [
         "AMD Radeon PRO WX 8200",

@@ -5,6 +5,7 @@ pub enum DDType {
     lt, lg,
 }
 
+#[derive(Debug)]
 pub enum FloatNumber {
     DMS(String),
     Raw(f32),
@@ -19,6 +20,7 @@ impl std::fmt::Display for FloatNumber {
     }
 }
 
+#[derive(Debug)]
 pub enum Coordinates {
     DMS(String, String),
     Raw(f32, f32),
@@ -84,16 +86,22 @@ impl Address {
     }
 
     /// Generate a random street number
+    /// 
+    /// return example: 666
     pub fn street_number(&self) -> i32 {
         rand::thread_rng().gen_range(0..1400)
     }
 
     /// Get a random street name
+    /// 
+    /// return example: Lovecraft
     pub fn street_name(&self) -> &str {
         get_random_element(self.data().address.street.name.iter())
     }
 
     /// Get a random street suffix
+    /// 
+    /// return example: Hill
     pub fn street_suffix(&self) -> &str {
         get_random_element(self.data().address.street.suffix.iter())
     }
@@ -105,6 +113,9 @@ impl Address {
         self.local_address()
     }
 
+    /// Generate a random local address
+    ///
+    /// return example: 666 Lovecraft Avenue
     pub fn local_address(&self) -> String {
         let data = self.data();
 
@@ -134,12 +145,56 @@ impl Address {
     }
 
     /// Generate a random address including country name and state
+    /// 
+    /// return example: United States, Massachusetts, Innsmouth, 666 Lovecraft Avenue
     pub fn full_address(&self) -> String {
-        format!("{}, {}, {}", self.country(true), self.state(false), self.local_address())
+        format!("{}, {}, {}, {}", self.country(true), self.state(false), self.city(), self.local_address())
+    }
+
+    /// Get a random continent name or continent code
+    /// 
+    /// 
+    /// return example: NA
+    ///
+    /// # Arguments
+    /// * `code` - Return code of continent
+    pub fn continent(&self, code: bool) -> &str {
+        get_random_element(match code {
+            true => self.data().address.continent.iter(),
+            false => CONTINENT_CODES.iter(),
+        })
+    }
+
+    /// Get a random calling code of random country
+    ///  
+    /// return example: US
+    ///
+    /// # Arguments
+    /// * `code` - CountryCode enum
+    pub fn country_code(&self, code: CountryCode) -> Option<&str> {
+        match COUNTRY_CODES.get(code.value()) {
+            None => None,
+            Some(cc) => Some(get_random_element(cc.iter())),
+        }
+    }
+
+    /// Get the country of the current locale
+    ///  
+    /// return example: United States
+    ///
+    /// # Arguments
+    /// * `current_locale` - Get country name by current locale
+    pub fn country(&self, current_locale: bool) -> &str {
+        match current_locale {
+            false => get_random_element(self.data().address.country.name.iter()),
+            true => &self.data().address.country.current_locale,
+        }
     }
 
     /// Get a random administrative district of country
     /// 
+    /// return example: Massachusetts
+    ///
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
     pub fn state(&self, abbr: bool) -> &str {
@@ -153,6 +208,8 @@ impl Address {
 
     /// Get a random region | *An allias for .state()*
     /// 
+    /// return example: Massachusetts
+    ///
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
     pub fn region(&self, abbr: bool) -> &str {
@@ -161,6 +218,8 @@ impl Address {
 
     /// Get a random province | *An allias for .state()*
     /// 
+    /// return example: Massachusetts
+    ///
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
     pub fn province(&self, abbr: bool) -> &str {
@@ -169,6 +228,8 @@ impl Address {
 
     /// Get a random region | *An allias for .state()*
     /// 
+    /// return example: Massachusetts
+    ///
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
     pub fn federal_subject(&self, abbr: bool) -> &str {
@@ -177,66 +238,55 @@ impl Address {
 
     /// Get a random prefecture | *An allias for .state()*
     /// 
+    /// return example: Massachusetts
+    ///
     /// # Arguments
     /// * `abbr` - Return ISO 3166-2 code
     pub fn prefecture(&self, abbr: bool) -> &str {
         self.state(abbr)
     }
 
+    /// Get a random city
+    /// 
+    /// return example: Innsmouth
+    pub fn city(&self) -> &str {
+        get_random_element(self.data().address.city.iter())
+    }
+
     /// Generate a postal code for current locale
+    ///
+    /// return example: 66613
     pub fn postal_code(&self) -> String {
         custom_code(&self.data().address.postal_code_fmt, "@", "#")
     }
 
-    /// Generate a zip code
+    /// Generate a zip code | *An allias for .postal_code()*
+    ///
+    /// return example: 66613
     pub fn zip_code(&self) -> String {
         self.postal_code()
     }
 
     /// Get a random calling code of random country
+    ///
+    /// return example: +666
     pub fn calling_code(&self) -> &str {
         get_random_element(CALLING_CODES.iter())
     }
 
-    /// Get a random continent name or continent code
+    /// Generate a random value of latitude
     /// 
+    /// return example: 41º14'0.000"N
+    ///
     /// # Arguments
-    /// * `code` - Return code of continent
-    pub fn continent(&self, code: bool) -> &str {
-        get_random_element(match code {
-            true => self.data().address.continent.iter(),
-            false => CONTINENT_CODES.iter(),
-        })
-    }
-
-    /// Get a random calling code of random country
-    /// 
-    /// # Arguments
-    /// * `code` - CountryCode enum
-    pub fn country_code(&self, code: CountryCode) -> Option<&str> {
-        match COUNTRY_CODES.get(code.value()) {
-            None => None,
-            Some(cc) => Some(get_random_element(cc.iter())),
-        }
-    }
-
-    /// Get the country of the current locale
-    /// 
-    /// # Arguments
-    /// * `current_locale` - Get country name by current locale
-    pub fn country(&self, current_locale: bool) -> &str {
-        match current_locale {
-            false => get_random_element(self.data().address.country.name.iter()),
-            true => &self.data().address.country.current_locale,
-        }
-    }
-
-    /// Get a random city
-    pub fn city(&self) -> &str {
-        get_random_element(self.data().address.city.iter())
+    /// * `abbr` - Use DMS format
+    pub fn latitude(dms: bool) -> FloatNumber {
+        Self::get_fs(DDType::lt, dms)
     }
 
     /// Generate a random value of longitude
+    /// 
+    /// return example: 69º56'0.000"W
     /// 
     /// # Arguments
     /// * `abbr` - Use DMS format
@@ -244,20 +294,14 @@ impl Address {
         Self::get_fs(DDType::lg, dms)
     }
 
-    /// Generate a random value of latitude
-    /// 
-    /// # Arguments
-    /// * `abbr` - Use DMS format
-    pub fn latitude(dms: bool) -> FloatNumber {
-        Self::get_fs(DDType::lt, dms)
-    }
-
     /// Generate random geo coordinates
     /// 
+    /// return example: Coordinates::DMS("41º14'0.000"N", "69º56'0.000"W")
+    ///
     /// # Arguments
     /// * `abbr` - Use DMS format
     pub fn coordinates(dms: bool) -> Coordinates {
-        match (dms, Self::longitude(dms), Self::latitude(dms)) {
+        match (dms, Self::latitude(dms), Self::longitude(dms)) {
             (true, FloatNumber::DMS(lng), FloatNumber::DMS(lat)) => Coordinates::DMS(lng, lat),
             (false, FloatNumber::Raw(lng), FloatNumber::Raw(lat)) => Coordinates::Raw(lng, lat),
             _ => panic!("In theory, it shouldn't break :D"),

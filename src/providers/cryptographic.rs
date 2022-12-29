@@ -9,16 +9,22 @@ pub struct Cryptographic;
 
 impl Cryptographic {
     /// Generate UUID4 struct
+    /// 
+    /// return example: Uuid
     pub fn uuid_object() -> Uuid {
         Uuid::new_v4()
     }
 
     /// Generate UUID4 string
+    /// 
+    /// return example: hex string
     pub fn uuid() -> String {
         Self::uuid_object().to_string()
     }
 
     /// Generate random hash
+    /// 
+    /// return example: hex string
     ///
     /// # Arguments
     /// * `algorithm` - Enum object
@@ -51,6 +57,8 @@ impl Cryptographic {
     /// The string has ``entropy`` random bytes, each byte
     /// converted to two hex digits.
     /// 
+    /// return example: vec!\[0u8, 1u8, 0u8\]
+    /// 
     /// # Arguments
     /// * `entropy` - Number of bytes (default: 32)
     pub fn token_bytes(entropy: usize) -> Vec<u8> {
@@ -63,6 +71,8 @@ impl Cryptographic {
     /// hex digits.  If *entropy* is ``None`` or not supplied, a reasonable
     /// default is used.
     /// 
+    /// return example: hex string
+    /// 
     /// # Arguments
     /// * `entropy` - Number of bytes (default: 32)
     pub fn token_hex(entropy: usize) -> String {
@@ -71,6 +81,8 @@ impl Cryptographic {
 
     /// Return a random URL-safe text string, in Base64 encoding
     /// 
+    /// return example: urlsafe string
+    ///
     /// # Arguments
     /// * `entropy` - Number of bytes (default: 32)
     pub fn token_urlsafe(entropy: usize) -> String {
@@ -84,6 +96,8 @@ impl Cryptographic {
     }
 
     /// Generate BIP-39-compatible mnemonic phrase
+    /// 
+    /// return example: mnemonic string
     pub fn mnemonic_phrase() -> String {
         get_random_elements(WORDLIST.iter(), rand_u32(12, 24))
             .iter().join(" ")

@@ -36,7 +36,9 @@ impl Datetime {
     /// 
     /// This method creates list of datetime objects from
     /// ``date_start`` to ``date_end``
-    /// 
+    ///
+    /// return example: vec!\[DateTime, \]
+    ///
     /// # Arguments
     /// * `date_start` - Begin of the range
     /// * `date_end` - End of the range
@@ -64,17 +66,23 @@ impl Datetime {
     }
 
     /// Get a random periodicity string.
+    ///
+    /// return example: Periodicity
     pub fn periodicity(&self) -> &str {
         get_random_element(self.data().datetime.periodicity.iter())
     }
     
     /// Get a random century
+    ///
+    /// return example: XIII
     pub fn century() -> &'static str {
         get_random_element(ROMAN_NUMS.iter())
     }
 
     /// Generate a random year
-    /// 
+    ///
+    /// return example: 2013
+    ///
     /// # Arguments
     /// * `minimum` - Minimum value
     /// * `maximum` - Maximum value
@@ -83,7 +91,9 @@ impl Datetime {
     }
 
     /// Get a random month
-    /// 
+    ///
+    /// return example: Month name or abbr
+    ///
     /// # Arguments
     /// * `abbr` - Abbreviated month name
     pub fn month(&self, abbr: bool) -> &str {
@@ -95,6 +105,8 @@ impl Datetime {
 
     /// Get a random day of week
     /// 
+    /// return example: Day name or abbr
+    ///
     /// # Arguments
     /// * `abbr` - Abbreviated month name
     pub fn day_of_week(&self, abbr: bool) -> &str {
@@ -106,6 +118,8 @@ impl Datetime {
 
     /// Get week number with year
     /// 
+    /// return example: 2013-W13
+    ///
     /// # Arguments
     /// * `start` - From start
     /// * `end` - To end
@@ -115,6 +129,8 @@ impl Datetime {
 
     /// Generate random naive date
     /// 
+    /// return example: NaiveDate
+    ///
     /// # Arguments
     /// * `start` - Minimum value of year 
     /// * `end` - Maximum value of year
@@ -127,6 +143,8 @@ impl Datetime {
 
     /// Generate random date as string
     /// 
+    /// return example: Formatted date
+    ///
     /// # Arguments
     /// * `fmt` - The format of date, if None then use standard accepted in the current locale
     /// * `start` - Minimum value of year 
@@ -141,12 +159,16 @@ impl Datetime {
     }
 
     /// Generate a random naive time
+    ///
+    /// return example: NaiveTime
     pub fn time() -> NaiveTime {
         NaiveTime::from_hms_micro_opt(rand_u32(0, 23), rand_u32(0, 59), rand_u32(0, 59), rand_u32(0, 999999))
             .unwrap()
     }
 
     /// Generate string formatted time
+    ///
+    /// return example: formatted time
     /// 
     /// # Arguments
     /// * `fmt` - The format of time, if None then use standard accepted in the current locale
@@ -160,11 +182,15 @@ impl Datetime {
     }
 
     /// Generate a random day of month, from 1 to 31
+    ///
+    /// return example: 13
     pub fn day_of_month() -> i32 {
         randint(1, 31)
     }
 
     /// Get a random timezone
+    ///
+    /// return example: Antarctica/Troll
     /// 
     /// # Arguments
     /// * `region` - Timezone region
@@ -179,11 +205,15 @@ impl Datetime {
     }
 
     /// Get a random GMT offset value
+    ///
+    /// return example: UTC +13:00
     pub fn gmt_offset() -> &'static str {
         get_random_element(GMT_OFFSETS.iter())
     }
 
     /// Generate random datetime
+    ///
+    /// return example: DateTime<Utc>
     /// 
     /// # Arguments
     /// * `start` - Minimum value of year
@@ -195,6 +225,8 @@ impl Datetime {
     }
 
     /// Generate datetime string in human readable format
+    /// 
+    /// return example: formatted datetime
     /// 
     /// # Arguments
     /// * `fmt` - The format of datetime, if None then use standard accepted in the current locale
@@ -215,6 +247,9 @@ impl Datetime {
     }
 
     /// Generate random timestamp
+    /// 
+    /// return example: TimestampType::POSIX(133333333333)
+    ///
     /// # Arguments
     /// * `posix` - Use POSIX time
     /// * `start` - Minimum value of year

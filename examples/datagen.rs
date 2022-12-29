@@ -12,4 +12,6 @@ fn main() {
     println!("Words: {:?}", Text(Locale::EN).words(5));
 
     println!("Filename: {}", File::file_name(None));
+
+    println!("Mac: {}", Internet::mac());
 }

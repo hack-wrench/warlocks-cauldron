@@ -19,9 +19,12 @@ mod development;
 
 #[cfg(feature = "file")]
 mod file;
+
 mod finance;
 mod food;
 mod hardware;
+
+#[cfg(feature = "internet")]
 mod internet;
 mod numeric;
 mod path;
@@ -50,3 +53,6 @@ pub use text::Text;
 
 #[cfg(feature = "file")]
 pub use file::File;
+
+#[cfg(feature = "internet")]
+pub use internet::{Internet, IPAddress, StockType};
