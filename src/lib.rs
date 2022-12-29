@@ -11,11 +11,13 @@ pub(crate) mod random;
 
 mod providers;
 mod enums;
+mod pool;
 
 mod macros;
 
 #[cfg(test)]
 mod tests;
 
+pub use pool::RandomPool;
 pub use providers::*;
 pub use enums::*;
