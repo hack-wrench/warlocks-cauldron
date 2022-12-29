@@ -10,4 +10,6 @@ fn main() {
     println!("Datetime: {}", Datetime::datetime(1984, 2077));
 
     println!("Words: {:?}", Text(Locale::EN).words(5));
+
+    println!("Filename: {}", File::file_name(None));
 }

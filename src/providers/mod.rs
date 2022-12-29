@@ -16,6 +16,8 @@ mod cryptographic;
 mod date;
 
 mod development;
+
+#[cfg(feature = "file")]
 mod file;
 mod finance;
 mod food;
@@ -46,3 +48,5 @@ pub use date::{Datetime, DateTime, Local, Utc, Duration, TimestampType};
 #[cfg(feature = "text")]
 pub use text::Text;
 
+#[cfg(feature = "file")]
+pub use file::File;

@@ -1,6 +1,6 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.1.5"
+version = "0.1.6"
 edition = "2021"
 
 repository = "https://github.com/hack-wrench/warlocks-cauldron/"
@@ -26,6 +26,7 @@ hex = "0.4.3"
 chrono-tz = "0.8.1"
 chrono = "0.4.23"
 
+regex = "1.7.0"
 luhn = "1.0.1"
 itertools = "0.10.5"
 lazy_static = "1.4.0"
