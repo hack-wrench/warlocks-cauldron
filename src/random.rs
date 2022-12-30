@@ -1,8 +1,7 @@
 use itertools::Itertools;
-use rand::prelude::*;
 
-#[cfg(feature = "internet")]
 use num_bigint::BigUint;
+use rand::prelude::*;
 
 
 /// Get random bigint in range from a to b
@@ -10,11 +9,9 @@ use num_bigint::BigUint;
 /// # Arguments
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
-#[cfg(feature = "internet")]
 pub fn randbigint(a: u128, b: u128) -> BigUint {
     BigUint::from_bytes_be(&rand_u128(a, b).to_be_bytes())
 }
-
 
 /// Get random i32 in range from a to b
 /// 
@@ -70,8 +67,10 @@ pub fn rand_usize(a: usize, b: usize) -> usize {
     StdRng::from_entropy().gen_range(a..=b)
 }
 
-
-
+/// Get a bool with a probability p of being true.
+pub fn rand_bool(p: f64) -> bool {
+    StdRng::from_entropy().gen_bool(p)
+}
 
 /// Generate vec of random i32
 /// 

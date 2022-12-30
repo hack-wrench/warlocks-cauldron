@@ -29,10 +29,9 @@ impl Cryptographic {
     /// # Arguments
     /// * `algorithm` - Enum object
     pub fn hash(fmt: Option<Algorithm>) -> String {
-        let vars = Algorithm::variants();
         let algorithm = match fmt {
             Some(a) => a,
-            None => get_random_element(vars.into_iter()),
+            None => get_random_element(Algorithm::variants().into_iter()),
         };
 
         let uuid = Self::uuid().as_bytes().to_vec();

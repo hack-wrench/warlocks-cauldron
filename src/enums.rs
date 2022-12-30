@@ -479,6 +479,20 @@ pub enum DSNType {
     RABBITMQ,
 }
 
+impl DSNType {
+    pub fn variants() -> Vec<Self> {
+        vec![
+            Self::POSTGRES,
+            Self::MYSQL,
+            Self::MONGODB,
+            Self::REDIS,
+            Self::COUCHBASE,
+            Self::MEMCACHED,
+            Self::RABBITMQ,
+        ]
+    }
+}
+
 #[cfg(feature = "development")]
 impl Into<(&str, u16)> for DSNType {
     fn into(self) -> (&'static str, u16) {

@@ -28,11 +28,10 @@ impl Code {
     /// * `locale` - Locale code from enum
     pub fn isbn(fmt: Option<ISBNFormat>, locale: Locale) -> String {
         let data = locale.get_data();
-        let formats = ISBNFormat::variants();
 
         let fmt_key = match fmt {
             Some(x) => x.value(),
-            None => get_random_element(formats.iter()).value(),
+            None => get_random_element(ISBNFormat::variants().iter()).value(),
         };
 
         let mask = ISBN_MASKS.get(fmt_key).expect("ISBN_MASKS doesnt have current ISBNFormat!")
@@ -47,10 +46,9 @@ impl Code {
     /// # Arguments
     /// * `fmt` - Format of EAN
     pub fn ean(fmt: Option<EANFormat>) -> String {
-        let formats = EANFormat::variants();
         let fmt_key = match fmt {
             Some(x) => x.value(),
-            None => get_random_element(formats.iter()).value(),
+            None => get_random_element(EANFormat::variants().iter()).value(),
         };
 
         custom_code(EAN_MASKS.get(fmt_key).expect("EAN_MASKS doesnt have current EANFormat!"), "@", "#")

@@ -11,7 +11,7 @@ pub enum StockType {
     Image(Vec<u8>),
 }
 
-/// A struct, which provides methods for generating codes
+/// A struct for generating data related to the internet
 pub struct Internet;
 
 impl Internet {
@@ -161,7 +161,7 @@ impl Internet {
     /// return example: com
     ///
     /// # Arguments
-    /// * `tld_type` - TLDType
+    /// * `tld_type` - TLDType provide hostname domain
     pub fn top_level_domain(tld_type: Option<TLDType>) -> &'static str {
         let tld = match tld_type {
             Some(x) => x.value(),
@@ -176,7 +176,7 @@ impl Internet {
     /// return example: com
     ///
     /// # Arguments
-    /// * `tld_type` - TLDType
+    /// * `tld_type` - TLDType provide hostname domain
     pub fn tld(tld_type: Option<TLDType>) -> &'static str {
         Self::top_level_domain(tld_type)
     }
@@ -220,7 +220,7 @@ impl Internet {
     /// return example: sub.domain
     ///
     /// # Arguments
-    /// * `tld_type` - TLDType
+    /// * `tld_type` - TLDType provide hostname domain
     /// * `subdomains` - vec of subdomains
     pub fn hostname(tld_type: Option<TLDType>, subdomains: Option<Vec<&str>>) -> String {
         let tld = Self::top_level_domain(tld_type);
@@ -237,9 +237,9 @@ impl Internet {
     /// return example: https://sub.domain.com:8000/
     ///
     /// # Arguments
-    /// * `scheme` - TLDType
+    /// * `scheme` - URLScheme provide url scheme
     /// * `port_range` - PortRange enum
-    /// * `tld_type` - TLDType
+    /// * `tld_type` - TLDType provide hostname domain
     /// * `subdomains` - vec of subdomains
     pub fn url(scheme: Option<URLScheme>, port_range: Option<PortRange>, tld_type: Option<TLDType>, subdomains: Option<Vec<&str>>) -> String {
         let hostname = Self::hostname(tld_type, subdomains);
@@ -265,7 +265,7 @@ impl Internet {
     /// # Arguments
     /// * `scheme` - URLScheme for url prefix
     /// * `port_range` - PortRange enum for port
-    /// * `tld_type` - TLDType for last domain
+    /// * `tld_type` - TLDType provide hostname domain
     /// * `subdomains` - vec of subdomains
     /// * `query_params_count` - Query params count
     pub fn uri(scheme: Option<URLScheme>, port_range: Option<PortRange>, tld_type: Option<TLDType>, subdomains: Option<Vec<&str>>, query_params_count: Option<usize>) -> String {

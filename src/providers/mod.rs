@@ -15,6 +15,7 @@ mod cryptographic;
 #[cfg(feature = "date")]
 mod date;
 
+#[cfg(feature = "development")]
 mod development;
 
 #[cfg(feature = "file")]
@@ -56,3 +57,6 @@ pub use file::File;
 
 #[cfg(feature = "internet")]
 pub use internet::{Internet, IPAddress, StockType};
+
+#[cfg(feature = "development")]
+pub use development::Development;
