@@ -16,4 +16,6 @@ fn main() {
     println!("Mac: {}", Internet::mac());
 
     println!("Company: {}", Finance(Locale::EN).company());
+
+    println!("Drink: {}", Food(Locale::EN).drink());
 }

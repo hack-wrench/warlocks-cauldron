@@ -48,7 +48,7 @@ impl Finance {
     /// Get a currency symbol for current locale
     /// 
     /// return example: $
-    pub fn currency_symbol(&self) -> &'static str {
+    pub fn currency_symbol(&self) -> &str {
         CURRENCY_SYMBOLS.get(self.data().lang_code.as_str()).unwrap_or_else(|| CURRENCY_SYMBOLS.get("default").unwrap())
     }
 

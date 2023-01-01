@@ -24,6 +24,7 @@ mod file;
 #[cfg(feature = "finance")]
 mod finance;
 
+#[cfg(feature = "food")]
 mod food;
 mod hardware;
 
@@ -65,3 +66,6 @@ pub use development::Development;
 
 #[cfg(feature = "finance")]
 pub use finance::Finance;
+
+#[cfg(feature = "food")]
+pub use food::Food;
