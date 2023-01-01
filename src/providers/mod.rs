@@ -26,6 +26,8 @@ mod finance;
 
 #[cfg(feature = "food")]
 mod food;
+
+#[cfg(feature = "hardware")]
 mod hardware;
 
 #[cfg(feature = "internet")]
@@ -69,3 +71,6 @@ pub use finance::Finance;
 
 #[cfg(feature = "food")]
 pub use food::Food;
+
+#[cfg(feature = "hardware")]
+pub use hardware::Hardware;

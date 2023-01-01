@@ -18,4 +18,6 @@ fn main() {
     println!("Company: {}", Finance(Locale::EN).company());
 
     println!("Drink: {}", Food(Locale::EN).drink());
+
+    println!("Manufacturer: {}", Hardware::manufacturer());
 }

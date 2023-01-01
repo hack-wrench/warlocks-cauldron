@@ -1,6 +1,6 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.1.9"
+version = "0.1.11"
 edition = "2021"
 
 repository = "https://github.com/hack-wrench/warlocks-cauldron/"
