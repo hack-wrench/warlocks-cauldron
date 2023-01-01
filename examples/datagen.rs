@@ -14,4 +14,6 @@ fn main() {
     println!("Filename: {}", File::file_name(None));
 
     println!("Mac: {}", Internet::mac());
+
+    println!("Company: {}", Finance(Locale::EN).company());
 }

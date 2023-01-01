@@ -21,7 +21,9 @@ mod development;
 #[cfg(feature = "file")]
 mod file;
 
+#[cfg(feature = "finance")]
 mod finance;
+
 mod food;
 mod hardware;
 
@@ -60,3 +62,6 @@ pub use internet::{Internet, IPAddress, StockType};
 
 #[cfg(feature = "development")]
 pub use development::Development;
+
+#[cfg(feature = "finance")]
+pub use finance::Finance;

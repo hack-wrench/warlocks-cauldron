@@ -1,12 +1,12 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.1.8"
+version = "0.1.9"
 edition = "2021"
 
 repository = "https://github.com/hack-wrench/warlocks-cauldron/"
 homepage   = "https://github.com/hack-wrench/warlocks-cauldron/"
 license    = "GNU General Public License v3.0"
-authors    = ["HS <github.com/hack-wrench>"]
+authors    = ["H-W <github.com/hack-wrench>"]
 
 keywords   = ["faker", "data", "generator", "random"]
 publish    = ["warlocks-cauldron"]

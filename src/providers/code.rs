@@ -35,7 +35,8 @@ impl Code {
         };
 
         let mask = ISBN_MASKS.get(fmt_key).expect("ISBN_MASKS doesnt have current ISBNFormat!")
-            .replace("{0}", ISBN_GROUPS.get(&data.lang_code[..]).expect("ISBN_GROUPS doesnt have current locale!"));
+            .replace("{0}", ISBN_GROUPS.get(&data.lang_code[..]).unwrap_or_else(|| ISBN_GROUPS.get("default").unwrap()));
+
         custom_code(&mask, "@", "#")
     }
 
