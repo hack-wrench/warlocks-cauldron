@@ -1,12 +1,10 @@
 mod dependencies;
 
-mod complex;
-pub use complex::ComplexProvider;
-
-mod choice;
-pub use choice::{choice, choice_unique};
+mod complexed;
+pub use complexed::ComplexProvider;
 
 mod address;
+mod choice;
 mod code;
 mod cryptographic;
 mod date;
@@ -26,6 +24,7 @@ mod transport;
 
 
 pub use address::{Address, Coordinates, FloatNumber};
+pub use choice::Choice;
 pub use code::Code;
 pub use cryptographic::{Cryptographic, Uuid};
 pub use date::{Datetime, DateTime, Local, Utc, Duration, TimestampType};
@@ -36,3 +35,4 @@ pub use development::Development;
 pub use finance::Finance;
 pub use food::Food;
 pub use hardware::Hardware;
+pub use numeric::Numeric;

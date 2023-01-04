@@ -1,6 +1,12 @@
 use warlocks_cauldron::*;
 
 fn main() {
+    let some_pool = RandomPool::new(vec![
+        "TEST", "test",  "TeSt", "tEsT",
+    ]);
+
+    println!("Something: {}", some_pool.get());
+
     let address_pool = RandomPool::new(vec![
         Address(Locale::EN), Address(Locale::RU),
     ]);

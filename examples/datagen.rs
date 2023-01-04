@@ -22,6 +22,11 @@ fn main() {
 
     println!("Manufacturer: {}", Hardware::manufacturer());
 
-    println!("Choice: {:?}", choice(&vec!["a", "b", "c"], 5));
-    println!("Unique choice: {:?}", choice_unique(&vec!["a", "a", "b", "c"], 5));
+    println!("Choice: {:?}", Choice::pick(&vec!["a", "b", "c"], 5));
+    println!("Unique choice: {:?}", Choice::pick_unique(&vec!["a", "a", "b", "c"], 5));
+
+    println!("Increment a=1: {}", Numeric::increment("a"));
+    println!("Increment a+1: {}", Numeric::increment("a"));
+    println!("Increment 1=1: {}", Numeric::increment(1));
+    println!("Increment a+1: {}", Numeric::increment("a"));
 }

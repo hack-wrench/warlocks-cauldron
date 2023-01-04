@@ -11,6 +11,7 @@ pub(crate) mod random;
 
 mod providers;
 mod enums;
+
 mod pool;
 
 mod macros;
@@ -19,5 +20,6 @@ mod macros;
 mod tests;
 
 pub use pool::RandomPool;
+
 pub use providers::*;
 pub use enums::*;

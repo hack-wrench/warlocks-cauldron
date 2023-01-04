@@ -1,6 +1,7 @@
+use std::cmp::PartialOrd;
+
 use itertools::Itertools;
 
-use num_bigint::BigUint;
 use rand::prelude::*;
 
 
@@ -9,8 +10,8 @@ use rand::prelude::*;
 /// # Arguments
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
-pub fn randbigint(a: u128, b: u128) -> BigUint {
-    BigUint::from_bytes_be(&rand_u128(a, b).to_be_bytes())
+pub fn randbigint(a: u128, b: u128) -> num_bigint::BigUint {
+    num_bigint::BigUint::from_bytes_be(&randint(a, b).to_be_bytes())
 }
 
 /// Get random i32 in range from a to b
@@ -18,52 +19,7 @@ pub fn randbigint(a: u128, b: u128) -> BigUint {
 /// # Arguments
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
-pub fn randint(a: i32, b: i32) -> i32 {
-    StdRng::from_entropy().gen_range(a..=b)
-}
-
-/// Get random u128 in range from a to b
-/// 
-/// # Arguments
-/// * `a` - Minimum value of range
-/// * `b` - Maximum value of range
-pub fn rand_u128(a: u128, b: u128) -> u128 {
-    StdRng::from_entropy().gen_range(a..=b)
-}
-
-/// Get random u32 in range from a to b
-/// 
-/// # Arguments
-/// * `a` - Minimum value of range
-/// * `b` - Maximum value of range
-pub fn rand_u32(a: u32, b: u32) -> u32 {
-    StdRng::from_entropy().gen_range(a..=b)
-}
-
-/// Get random u16 in range from a to b
-/// 
-/// # Arguments
-/// * `a` - Minimum value of range
-/// * `b` - Maximum value of range
-pub fn rand_u16(a: u16, b: u16) -> u16 {
-    StdRng::from_entropy().gen_range(a..=b)
-}
-
-/// Get random u8 in range from a to b
-/// 
-/// # Arguments
-/// * `a` - Minimum value of range
-/// * `b` - Maximum value of range
-pub fn rand_u8(a: u8, b: u8) -> u8 {
-    StdRng::from_entropy().gen_range(a..=b)
-}
-
-/// Get random usize in range from a to b
-/// 
-/// # Arguments
-/// * `a` - Minimum value of range
-/// * `b` - Maximum value of range
-pub fn rand_usize(a: usize, b: usize) -> usize {
+pub fn randint<T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd>(a: T, b: T) -> T {
     StdRng::from_entropy().gen_range(a..=b)
 }
 
@@ -87,7 +43,7 @@ pub fn randints(amount: usize, a: i32, b: i32) -> Vec<i32> {
 /// # Arguments
 /// * `size` - The size of u8 vector
 pub fn urandom(size: usize) -> Vec<u8> {
-    (0..size).map(|_| rand_u8(u8::MIN, u8::MAX)).collect()
+    (0..size).map(|_| randint(u8::MIN, u8::MAX)).collect()
 }
 
 /// Generate random string created from string sequence

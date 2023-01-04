@@ -58,14 +58,14 @@ impl Internet {
             None => PortRange::ALL.into(),
         };
 
-        rand_u16(range.0, range.1)
+        randint(range.0, range.1)
     }
 
     /// Get a random v4 IPAddress struct
     ///
     /// return example: IPAddress
     pub fn ip_v4_object() -> IPAddress {
-        ipv4::from_u32(rand_u32(0, 4294967295), 32).expect("Cant create v4 IPAddress!")
+        ipv4::from_u32(randint(0, 4294967295), 32).expect("Cant create v4 IPAddress!")
     }
 
     /// Get a random v4 IP address
@@ -201,7 +201,7 @@ impl Internet {
     pub fn slug(parts_count: Option<usize>) -> String {
         let parts = match parts_count {
             Some(p) => p,
-            None => rand_usize(2, 12),
+            None => randint(2, 12),
         };
 
         if parts > 12 {
@@ -304,7 +304,7 @@ impl Internet {
         let text = &Text(Locale::RU);
         let length = match length {
             Some(len) => len,
-            None => rand_usize(1, 10),
+            None => randint(1, 10),
         };
 
         if length > 32 {

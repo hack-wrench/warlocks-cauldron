@@ -136,8 +136,8 @@ impl Datetime {
     /// * `end` - Maximum value of year
     pub fn date(start: i32, end: i32) -> NaiveDate {
         let year = randint(start, end);
-        let month = rand_u32(1, 12);
-        let day = rand_u32(1, Self::get_days_from_month(year, month));
+        let month = randint(1, 12);
+        let day = randint(1, Self::get_days_from_month(year, month));
         NaiveDate::from_ymd_opt(year, month, day).unwrap()
     }
 
@@ -162,7 +162,7 @@ impl Datetime {
     ///
     /// return example: NaiveTime
     pub fn time() -> NaiveTime {
-        NaiveTime::from_hms_micro_opt(rand_u32(0, 23), rand_u32(0, 59), rand_u32(0, 59), rand_u32(0, 999999))
+        NaiveTime::from_hms_micro_opt(randint(0, 23), randint(0, 59), randint(0, 59), randint(0, 999999))
             .unwrap()
     }
 

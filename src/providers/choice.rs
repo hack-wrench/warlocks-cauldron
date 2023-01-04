@@ -1,33 +1,39 @@
-use super::dependencies::*;
+use crate::random::*;
 
+pub struct Choice;
 
-pub fn choice<'a, T>(items: &'a Vec<T>, length: usize) -> Vec<&'a T> {
-    get_random_elements(items.iter(), length)
-}
-
-pub fn choice_unique<'a, T: std::cmp::Eq>(items: &'a Vec<T>, length: usize) -> Vec<&'a T> {
-    let mut output = vec![];
-
-    let mut uniques: Vec<&T> = vec![];
-    for item in items.iter() {
-        if !uniques.contains(&item) {
-            uniques.push(item);
-        }
+impl Choice {
+    /// Generate a randomly-chosen sequence or bare element from a sequence
+    pub fn pick<'a, T>(items: &'a Vec<T>, length: usize) -> Vec<&'a T> {
+        get_random_elements(items.iter(), length)
     }
 
-    loop {
-        if uniques.is_empty() {
-           break 
+    /// Generate a randomly-chosen unique sequence or bare element from a sequence
+    pub fn pick_unique<'a, T: std::cmp::Eq>(items: &'a Vec<T>, length: usize) -> Vec<&'a T> {
+        let mut output = vec![];
+
+        let mut uniques: Vec<&T> = vec![];
+        for item in items.iter() {
+            if !uniques.contains(&item) {
+                uniques.push(item);
+            }
         }
 
-        output.push(
-            uniques.remove(rand_usize(0, uniques.len() - 1))
-        );
+        loop {
+            if uniques.is_empty() {
+            break 
+            }
 
-        if output.len() == length {
-            break
+            output.push(
+                uniques.remove(randint(0, uniques.len() - 1))
+            );
+
+            if output.len() == length {
+                break
+            }
         }
+
+        output
     }
-
-    output
 }
+
