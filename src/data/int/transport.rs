@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "transport")]
 lazy_static! {
     pub static ref CARS: List = list! [
         "Alfa Romeo 145",

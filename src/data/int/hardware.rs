@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "hardware")]
 lazy_static! {
     pub static ref RESOLUTIONS: List = list! [
         "1152x768",

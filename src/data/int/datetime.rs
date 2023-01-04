@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "date")]
 lazy_static! {
     pub static ref ROMAN_NUMS: List = list! [
         "I",

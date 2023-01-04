@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "finance")]
 lazy_static! {
     pub static ref CURRENCY_ISO_CODES: List = list! [
         "AED",

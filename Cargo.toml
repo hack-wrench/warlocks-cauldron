@@ -55,7 +55,7 @@ features = ["derive"]
 
 
 [features]
-default = ["all_locales", "all_providers"]
+default = ["all_locales"]
 
 all_locales = [
     "cs", "da", "de", "el", "en", "es", "et", 
@@ -98,26 +98,3 @@ sv    = []
 tr    = []
 uk    = []
 zh    = []
-
-all_providers = [
-    "address", "code", "cryptographic", "date", "development",
-    "file", "finance", "food", "hardware", "internet", "numeric", 
-    "path", "payment", "person", "science", "text", "transport",
-]
-address       = []
-code          = []
-cryptographic = []
-date          = []
-development   = ["internet"]
-file          = ["text"]
-finance       = []
-food          = []
-hardware      = []
-internet      = ["date", "file", "text"]
-numeric       = []
-path          = []
-payment       = ["person"]
-person        = []
-science       = []
-text          = []
-transport     = []

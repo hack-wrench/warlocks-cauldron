@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(any(feature = "development", feature = "path"))]
 lazy_static! {
     pub static ref LICENSES: List = list! [
         "Apache License, 2.0 (Apache-2.0)",

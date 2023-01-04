@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(any(feature = "address", feature = "person"))]
 lazy_static! {
     pub static ref COUNTRY_CODES: ListDict = dict! {
         "a2" => list! [

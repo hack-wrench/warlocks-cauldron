@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "path")]
 lazy_static! {
     pub static ref PLATFORMS: RecDict = dict! {
         "linux" => dict! {

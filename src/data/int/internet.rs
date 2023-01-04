@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(any(feature = "internet", feature = "person"))]
 lazy_static! {
     pub static ref HTTP_METHODS: List = list! [
         "GET",

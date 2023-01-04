@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "science")]
 lazy_static! {
     pub static ref SI_PREFIXES: ListDict = dict! {
         "negative" => list! [

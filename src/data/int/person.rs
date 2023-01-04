@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(any(feature = "internet", feature = "path", feature = "person"))]
 lazy_static! {
     pub static ref BLOOD_GROUPS: List = list! [
         "O+",

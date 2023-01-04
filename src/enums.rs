@@ -170,8 +170,6 @@ impl Locale {
     }
 }
 
-
-#[cfg(feature = "internet")]
 /// Represents port ranges
 pub enum PortRange {
     ALL,
@@ -180,7 +178,6 @@ pub enum PortRange {
     REGISTERED
 }
 
-#[cfg(feature = "internet")]
 impl Into<(u16, u16)> for PortRange {
     fn into(self) -> (u16, u16) {
         match self {
@@ -192,8 +189,6 @@ impl Into<(u16, u16)> for PortRange {
     }
 }
 
-
-#[cfg(any(feature = "payment", feature = "person"))]
 valued_enum! {
     /// Represents genders
     pub enum Gender(&'static str) {
@@ -202,8 +197,6 @@ valued_enum! {
     }
 }
 
-
-#[cfg(feature = "person")]
 valued_enum! {
     /// Represents title types
     pub enum TitleType(&'static str) {
@@ -212,7 +205,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "payment")]
 valued_enum! {
     /// Provides credit card types
     pub enum CardType(&'static str) {
@@ -222,9 +214,6 @@ valued_enum! {
     }
 }
 
-
-
-#[cfg(feature = "cryptographic")]
 valued_enum! {
     /// Provides algorithms which available
     pub enum Algorithm(&'static str) {
@@ -239,8 +228,6 @@ valued_enum! {
     }
 }
 
-
-#[cfg(feature = "internet")]
 valued_enum! {
     /// Provides top level domain types
     pub enum TLDType(&'static str) {
@@ -252,7 +239,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "file")]
 valued_enum! {
     /// Provides file types
     pub enum FileType(&'static str) {
@@ -267,7 +253,6 @@ valued_enum! {
     }
 }
 
-#[cfg(any(feature = "file", feature = "internet"))]
 valued_enum! {
     /// Provides common mime types
     pub enum MimeType(&'static str) {
@@ -280,8 +265,6 @@ valued_enum! {
     }
 }
 
-
-#[cfg(feature = "science")]
 valued_enum! {
     /// Provides prefix signs
     pub enum MetricPrefixSign(&'static str) {
@@ -290,7 +273,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "address")]
 valued_enum! {
     /// Provides types of country codes
     pub enum CountryCode(&'static str) {
@@ -302,7 +284,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "code")]
 valued_enum! {
     /// Provides formats of ISBN
     pub enum ISBNFormat(&'static str) {
@@ -311,7 +292,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "code")]
 valued_enum! {
     /// Provides formats of EAN
     pub enum EANFormat(&'static str)  {
@@ -320,7 +300,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "science")]
 /// Provide unit names
 pub enum MeasureUnit {
     MASS,
@@ -347,7 +326,6 @@ pub enum MeasureUnit {
     RADIOACTIVITY,
 }
 
-#[cfg(feature = "science")]
 impl Into<(&str, &str)> for MeasureUnit {
     fn into(self) -> (&'static str, &'static str) {
         match self {
@@ -377,8 +355,6 @@ impl Into<(&str, &str)> for MeasureUnit {
     }
 }
 
-
-#[cfg(feature = "numeric")]
 valued_enum! {
     /// Provides the number types
     pub enum NumType(&'static str) {
@@ -389,7 +365,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "binaryfile")]
 valued_enum! {
     /// Provides the vide file types
     pub enum VideoFile(&'static str) {
@@ -398,7 +373,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "binaryfile")]
 valued_enum! {
     /// Provides the audio file types
     pub enum AudioFile(&'static str) {
@@ -407,7 +381,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "binaryfile")]
 valued_enum! {
     /// Provides the image file types
     pub enum ImageFile(&'static str) {
@@ -417,7 +390,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "binaryfile")]
 valued_enum! {
     /// Provides the document file types
     pub enum DocumentFile(&'static str) {
@@ -428,7 +400,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "binaryfile")]
 valued_enum! {
     /// Provides the compressed file types
     pub enum CompressedFile(&'static str) {
@@ -437,7 +408,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "internet")]
 valued_enum! {
     /// Provides URL schemes
     pub enum URLScheme(&'static str) {
@@ -450,7 +420,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "date")]
 valued_enum! {
     /// Provides regions of timezones
     pub enum TimezoneRegion(&'static str) {
@@ -467,7 +436,6 @@ valued_enum! {
     }
 }
 
-#[cfg(feature = "development")]
 /// Provides URI and port of DSN
 pub enum DSNType {
     POSTGRES,
@@ -493,7 +461,6 @@ impl DSNType {
     }
 }
 
-#[cfg(feature = "development")]
 impl Into<(&str, u16)> for DSNType {
     fn into(self) -> (&'static str, u16) {
         match self {

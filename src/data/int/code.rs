@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "code")]
 lazy_static! {
     pub static ref IMEI_TACS: List = list! [
         "01124500",

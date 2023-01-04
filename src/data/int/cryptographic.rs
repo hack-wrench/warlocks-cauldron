@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "cryptographic")]
 lazy_static! {
     pub static ref WORDLIST: List = list! [
         "abandon",

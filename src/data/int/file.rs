@@ -1,7 +1,6 @@
 use super::dependencies::*;
 
 
-#[cfg(feature = "file")]
 lazy_static! {
     pub static ref EXTENSIONS: ListDict = dict! {
         "source" => list! [
