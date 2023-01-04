@@ -1,5 +1,6 @@
 use warlocks_cauldron::*;
 
+
 fn main() {
     println!("Address: {}", Address(Locale::EN).full_address());
 
@@ -20,4 +21,7 @@ fn main() {
     println!("Drink: {}", Food(Locale::EN).drink());
 
     println!("Manufacturer: {}", Hardware::manufacturer());
+
+    println!("Choice: {:?}", choice(&vec!["a", "b", "c"], 5));
+    println!("Unique choice: {:?}", choice_unique(&vec!["a", "a", "b", "c"], 5));
 }

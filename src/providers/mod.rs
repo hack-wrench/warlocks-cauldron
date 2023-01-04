@@ -3,6 +3,9 @@ mod dependencies;
 mod complex;
 pub use complex::ComplexProvider;
 
+mod choice;
+pub use choice::{choice, choice_unique};
+
 mod address;
 mod code;
 mod cryptographic;

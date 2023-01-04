@@ -98,7 +98,7 @@ impl Cryptographic {
     /// 
     /// return example: mnemonic string
     pub fn mnemonic_phrase() -> String {
-        get_random_elements(WORDLIST.iter(), rand_u32(12, 24))
+        get_random_elements(WORDLIST.iter(), rand_usize(12, 24))
             .iter().join(" ")
     }
 }

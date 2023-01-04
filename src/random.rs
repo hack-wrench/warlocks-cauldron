@@ -146,7 +146,7 @@ pub fn uniform(a: f32, b: f32) -> f32 {
 /// # Arguments
 /// * `unique` - Generate only unique values base on uuid4
 /// * `length` - Length of string, does not affect the result with unique bool
-pub fn randstr(unique: bool, length: u32) -> String {
+pub fn randstr(unique: bool, length: usize) -> String {
     if unique {
         uuid::Uuid::new_v4().to_string()
     } else {
@@ -173,6 +173,6 @@ pub fn get_random_element<T, V: Iterator<Item = T>>(iter: V) -> T {
 /// # Arguments
 /// * `iter` - Iterator for choose random element
 /// * `quantity` - Quantity of iterator
-pub fn get_random_elements<T, V: Iterator<Item = T> + Clone>(iter: V, quantity: u32) -> Vec<T> {
+pub fn get_random_elements<T, V: Iterator<Item = T> + Clone>(iter: V, quantity: usize) -> Vec<T> {
     (0..quantity).map(|_| iter.clone().choose(&mut rand::thread_rng()).unwrap()).collect()
 }

@@ -198,10 +198,10 @@ impl Internet {
     /// Generate a random slug of given parts count
     /// 
     /// return example: some-slug-here
-    pub fn slug(parts_count: Option<u32>) -> String {
+    pub fn slug(parts_count: Option<usize>) -> String {
         let parts = match parts_count {
             Some(p) => p,
-            None => rand_u32(2, 12),
+            None => rand_usize(2, 12),
         };
 
         if parts > 12 {
@@ -319,6 +319,6 @@ impl Internet {
             }
         }
 
-        unique_words.into_iter().zip(text.words(length as u32)).collect()
+        unique_words.into_iter().zip(text.words(length)).collect()
     }
 }

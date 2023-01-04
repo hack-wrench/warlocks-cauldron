@@ -35,7 +35,7 @@ impl Text {
     /// 
     /// # Arguments
     /// * `quantity` - Quantity of sentences.
-    pub fn text(&self, quantity: u32) -> String {
+    pub fn text(&self, quantity: usize) -> String {
         get_random_elements(self.data().text.text.iter(), quantity)
             .iter().join(" ")
     }
@@ -60,7 +60,7 @@ impl Text {
     /// 
     /// # Arguments
     /// * `quantity` - Quantity of words
-    pub fn words(&self, quantity: u32) -> Vec<&String> {
+    pub fn words(&self, quantity: usize) -> Vec<&String> {
         get_random_elements(self.data().text.words.normal.iter(), quantity)
     }
 
