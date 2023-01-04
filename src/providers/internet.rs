@@ -226,10 +226,13 @@ impl Internet {
         let tld = Self::top_level_domain(tld_type);
         let host = get_random_element(USERNAMES.iter());
 
-        match subdomains {
-            None => format!("{host}{tld}"),
-            Some(v) => format!("{}.{host}", get_random_element(v.iter())),
+        let mut url = format!("{host}{tld}");
+
+        if let Some(v) = subdomains {
+            url = format!("{}.{url}", get_random_element(v.iter()));
         }
+
+        url
     }
 
     /// Generate random URL
