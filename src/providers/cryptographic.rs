@@ -4,7 +4,7 @@ pub use uuid::Uuid;
 use super::dependencies::*;
 
 
-/// Struct that provides cryptographic data
+/// Methods collection that provides cryptographic data
 pub struct Cryptographic;
 
 impl Cryptographic {

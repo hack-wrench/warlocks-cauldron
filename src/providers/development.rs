@@ -3,7 +3,7 @@ use crate::Internet;
 use super::dependencies::*;
 
 
-/// A struct for getting fake data for Developers
+/// Methods collection for getting fake data for Developers
 pub struct Development;
 
 impl Development {

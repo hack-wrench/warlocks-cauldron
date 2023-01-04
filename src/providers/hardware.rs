@@ -1,7 +1,7 @@
 use super::dependencies::*;
 
 
-/// Struct for generate data related to hardware
+/// Methods collection for generate data related to hardware
 pub struct Hardware;
 
 impl Hardware {

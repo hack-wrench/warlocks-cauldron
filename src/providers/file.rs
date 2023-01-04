@@ -4,7 +4,7 @@ use super::dependencies::*;
 use crate::Text;
 
 
-/// Struct for generate data related to files
+/// Methods collection for generate data related to files
 pub struct File;
 
 impl File {

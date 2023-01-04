@@ -16,6 +16,8 @@ use super::dependencies::*;
 lazy_static! {
     static ref INCREMENTS: Mutex<Counter<u64>> = Mutex::new(Counter::new());
 }
+
+/// Methods collection for generate any numeric values
 pub struct Numeric;
 
 impl Numeric {

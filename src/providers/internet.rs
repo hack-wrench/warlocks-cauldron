@@ -11,7 +11,7 @@ pub enum StockType {
     Image(Vec<u8>),
 }
 
-/// A struct for generating data related to the internet
+/// Methods collection for generating data related to the internet
 pub struct Internet;
 
 impl Internet {

@@ -1,5 +1,6 @@
 use crate::random::*;
 
+/// Methods collection for generating a random choice from items in a sequence
 pub struct Choice;
 
 impl Choice {

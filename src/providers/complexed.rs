@@ -3,7 +3,7 @@ use super::{
     *,
 };
 
-
+/// Collection of every provider, which uses locales
 pub struct ComplexProvider {
     pub address: Address,
     pub date: Datetime,
