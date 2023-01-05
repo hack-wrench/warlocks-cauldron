@@ -1,5 +1,3 @@
-use core::ops::Deref;
-
 #[macro_export]
 macro_rules! dict(
     { $($key:expr => $value:expr), + } => {
@@ -42,73 +40,3 @@ macro_rules! generate_payload(
         )*)
      };
 );
-
-pub trait ValuedEnum<T> where Self: Sized {
-    fn key(&self) -> &str;
-    fn value(&self) -> T;
-
-    fn keys() -> Vec<&'static str>;
-    fn values() -> Vec<T>;
-
-    fn variants() -> Vec<Self>;
-    fn from_key(key: &str) -> Option<Self>;
-}
-
-#[macro_export]
-macro_rules! valued_enum {
-    {
-       $(#[$meta:meta])*
-       $v:vis $name:ident ( $valtype:ty ):
-           $(
-               $(#[$item_meta:meta])*
-               $id:ident = $val:expr
-           )*
-           $(,)?
-    } => {
-        #[derive(PartialEq, Eq)]
-        $(#[$meta])*
-        $v struct $name(&'static str, $valtype);
-
-        impl $name {
-            $(
-                $(#[$item_meta])*
-                pub const $id: $name = $name(stringify!($id), $val);
-            )*
-        }
-
-        impl crate::macros::ValuedEnum<$valtype> for $name {
-            fn key(&self) -> &str {
-                self.0
-            }
-
-            fn value(&self) -> $valtype {
-                self.1
-            }
-
-            fn keys() -> Vec<&'static str> {
-                vec![
-                    $( stringify!($id), )*
-                ]
-            }
-
-            fn values() -> Vec<$valtype> {
-                vec![
-                    $( $val, )*
-                ]
-            }
-
-            fn variants() -> Vec<$name> {
-                vec![
-                    $( $name::$id, )*
-                ]
-            }
-
-            fn from_key(key: &str) -> Option<Self> {
-                match key {
-                    $( stringify!($id) => Some($name::$id), )*
-                    _ => None
-                }
-            }
-        }
-    };
-}
