@@ -16,7 +16,7 @@ impl Code {
     ///
     /// return example: 1313-6666
     pub fn issn() -> String {
-        custom_code("####-####", "@", "#")
+        custom_code("####-####", '@', '#')
     }
 
     /// Generate ISBN for current locale
@@ -37,7 +37,7 @@ impl Code {
         let mask = ISBN_MASKS.get(fmt_key).expect("ISBN_MASKS doesnt have current ISBNFormat!")
             .replace("{0}", ISBN_GROUPS.get(&data.lang_code[..]).unwrap_or_else(|| ISBN_GROUPS.get("default").unwrap()));
 
-        custom_code(&mask, "@", "#")
+        custom_code(&mask, '@', '#')
     }
 
     /// Generate EAN
@@ -52,7 +52,7 @@ impl Code {
             None => get_random_element(EANFormat::variants().iter()).value(),
         };
 
-        custom_code(EAN_MASKS.get(fmt_key).expect("EAN_MASKS doesnt have current EANFormat!"), "@", "#")
+        custom_code(EAN_MASKS.get(fmt_key).expect("EAN_MASKS doesnt have current EANFormat!"), '@', '#')
     }
 
     /// Generate a random IMEI
@@ -67,6 +67,6 @@ impl Code {
     /// 
     /// return example: pin string
     pub fn pin() -> String {
-        custom_code("####", "@", "#")
+        custom_code("####", '@', '#')
     }
 }

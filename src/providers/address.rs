@@ -257,7 +257,7 @@ impl Address {
     ///
     /// return example: 66613
     pub fn postal_code(&self) -> String {
-        custom_code(&self.data().address.postal_code_fmt, "@", "#")
+        custom_code(&self.data().address.postal_code_fmt, '@', '#')
     }
 
     /// Generate a zip code | *An allias for .postal_code()*

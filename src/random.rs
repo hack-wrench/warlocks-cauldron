@@ -66,10 +66,7 @@ pub fn generate_string(str_seq: &str, length: usize) -> String {
 /// * `mask` - Mask of code
 /// * `char` - Placeholder for characters
 /// * `digit` - Placeholder for digits
-pub fn custom_code(mask: &str, char: &str, digit: &str) -> String {
-    let char = char.chars().next().expect("Invalid 'char' argument!");
-    let digit = digit.chars().next().expect("Invalid 'digit' argument!");
-
+pub fn custom_code(mask: &str, char: char, digit: char) -> String {
     mask.chars().map(|c| {
         if c == char {
             get_random_element(
