@@ -43,89 +43,64 @@ macro_rules! generate_payload(
      };
 );
 
+pub trait ValuedEnum<T> where Self: Sized {
+    fn key(&self) -> &str;
+    fn value(&self) -> T;
+
+    fn key_variants() -> Vec<&'static str>;
+    fn variants() -> Vec<Self>;
+
+    fn from_key(key: &str) -> Option<Self>;
+}
+
 #[macro_export]
 macro_rules! valued_enum {
     {
        $(#[$meta:meta])*
-       $v:vis enum $name:ident ( $valtype:ty ) {
+       $v:vis $name:ident ( $valtype:ty ):
            $(
                $(#[$item_meta:meta])*
-               $id:ident = $val:literal
+               $id:ident = $val:expr
            )*
            $(,)?
-      }
     } => {
         #[derive(PartialEq, Eq)]
         $(#[$meta])*
-        $v struct $name($valtype);
-
-        impl From<&$name> for $valtype {
-            fn from(val: &$name) -> $valtype { val.0 }
-        }
-
-        impl Into<$valtype> for $name {
-            fn into(self) -> $valtype {
-                self.value()
-            }
-        }
+        $v struct $name(&'static str, $valtype);
 
         impl $name {
             $(
                 $(#[$item_meta])*
-                pub const $id: $name = $name($val);
+                pub const $id: $name = $name(stringify!($id), $val);
             )*
+        }
 
-            fn to_str(&self) -> Option<&'static str> {
-                match self {
-                    $( &$name::$id => Some(stringify!($id)), )*
-                    _ => None,
-                }
+        impl crate::macros::ValuedEnum<$valtype> for $name {
+            fn key(&self) -> &str {
+                self.0
             }
 
-            pub fn key(&self) -> String {
-                self.to_string()
+            fn value(&self) -> $valtype {
+                self.1
             }
 
-            pub fn value(&self) -> $valtype {
-                self.into()
-            }
-
-            pub fn key_variants() -> Vec<String> {
+            fn key_variants() -> Vec<&'static str> {
                 vec![
-                    $( stringify!($id).to_string(), )*
+                    $( stringify!($id), )*
                 ]
             }
 
-            pub fn variants() -> Vec<$name> {
+            fn variants() -> Vec<$name> {
                 vec![
                     $( $name::$id, )*
                 ]
             }
 
-            $v fn is_recognized(&self) -> bool {
-                matches!(self, $( &$name::$id )|*)
-            }
-
-            $v fn from_key(key: &str) -> Option<Self> {
+            fn from_key(key: &str) -> Option<Self> {
                 match key {
                     $( stringify!($id) => Some($name::$id), )*
                     _ => None
                 }
-            }
-        }
-
-        impl std::fmt::Display for $name {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                match self.to_str() {
-                    Some(s) => write!(f, "{}", s),
-                    None => write!(f, "{}", self.0),
-                }
-            }
-        }
-        
-        impl std::fmt::Debug for $name {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                write!(f, "{} = {}", stringify!($name), self)
             }
         }
     };

@@ -1,3 +1,4 @@
+pub use crate::macros::ValuedEnum;
 use crate::{
     data::{parser::ParsedData, parsed::*},
     valued_enum,
@@ -191,32 +192,29 @@ impl Into<(u16, u16)> for PortRange {
 
 valued_enum! {
     /// Represents genders
-    pub enum Gender(&'static str) {
+    pub Gender(&'static str):
         MALE = "male"
         FEMALE = "female"
-    }
 }
 
 valued_enum! {
     /// Represents title types
-    pub enum TitleType(&'static str) {
+    pub TitleType(&'static str):
         TYPICAL = "typical"
         ACADEMIC = "academic"
-    }
 }
 
 valued_enum! {
     /// Provides credit card types
-    pub enum CardType(&'static str) {
+    pub CardType(&'static str):
         VISA = "Visa"
         MASTER_CARD = "MasterCard"
         AMERICAN_EXPRESS = "American Express"
-    }
 }
 
 valued_enum! {
     /// Provides algorithms which available
-    pub enum Algorithm(&'static str) {
+    pub Algorithm(&'static str):
         MD5 = "md5"
         SHA1 = "sha1"
         SHA224 = "sha224"
@@ -225,23 +223,21 @@ valued_enum! {
         SHA512 = "sha512"
         BLAKE2B = "blake2b"
         BLAKE2S = "blake2s"
-    }
 }
 
 valued_enum! {
     /// Provides top level domain types
-    pub enum TLDType(&'static str) {
+    pub TLDType(&'static str):
         CCTLD = "cctld"
         GTLD = "gtld"
         GEOTLD = "geotld"
         UTLD = "utld"
         STLD = "stld"
-    }
 }
 
 valued_enum! {
     /// Provides file types
-    pub enum FileType(&'static str) {
+    pub FileType(&'static str):
         SOURCE = "source"
         TEXT = "text"
         DATA = "data"
@@ -250,54 +246,48 @@ valued_enum! {
         IMAGE = "image"
         EXECUTABLE = "executable"
         COMPRESSED = "compressed"
-    }
 }
 
 valued_enum! {
     /// Provides common mime types
-    pub enum MimeType(&'static str) {
+    pub MimeType(&'static str):
         APPLICATION = "application"
         AUDIO = "audio"
         IMAGE = "image"
         MESSAGE = "message"
         TEXT = "text"
         VIDEO = "video"
-    }
 }
 
 valued_enum! {
     /// Provides prefix signs
-    pub enum MetricPrefixSign(&'static str) {
+    pub MetricPrefixSign(&'static str):
         POSITIVE = "positive"
         NEGATIVE = "negative"
-    }
 }
 
 valued_enum! {
     /// Provides types of country codes
-    pub enum CountryCode(&'static str) {
+    pub CountryCode(&'static str):
         A2 = "a2"
         A3 = "a3"
         NUMERIC = "numeric"
         IOC = "ioc"
         FIFA = "fifa"
-    }
 }
 
 valued_enum! {
     /// Provides formats of ISBN
-    pub enum ISBNFormat(&'static str) {
+    pub ISBNFormat(&'static str):
         ISBN13 = "isbn-13"
         ISBN10 = "isbn-10"
-    }
 }
 
 valued_enum! {
     /// Provides formats of EAN
-    pub enum EANFormat(&'static str)  {
+    pub EANFormat(&'static str):
         EAN8 = "ean-8"
         EAN13 = "ean-13"
-    }
 }
 
 /// Provide unit names
@@ -357,72 +347,73 @@ impl Into<(&str, &str)> for MeasureUnit {
 
 valued_enum! {
     /// Provides the number types
-    pub enum NumType(&'static str) {
+    pub NumType(&'static str):
         FLOAT = "floats"
         INTEGER = "integers"
         COMPLEX = "complexes"
         DECIMAL = "decimals"
-    }
 }
 
 valued_enum! {
     /// Provides the vide file types
-    pub enum VideoFile(&'static str) {
+    pub VideoFile(&'static str):
         MP4 = "mp4"
         MOV = "mov"
-    }
 }
 
 valued_enum! {
     /// Provides the audio file types
-    pub enum AudioFile(&'static str) {
+    pub AudioFile(&'static str):
         MP3 = "mp3"
         AAC = "aac"
-    }
 }
 
 valued_enum! {
     /// Provides the image file types
-    pub enum ImageFile(&'static str) {
+    pub ImageFile(&'static str):
         JPG = "jpg"
         PNG = "png"
         GIF = "gif"
-    }
 }
 
 valued_enum! {
     /// Provides the document file types
-    pub enum DocumentFile(&'static str) {
+    pub DocumentFile(&'static str):
         PDF = "pdf"
         DOCX = "docx"
         PPTX = "pptx"
         XLSX = "xlsx"
-    }
 }
 
 valued_enum! {
     /// Provides the compressed file types
-    pub enum CompressedFile(&'static str) {
+    pub CompressedFile(&'static str):
         ZIP = "zip"
         GZIP = "gz"
-    }
 }
 
 valued_enum! {
     /// Provides URL schemes
-    pub enum URLScheme(&'static str) {
+    pub TestEnum((u8, u8)):
+        ONE   = (1, 1)
+        TWO   = (2, 2)
+        THREE = (3, 3)
+}
+
+valued_enum! {
+    /// Provides URL schemes
+    pub URLScheme(&'static str):
         WS = "ws"
         WSS = "wss"
         FTP = "ftp"
         SFTP = "sftp"
         HTTP = "http"
         HTTPS = "https"
-    }
 }
 
 valued_enum! {
     /// Provides regions of timezones
-    pub enum TimezoneRegion(&'static str) {
+    pub TimezoneRegion(&'static str):
         AFRICA = "Africa"
         AMERICA = "America"
         ANTARCTICA = "Antarctica"
@@ -433,7 +424,6 @@ valued_enum! {
         EUROPE = "Europe"
         INDIAN = "Indian"
         PACIFIC = "Pacific"
-    }
 }
 
 /// Provides URI and port of DSN
