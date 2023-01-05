@@ -1,7 +1,7 @@
 use super::dependencies::*;
 
 
-/// A struct, which provides methods for generating codes
+/// Methods collection which provides methods for generating codes
 pub struct Code;
 
 impl Code {

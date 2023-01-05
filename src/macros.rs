@@ -47,9 +47,10 @@ pub trait ValuedEnum<T> where Self: Sized {
     fn key(&self) -> &str;
     fn value(&self) -> T;
 
-    fn key_variants() -> Vec<&'static str>;
-    fn variants() -> Vec<Self>;
+    fn keys() -> Vec<&'static str>;
+    fn values() -> Vec<T>;
 
+    fn variants() -> Vec<Self>;
     fn from_key(key: &str) -> Option<Self>;
 }
 
@@ -84,9 +85,15 @@ macro_rules! valued_enum {
                 self.1
             }
 
-            fn key_variants() -> Vec<&'static str> {
+            fn keys() -> Vec<&'static str> {
                 vec![
                     $( stringify!($id), )*
+                ]
+            }
+
+            fn values() -> Vec<$valtype> {
+                vec![
+                    $( $val, )*
                 ]
             }
 

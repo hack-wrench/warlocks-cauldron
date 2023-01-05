@@ -53,9 +53,9 @@ impl Internet {
     /// # Arguments
     /// * `port_range` - PortRange enum
     pub fn port(port_range: Option<PortRange>) -> u16 {
-        let range: (u16, u16) = match port_range {
-            Some(x) => x.into(),
-            None => PortRange::ALL.into(),
+        let range = match port_range {
+            Some(x) => x.value(),
+            None => PortRange::ALL.value(),
         };
 
         randint(range.0, range.1)

@@ -2,8 +2,7 @@ use crate::enums::*;
 
 #[test]
 fn enums() {
-    let port: (u16, u16) = PortRange::ALL.into();
-    assert_eq!(port, (1, 65535));
+    assert_eq!(PortRange::ALL.value(), (1, 65535));
     
     assert_eq!(Gender::MALE.value(), "male");
 
@@ -31,8 +30,7 @@ fn enums() {
 
     assert_eq!(EANFormat::EAN8.value(), "ean-8");
 
-    let measure: (&str, &str) = MeasureUnit::MASS.into();
-    assert_eq!(measure, ("gram", "gr"));
+    assert_eq!(MeasureUnit::MASS.value(), ("gram", "gr"));
 
     assert_eq!(NumType::FLOAT.value(), "floats");
     
@@ -53,6 +51,5 @@ fn enums() {
 
     assert_eq!(TimezoneRegion::AFRICA.value(), "Africa");
 
-    let dsn: (&str, u16) = DSNType::POSTGRES.into();
-    assert_eq!(dsn, ("postgres", 5432));
+    assert_eq!(DSNType::POSTGRES.value(), ("postgres", 5432));
 }

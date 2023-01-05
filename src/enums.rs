@@ -4,7 +4,6 @@ use crate::{
     valued_enum,
 };
 
-
 /// This enum provides access to the supported locales from one place
 #[derive(Clone)]
 pub enum Locale {
@@ -171,23 +170,13 @@ impl Locale {
     }
 }
 
-/// Represents port ranges
-pub enum PortRange {
-    ALL,
-    WELL_KNOWN,
-    EPHEMERAL,
-    REGISTERED
-}
-
-impl Into<(u16, u16)> for PortRange {
-    fn into(self) -> (u16, u16) {
-        match self {
-            Self::ALL => (1, 65535),
-            Self::WELL_KNOWN => (1, 1023),
-            Self::EPHEMERAL => (49152, 65535),
-            Self::REGISTERED => (1024, 49151),
-        }
-    }
+valued_enum! {
+    /// Represents port ranges
+    pub PortRange((u16, u16)):
+        ALL = (1, 65535)
+        WELL_KNOWN = (1, 1023)
+        EPHEMERAL = (49152, 65535)
+        REGISTERED = (1024, 49151)
 }
 
 valued_enum! {
@@ -290,59 +279,31 @@ valued_enum! {
         EAN13 = "ean-13"
 }
 
-/// Provide unit names
-pub enum MeasureUnit {
-    MASS,
-    INFORMATION,
-    THERMODYNAMIC_TEMPERATURE,
-    AMOUNT_OF_SUBSTANCE,
-    ANGLE,
-    SOLID_ANGLE,
-    FREQUENCY,
-    FORCE,
-    PRESSURE,
-    ENERGY,
-    POWER,
-    FLUX,
-    ELECTRIC_CHARGE,
-    VOLTAGE,
-    ELECTRIC_CAPACITANCE,
-    ELECTRIC_RESISTANCE,
-    ELECTRICAL_CONDUCTANCE,
-    MAGNETIC_FLUX,
-    MAGNETIC_FLUX_DENSITY,
-    INDUCTANCE,
-    TEMPERATURE,
-    RADIOACTIVITY,
-}
-
-impl Into<(&str, &str)> for MeasureUnit {
-    fn into(self) -> (&'static str, &'static str) {
-        match self {
-            Self::MASS => ("gram", "gr"),
-            Self::INFORMATION => ("byte", "b"),
-            Self::THERMODYNAMIC_TEMPERATURE => ("kelvin", "K"),
-            Self::AMOUNT_OF_SUBSTANCE => ("mole", "mol"),
-            Self::ANGLE => ("radian", "r"),
-            Self::SOLID_ANGLE => ("steradian", "㏛"),
-            Self::FREQUENCY => ("hertz", "Hz"),
-            Self::FORCE => ("newton", "N"),
-            Self::PRESSURE => ("pascal", "P"),
-            Self::ENERGY => ("joule", "J"),
-            Self::POWER => ("watt", "W"),
-            Self::FLUX => ("watt", "W"),
-            Self::ELECTRIC_CHARGE => ("coulomb", "C"),
-            Self::VOLTAGE => ("volt", "V"),
-            Self::ELECTRIC_CAPACITANCE => ("farad", "F"),
-            Self::ELECTRIC_RESISTANCE => ("ohm", "Ω"),
-            Self::ELECTRICAL_CONDUCTANCE => ("siemens", "S"),
-            Self::MAGNETIC_FLUX => ("weber", "Wb"),
-            Self::MAGNETIC_FLUX_DENSITY => ("tesla", "T"),
-            Self::INDUCTANCE => ("henry", "H"),
-            Self::TEMPERATURE => ("Celsius", "°C"),
-            Self::RADIOACTIVITY => ("becquerel", "Bq"),
-        }
-    }
+valued_enum! {
+    /// Provide unit names
+    pub MeasureUnit((&'static str, &'static str)):
+        MASS = ("gram", "gr")
+        INFORMATION = ("byte", "b")
+        THERMODYNAMIC_TEMPERATURE = ("kelvin", "K")
+        AMOUNT_OF_SUBSTANCE = ("mole", "mol")
+        ANGLE = ("radian", "r")
+        SOLID_ANGLE = ("steradian", "㏛")
+        FREQUENCY = ("hertz", "Hz")
+        FORCE = ("newton", "N")
+        PRESSURE = ("pascal", "P")
+        ENERGY = ("joule", "J")
+        POWER = ("watt", "W")
+        FLUX= ("watt", "W")
+        ELECTRIC_CHARGE = ("coulomb", "C")
+        VOLTAGE = ("volt", "V")
+        ELECTRIC_CAPACITANCE = ("farad", "F")
+        ELECTRIC_RESISTANCE = ("ohm", "Ω")
+        ELECTRICAL_CONDUCTANCE = ("siemens", "S")
+        MAGNETIC_FLUX = ("weber", "Wb")
+        MAGNETIC_FLUX_DENSITY = ("tesla", "T")
+        INDUCTANCE = ("henry", "H")
+        TEMPERATURE = ("Celsius", "°C")
+        RADIOACTIVITY = ("becquerel", "Bq")
 }
 
 valued_enum! {
@@ -426,41 +387,14 @@ valued_enum! {
         PACIFIC = "Pacific"
 }
 
-/// Provides URI and port of DSN
-pub enum DSNType {
-    POSTGRES,
-    MYSQL,
-    MONGODB,
-    REDIS,
-    COUCHBASE,
-    MEMCACHED,
-    RABBITMQ,
-}
-
-impl DSNType {
-    pub fn variants() -> Vec<Self> {
-        vec![
-            Self::POSTGRES,
-            Self::MYSQL,
-            Self::MONGODB,
-            Self::REDIS,
-            Self::COUCHBASE,
-            Self::MEMCACHED,
-            Self::RABBITMQ,
-        ]
-    }
-}
-
-impl Into<(&str, u16)> for DSNType {
-    fn into(self) -> (&'static str, u16) {
-        match self {
-            Self::POSTGRES => ("postgres", 5432),
-            Self::MYSQL => ("mysql", 3306),
-            Self::MONGODB => ("mongodb", 27017),
-            Self::REDIS => ("redis", 6379),
-            Self::COUCHBASE => ("couchbase", 8092),
-            Self::MEMCACHED => ("memcached", 11211),
-            Self::RABBITMQ => ("rabbitmq", 5672),
-        }
-    }
+valued_enum! {
+    /// Provides URI and port of DSN
+    pub DSNType((&'static str, u16)):
+        POSTGRES = ("postgres", 5432)
+        MYSQL = ("mysql", 3306)
+        MONGODB = ("mongodb", 27017)
+        REDIS = ("redis", 6379)
+        COUCHBASE = ("couchbase", 8092)
+        MEMCACHED = ("memcached", 11211)
+        RABBITMQ = ("rabbitmq", 5672)
 }
