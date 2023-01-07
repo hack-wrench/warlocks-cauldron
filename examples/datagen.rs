@@ -36,4 +36,6 @@ fn main() {
     println!("Increment a+1: {}", Numeric::increment("a"));
     println!("Increment 1=1: {}", Numeric::increment(1));
     println!("Increment a+1: {}", Numeric::increment("a"));
+
+    println!("Project: {}", Path::new(PlatformType::detect()).project_dir());
 }

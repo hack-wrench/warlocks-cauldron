@@ -202,6 +202,7 @@ py_enum! {
 
 py_enum! {
     /// Provides algorithms which available
+    #[derive(PartialEq, Eq)]
     Algorithm(&'static str):
         MD5 = "md5"
         SHA1 = "sha1"
