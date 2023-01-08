@@ -14,7 +14,7 @@ impl PlatformType {
     }
 }
 
-/// Struct that provides methods and property for generate paths
+/// Methods collection that provides methods and property for generate paths
 pub struct Path {
     is_win: bool
 }

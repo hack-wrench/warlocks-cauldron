@@ -41,4 +41,7 @@ fn main() {
 
     // None or Some(locale) for random or locale get transport code
     println!("USA transport code: {}", Transport::vehicle_registration_code(Some(Locale::EN)));
+
+    // length of sequence
+    println!("DNA sequence: {}", Science::dna_sequence(10));
 }

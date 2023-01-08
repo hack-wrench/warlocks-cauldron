@@ -197,7 +197,7 @@ impl Datetime {
     pub fn timezone(region: Option<TimezoneRegion>) -> &'static str {
         let region_name = match region {
             Some(r) => r.value(),
-            None => get_random_element(TimezoneRegion::variants().into_iter()).value()
+            None => get_random_element(TimezoneRegion::values().into_iter()),
         };
 
         get_random_element(TIMEZONES.iter().filter(|tz| tz.starts_with(region_name)))

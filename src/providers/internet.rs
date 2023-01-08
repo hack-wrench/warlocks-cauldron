@@ -165,7 +165,7 @@ impl Internet {
     pub fn top_level_domain(tld_type: Option<TLDType>) -> &'static str {
         let tld = match tld_type {
             Some(x) => x.value(),
-            None => get_random_element(TLDType::variants().into_iter()).value(),
+            None => get_random_element(TLDType::values().into_iter()),
         };
 
         get_random_element(TLD.get(tld).expect("Cant get TLD type!").iter())
@@ -249,7 +249,7 @@ impl Internet {
 
         let scheme = match scheme {
             Some(x) => x.value(),
-            None => get_random_element(URLScheme::variants().into_iter()).value(),
+            None => get_random_element(URLScheme::values().into_iter()),
         };
 
         let mut url = format!("{scheme}://{hostname}");

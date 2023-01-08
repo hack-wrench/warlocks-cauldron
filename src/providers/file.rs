@@ -15,7 +15,7 @@ impl File {
     pub fn extension(file_type: Option<FileType>) -> &'static str {
         let ftype = match file_type {
             Some(x) => x.value(),
-            None => get_random_element(FileType::variants().into_iter()).value()
+            None => get_random_element(FileType::values().into_iter()),
         };
 
         get_random_element(EXTENSIONS.get(ftype).expect("Cant find file_type extensions!").iter())
@@ -28,7 +28,7 @@ impl File {
     pub fn mime_type(mime_type: Option<MimeType>) -> &'static str {
         let mtype = match mime_type {
             Some(x) => x.value(),
-            None => get_random_element(MimeType::variants().into_iter()).value()
+            None => get_random_element(MimeType::values().into_iter()),
         };
 
         get_random_element(MIME_TYPES.get(mtype).expect("Cant find mime_type!").iter())

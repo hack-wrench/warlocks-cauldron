@@ -1,7 +1,7 @@
 use super::dependencies::*;
 
 
-/// Struct for generating data related to transports
+/// Methods collection for generating data related to transports
 pub struct Transport;
 
 impl Transport {

@@ -52,8 +52,7 @@ pub fn urandom(size: usize) -> Vec<u8> {
 /// * `str_seq` - String sequence of letters or digits
 /// * `length` - Max value
 pub fn generate_string(str_seq: &str, length: usize) -> String {
-    Vec::with_capacity(length).into_iter()
-        .map(|_: u8| get_random_element(str_seq.chars()).to_string())
+    (0..length).map(|_| get_random_element(str_seq.chars()).to_string())
         .collect::<Vec<String>>()
         .join("")
 }

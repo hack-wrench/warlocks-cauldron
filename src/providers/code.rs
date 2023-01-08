@@ -31,7 +31,7 @@ impl Code {
 
         let fmt_key = match fmt {
             Some(x) => x.value(),
-            None => get_random_element(ISBNFormat::variants().into_iter()).value(),
+            None => get_random_element(ISBNFormat::values().into_iter()),
         };
 
         let mask = ISBN_MASKS.get(fmt_key).expect("ISBN_MASKS doesnt have current ISBNFormat!")
@@ -49,7 +49,7 @@ impl Code {
     pub fn ean(fmt: Option<EANFormat>) -> String {
         let fmt_key = match fmt {
             Some(x) => x.value(),
-            None => get_random_element(EANFormat::variants().into_iter()).value(),
+            None => get_random_element(EANFormat::values().into_iter()),
         };
 
         custom_code(EAN_MASKS.get(fmt_key).expect("EAN_MASKS doesnt have current EANFormat!"), '@', '#')

@@ -19,7 +19,7 @@ impl Development {
         let hostname = Internet::hostname(tld_type, subdomains);
         let (scheme, port) = match dsn_type {
             Some(dsn) => dsn.value(),
-            None => get_random_element(DSNType::variants().into_iter()).value()
+            None => get_random_element(DSNType::values().into_iter()),
         };
 
         format!("{scheme}://{hostname}:{port}")

@@ -1,6 +1,6 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.2.14"
+version = "0.2.15"
 edition = "2021"
 
 description = "Macros collection and specify trait for creating valued or python-like enums."
