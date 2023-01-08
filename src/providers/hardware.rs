@@ -64,5 +64,4 @@ impl Hardware {
     pub fn phone_model() -> &'static str {
         get_random_element(PHONE_MODELS.iter())
     }
-
 }

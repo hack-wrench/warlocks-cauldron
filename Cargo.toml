@@ -1,16 +1,17 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.2.13"
+version = "0.2.14"
 edition = "2021"
+
+description = "Macros collection and specify trait for creating valued or python-like enums."
 
 repository = "https://github.com/hack-wrench/warlocks-cauldron/"
 homepage   = "https://github.com/hack-wrench/warlocks-cauldron/"
-license    = "GNU General Public License v3.0"
 authors    = ["H-W <github.com/hack-wrench>"]
-
 keywords   = ["faker", "data", "generator", "random"]
-publish    = ["warlocks-cauldron"]
-readme     = "README.md"
+
+readme  = "README.md"
+license = "GNU General Public License v3.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

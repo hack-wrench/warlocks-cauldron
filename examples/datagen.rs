@@ -37,5 +37,8 @@ fn main() {
     println!("Increment 1=1: {}", Numeric::increment(1));
     println!("Increment a+1: {}", Numeric::increment("a"));
 
-    println!("Project: {}", Path::new(PlatformType::detect()).project_dir());
+    println!("Project path: {}", Path::new(PlatformType::detect()).project_dir());
+
+    // None or Some(locale) for random or locale get transport code
+    println!("USA transport code: {}", Transport::vehicle_registration_code(Some(Locale::EN)));
 }

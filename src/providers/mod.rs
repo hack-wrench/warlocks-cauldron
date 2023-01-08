@@ -37,3 +37,4 @@ pub use food::Food;
 pub use hardware::Hardware;
 pub use numeric::Numeric;
 pub use path::{Path, PlatformType};
+pub use transport::Transport;
