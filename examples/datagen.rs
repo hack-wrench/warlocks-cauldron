@@ -11,9 +11,6 @@ fn main() {
     // start, end
     println!("Datetime: {}", Datetime::datetime(1984, 2077));
 
-    // words count
-    println!("Words: {:?}", Text(Locale::EN).words(5));
-
     println!("Filename: {}", File::file_name(None));
 
     // scheme, tld, subdomains
@@ -39,9 +36,17 @@ fn main() {
 
     println!("Project path: {}", Path::new(PlatformType::detect()).project_dir());
 
-    // None or Some(locale) for random or locale get transport code
-    println!("USA transport code: {}", Transport::vehicle_registration_code(Some(Locale::EN)));
+    // gender, reverse fullname
+    println!("Fullname: {}", Person(Locale::EN).full_name(Some(Gender::MALE), false));
+    println!("Telephone: {}", Person(Locale::EN).telephone(None));
+    println!("Username: {}", Person::username(Some("C.U.l.d"), Some((666, 777))));
 
     // length of sequence
     println!("DNA sequence: {}", Science::dna_sequence(10));
+
+    // words count
+    println!("Words: {:?}", Text(Locale::EN).words(5));
+
+    // None or Some(locale) for random or locale get transport code
+    println!("USA transport code: {}", Transport::vehicle_registration_code(Some(Locale::EN)));
 }

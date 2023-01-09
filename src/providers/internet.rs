@@ -53,11 +53,7 @@ impl Internet {
     /// # Arguments
     /// * `port_range` - PortRange enum
     pub fn port(port_range: Option<PortRange>) -> u16 {
-        let range = match port_range {
-            Some(x) => x.value(),
-            None => PortRange::ALL.value(),
-        };
-
+        let range = validate_enum(port_range, Some(PortRange::ALL));
         randint(range.0, range.1)
     }
 
@@ -163,11 +159,7 @@ impl Internet {
     /// # Arguments
     /// * `tld_type` - TLDType provide hostname domain
     pub fn top_level_domain(tld_type: Option<TLDType>) -> &'static str {
-        let tld = match tld_type {
-            Some(x) => x.value(),
-            None => get_random_element(TLDType::values().into_iter()),
-        };
-
+        let tld = validate_enum(tld_type, None);
         get_random_element(TLD.get(tld).expect("Cant get TLD type!").iter())
     }
 
@@ -246,12 +238,7 @@ impl Internet {
     /// * `subdomains` - vec of subdomains
     pub fn url(scheme: Option<URLScheme>, port_range: Option<PortRange>, tld_type: Option<TLDType>, subdomains: Option<Vec<&str>>) -> String {
         let hostname = Self::hostname(tld_type, subdomains);
-
-        let scheme = match scheme {
-            Some(x) => x.value(),
-            None => get_random_element(URLScheme::values().into_iter()),
-        };
-
+        let scheme = validate_enum(scheme, None);
         let mut url = format!("{scheme}://{hostname}");
 
         if port_range.is_some() {

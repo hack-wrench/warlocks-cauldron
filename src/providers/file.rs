@@ -13,11 +13,7 @@ impl File {
     /// # Arguments
     /// * `file_type` - FileType enum
     pub fn extension(file_type: Option<FileType>) -> &'static str {
-        let ftype = match file_type {
-            Some(x) => x.value(),
-            None => get_random_element(FileType::values().into_iter()),
-        };
-
+        let ftype = validate_enum(file_type, None);
         get_random_element(EXTENSIONS.get(ftype).expect("Cant find file_type extensions!").iter())
     }
 
@@ -26,11 +22,7 @@ impl File {
     /// # Arguments
     /// * `file_type` - MimeType enum
     pub fn mime_type(mime_type: Option<MimeType>) -> &'static str {
-        let mtype = match mime_type {
-            Some(x) => x.value(),
-            None => get_random_element(MimeType::values().into_iter()),
-        };
-
+        let mtype = validate_enum(mime_type, None);
         get_random_element(MIME_TYPES.get(mtype).expect("Cant find mime_type!").iter())
     }
 

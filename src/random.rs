@@ -86,7 +86,7 @@ pub fn custom_code(mask: &str, char: char, digit: char) -> String {
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
 pub fn uniform(a: f32, b: f32) -> f32 {
-    rand::random::<f32>() * a + (b - a)
+    rand::random::<f32>() * (b - a) + a
 }
 
 
@@ -127,4 +127,16 @@ pub fn get_random_element<T, V: Iterator<Item = T>>(iter: V) -> T {
 /// * `quantity` - Quantity of iterator
 pub fn get_random_elements<T, V: Iterator<Item = T> + Clone>(iter: V, quantity: usize) -> Vec<T> {
     (0..quantity).map(|_| iter.clone().choose(&mut rand::thread_rng()).unwrap()).collect()
+}
+
+
+/// Get enum value if is not None, else default or random value
+pub fn validate_enum<T, E: valued_enums::ValuedEnum<T>>(e: Option<E>, default: Option<E>) -> T {
+    match e {
+        Some(x) => x.value(),
+        None => match default {
+            Some(d) => d.value(),
+            None => get_random_element(E::values().into_iter()),
+        },
+    }
 }

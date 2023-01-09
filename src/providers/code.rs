@@ -29,10 +29,7 @@ impl Code {
     pub fn isbn(fmt: Option<ISBNFormat>, locale: Locale) -> String {
         let data = locale.get_data();
 
-        let fmt_key = match fmt {
-            Some(x) => x.value(),
-            None => get_random_element(ISBNFormat::values().into_iter()),
-        };
+        let fmt_key = validate_enum(fmt, None);
 
         let mask = ISBN_MASKS.get(fmt_key).expect("ISBN_MASKS doesnt have current ISBNFormat!")
             .replace("{0}", ISBN_GROUPS.get(&data.lang_code[..]).unwrap_or_else(|| ISBN_GROUPS.get("default").unwrap()));
@@ -47,12 +44,7 @@ impl Code {
     /// # Arguments
     /// * `fmt` - Format of EAN
     pub fn ean(fmt: Option<EANFormat>) -> String {
-        let fmt_key = match fmt {
-            Some(x) => x.value(),
-            None => get_random_element(EANFormat::values().into_iter()),
-        };
-
-        custom_code(EAN_MASKS.get(fmt_key).expect("EAN_MASKS doesnt have current EANFormat!"), '@', '#')
+        custom_code(EAN_MASKS.get(validate_enum(fmt, None)).expect("EAN_MASKS doesnt have current EANFormat!"), '@', '#')
     }
 
     /// Generate a random IMEI

@@ -180,6 +180,7 @@ py_enum! {
 
 py_enum! {
     /// Represents genders
+    #[derive(Copy, Clone)]
     Gender(&'static str):
         MALE = "male"
         FEMALE = "female"
@@ -351,14 +352,6 @@ py_enum! {
     CompressedFile(&'static str):
         ZIP = "zip"
         GZIP = "gz"
-}
-
-py_enum! {
-    /// Provides URL schemes
-    TestEnum((u8, u8)):
-        ONE   = (1, 1)
-        TWO   = (2, 2)
-        THREE = (3, 3)
 }
 
 py_enum! {

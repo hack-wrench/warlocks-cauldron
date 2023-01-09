@@ -171,8 +171,8 @@ impl Address {
     ///
     /// # Arguments
     /// * `code` - CountryCode enum
-    pub fn country_code(&self, code: CountryCode) -> Option<&str> {
-        match COUNTRY_CODES.get(code.value()) {
+    pub fn country_code(&self, code: Option<CountryCode>) -> Option<&str> {
+        match COUNTRY_CODES.get(validate_enum(code, None)) {
             None => None,
             Some(cc) => Some(get_random_element(cc.iter())),
         }

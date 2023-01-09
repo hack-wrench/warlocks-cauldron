@@ -17,11 +17,7 @@ impl Development {
     /// * `subdomains` - vec of subdomains
     pub fn dsn(dsn_type: Option<DSNType>, tld_type: Option<TLDType>, subdomains: Option<Vec<&str>>) -> String {
         let hostname = Internet::hostname(tld_type, subdomains);
-        let (scheme, port) = match dsn_type {
-            Some(dsn) => dsn.value(),
-            None => get_random_element(DSNType::values().into_iter()),
-        };
-
+        let (scheme, port) = validate_enum(dsn_type, None);
         format!("{scheme}://{hostname}:{port}")
     }
 

@@ -63,7 +63,7 @@ impl Path {
     pub fn user(&self) -> String {
         let user = get_random_element(USERNAMES.iter());
         match self.is_win {
-            true => user[0..1].to_uppercase() + &user[1..],
+            true => user[..1].to_uppercase() + &user[1..],
             false => user.to_string(),
         }
     }

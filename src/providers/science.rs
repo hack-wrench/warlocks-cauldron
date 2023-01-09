@@ -36,11 +36,7 @@ impl Science {
     /// * `sign` - Sing of prefix (positive/negative) or None for random
     /// * `symbol` - Return the symbol of the prefix
     pub fn metric_prefix(sign: Option<MetricPrefixSign>, symbol: bool) -> &'static str {
-        let key = match sign {
-            Some(s) => s.value(),
-            None => get_random_element(MetricPrefixSign::values().into_iter()),
-        };
-
+        let key = validate_enum(sign, None);
         match symbol {
             true => get_random_element(SI_PREFIXES_SYM.get(key).expect("Cant find SI_PREFIX_SYM!").iter()),
             false => get_random_element(SI_PREFIXES.get(key).expect("Cant find SI_PREFIX!").iter()),

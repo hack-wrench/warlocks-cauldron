@@ -9,6 +9,7 @@ pub struct ComplexProvider {
     pub date: Datetime,
     pub finance: Finance,
     pub food: Food,
+    pub person: Person,
     pub text: Text,
 }
 
@@ -19,6 +20,7 @@ impl ComplexProvider {
             date: Datetime(locale.clone()),
             finance: Finance(locale.clone()),
             food: Food(locale.clone()),
+            person: Person(locale.clone()),
             text: Text(locale.clone()),
         }
     }
