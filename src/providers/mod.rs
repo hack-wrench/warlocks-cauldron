@@ -36,7 +36,7 @@ pub use food::Food;
 pub use hardware::Hardware;
 pub use numeric::Numeric;
 pub use path::{Path, PlatformType};
-pub use payment::Payment;
+pub use payment::{Payment, CreditCard};
 pub use person::{Person, SexType};
 pub use transport::Transport;
 pub use science::Science;
