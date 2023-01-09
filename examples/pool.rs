@@ -5,17 +5,17 @@ fn main() {
         "TEST", "test",  "TeSt", "tEsT",
     ]);
 
-    println!("Something: {}", some_pool.get());
+    println!("Something any: {}", some_pool.get());
 
     let address_pool = RandomPool::new(vec![
         Address(Locale::EN), Address(Locale::RU),
     ]);
 
-    println!("City: {}", address_pool.get().city());
+    println!("Random address: {}", address_pool.get().city());
 
     let complex_pool = RandomPool::new(vec![
         ComplexProvider::new(Locale::EN), ComplexProvider::new(Locale::RU),
     ]);
 
-    println!("Words: {}", complex_pool.get().text.word())
+    println!("Random complex provider: {}", complex_pool.get().person.name(Some(Gender::MALE)))
 }
