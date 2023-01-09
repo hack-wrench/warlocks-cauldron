@@ -36,6 +36,8 @@ fn main() {
 
     println!("Project path: {}", Path::new(PlatformType::detect()).project_dir());
 
+    println!("Card struct: {:?}", Payment::credit_card());
+
     // gender, reverse fullname
     println!("Fullname: {}", Person(Locale::EN).full_name(Some(Gender::MALE), false));
     println!("Telephone: {}", Person(Locale::EN).telephone(None));

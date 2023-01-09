@@ -180,7 +180,7 @@ py_enum! {
 
 py_enum! {
     /// Represents genders
-    #[derive(Copy, Clone)]
+    #[derive(Copy, Clone, PartialEq, Eq)]
     Gender(&'static str):
         MALE = "male"
         FEMALE = "female"
@@ -188,6 +188,7 @@ py_enum! {
 
 py_enum! {
     /// Represents title types
+    #[derive(PartialEq, Eq)]
     TitleType(&'static str):
         TYPICAL = "typical"
         ACADEMIC = "academic"
@@ -195,6 +196,7 @@ py_enum! {
 
 py_enum! {
     /// Provides credit card types
+    #[derive(PartialEq, Eq)]
     CardType(&'static str):
         VISA = "Visa"
         MASTER_CARD = "MasterCard"

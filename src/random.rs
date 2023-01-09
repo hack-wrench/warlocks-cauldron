@@ -140,3 +140,14 @@ pub fn validate_enum<T, E: valued_enums::ValuedEnum<T>>(e: Option<E>, default: O
         },
     }
 }
+
+/// Get enum value if is not None, else default or random value
+pub fn validate_variant<T, E: valued_enums::ValuedEnum<T>>(e: Option<E>, default: Option<E>) -> E {
+    match e {
+        Some(x) => x,
+        None => match default {
+            Some(d) => d,
+            None => get_random_element(E::variants().into_iter()),
+        },
+    }
+}

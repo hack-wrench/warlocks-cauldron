@@ -28,9 +28,9 @@ impl Person {
 
     /// Generate a random name
     pub fn name(&self, gender: Option<Gender>) -> &str {
-        match validate_enum(gender, None) {
-            "male" => get_random_element(self.data().person.names.male.iter()),
-            "female" => get_random_element(self.data().person.names.female.iter()),
+        match validate_variant(gender, None) {
+            Gender::MALE => get_random_element(self.data().person.names.male.iter()),
+            Gender::FEMALE => get_random_element(self.data().person.names.female.iter()),
             _ => panic!("Validation error!"),
         }
     }
@@ -43,9 +43,9 @@ impl Person {
     /// Generate a random surname | *An allias for .name()*
     pub fn surname(&self, gender: Option<Gender>) -> String {
         match self.data().person.get_surnames() {
-            SurnamesOption::Map(m) => match validate_enum(gender, None) {
-                "male" => get_random_element(m.male.into_iter()),
-                "female" => get_random_element(m.female.into_iter()),
+            SurnamesOption::Map(m) => match validate_variant(gender, None) {
+                Gender::MALE => get_random_element(m.male.into_iter()),
+                Gender::FEMALE => get_random_element(m.female.into_iter()),
                 _ => panic!("Validation surnames error!"),
             },
             SurnamesOption::Sequence(seq) => get_random_element(seq.into_iter()),
@@ -60,11 +60,11 @@ impl Person {
 
     /// Generate a random title for name
     pub fn title(&self, gender: Option<Gender>, title_type: Option<TitleType>) -> &str {
-        get_random_element(match (validate_enum(gender, None), validate_enum(title_type, None)) {
-            ("male", "typical") => self.data().person.title.male.typical.iter(),
-            ("male", "academic") => self.data().person.title.male.academic.iter(),
-            ("female", "typical") => self.data().person.title.female.typical.iter(),
-            ("female", "academic") => self.data().person.title.female.academic.iter(),
+        get_random_element(match (validate_variant(gender, None), validate_variant(title_type, None)) {
+            (Gender::MALE, TitleType::TYPICAL) => self.data().person.title.male.typical.iter(),
+            (Gender::MALE, TitleType::ACADEMIC) => self.data().person.title.male.academic.iter(),
+            (Gender::FEMALE, TitleType::TYPICAL) => self.data().person.title.female.typical.iter(),
+            (Gender::FEMALE, TitleType::ACADEMIC) => self.data().person.title.female.academic.iter(),
             _ => panic!("Validation error!"),
         })
     }
@@ -210,9 +210,9 @@ impl Person {
     /// Generate a random nationality | *An allias for .name()*
     pub fn nationality(&self, gender: Option<Gender>) -> String {
         match self.data().person.get_nationality() {
-            NationalityOption::Map(m) => match validate_enum(gender, None) {
-                "male" => get_random_element(m.male.into_iter()),
-                "female" => get_random_element(m.female.into_iter()),
+            NationalityOption::Map(m) => match validate_variant(gender, None) {
+                Gender::MALE => get_random_element(m.male.into_iter()),
+                Gender::FEMALE => get_random_element(m.female.into_iter()),
                 _ => panic!("Validation nationality error!"),
             },
             NationalityOption::Sequence(seq) => get_random_element(seq.into_iter()),
