@@ -59,7 +59,7 @@ pub fn generate_string(str_seq: &str, length: usize) -> String {
 
 /// Generate custom code using ascii uppercase and random integers
 ///
-/// e.g mask = "@###", char = "@", digit = "#")
+/// e.g mask = "@###", char = '@', digit = '#')
 /// 
 /// # Arguments
 /// * `mask` - Mask of code

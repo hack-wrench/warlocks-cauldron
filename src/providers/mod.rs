@@ -6,6 +6,7 @@ pub use complexed::ComplexProvider;
 mod spec;
 pub use spec::{
     da::DenmarkSpecProvider,
+    en::{USASpecProvider, TrackingService},
 };
 
 mod address;

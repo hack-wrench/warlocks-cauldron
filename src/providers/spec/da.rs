@@ -1,6 +1,6 @@
 use chrono::Datelike;
 
-use super::super::{Choice, Datetime, dependencies::*};
+use super::super::{Datetime, dependencies::*};
 use std::iter::zip;
 
 
