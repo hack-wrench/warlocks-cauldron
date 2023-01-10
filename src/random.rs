@@ -67,10 +67,12 @@ pub fn generate_string(str_seq: &str, length: usize) -> String {
 /// * `digit` - Placeholder for digits
 pub fn custom_code(mask: &str, char: char, digit: char) -> String {
     mask.chars().map(|c| {
-        match c {
-            char => get_random_element("ABCDEFGHIJKLMNOPQRSTUVWXYZ".chars()).to_string(),
-            digit => randint(0, 9).to_string(),
-            other => other.to_string()
+        if c == char {
+            get_random_element("ABCDEFGHIJKLMNOPQRSTUVWXYZ".chars()).to_string()
+        } else if c == digit {
+            randint(0, 9).to_string()
+        } else {
+            c.to_string()
         }
     }).join("")
 }
