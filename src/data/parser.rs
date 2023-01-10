@@ -1,6 +1,6 @@
 use super::serializers::*;
 use serde_json::{from_str, Value, Map};
-use std::{include_str, collections::HashMap};
+use std::include_str;
 
 
 type S = &'static str;

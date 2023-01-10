@@ -3,6 +3,11 @@ mod dependencies;
 mod complexed;
 pub use complexed::ComplexProvider;
 
+mod spec;
+pub use spec::{
+    da::DenmarkSpecProvider,
+};
+
 mod address;
 mod choice;
 mod code;
