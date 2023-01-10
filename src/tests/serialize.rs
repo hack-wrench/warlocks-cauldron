@@ -1,3 +1,5 @@
+use serde_json::Value;
+
 use crate::data::parsed::TEST;
 use crate::data::serializers::{NationalityOption, SurnamesOption};
 
@@ -17,6 +19,14 @@ fn serialize_data() {
     assert_eq!(adr.street.name, vec!["Test"]);
     assert_eq!(adr.street.suffix, vec!["Test"]);
 
+    let builtin = &TEST.builtin;
+    if let Value::Object(any) = builtin.get("any").unwrap() {
+        if let Value::Array(structure) = any.get("structure").unwrap() {
+            let converted: Vec<&str> = structure.into_iter().map(|v| v.as_str().unwrap()).collect();
+            assert_eq!(converted, vec!["which", "you", "need"]);
+        }
+    }
+    
     let dtm = &TEST.datetime;
     assert_eq!(dtm.day.abbr, vec!["Test"]);
     assert_eq!(dtm.day.name, vec!["Test"]);

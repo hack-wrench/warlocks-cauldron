@@ -119,7 +119,7 @@ impl Internet {
 
     /// Generate random stock image (JPG/JPEG) hosted on Unsplash
     ///
-    /// return example: StockType::URL("https://source.unsplash.com/666x666?test")
+    /// return example: StockType::URL("<https://source.unsplash.com/666x666?test>")
     ///
     /// # Arguments
     /// * `width` - Width of the image
@@ -250,7 +250,7 @@ impl Internet {
 
     /// Generate a random URI
     ///
-    /// return example: https://sub.domain.com:8000/2013/6/6/?some-things&test-test
+    /// return example: <https://sub.domain.com:8000/2013/6/6/?some-things&test-test>
     ///
     /// # Arguments
     /// * `scheme` - URLScheme for url prefix

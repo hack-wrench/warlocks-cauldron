@@ -4,7 +4,7 @@ use crate::generate_payload;
 #[cfg(test)]
 lazy_static! {
     pub static ref TEST: ParsedData = ParsedData::from(
-        generate_payload!("locale_template")
+        generate_payload!("locale_template", with_builtin)
     );
 }
 
@@ -39,7 +39,7 @@ lazy_static! {
 #[cfg(feature = "en")]
 lazy_static! {
     pub static ref EN: ParsedData = ParsedData::from(
-        generate_payload!("en")
+        generate_payload!("en", with_builtin)
     );
 }
 
@@ -95,7 +95,7 @@ lazy_static! {
 #[cfg(feature = "it")]
 lazy_static! {
     pub static ref IT: ParsedData = ParsedData::from(
-        generate_payload!("it")
+        generate_payload!("it", with_builtin)
     );
 }
 
@@ -151,7 +151,7 @@ lazy_static! {
 #[cfg(feature = "ru")]
 lazy_static! {
     pub static ref RU: ParsedData = ParsedData::from(
-        generate_payload!("ru")
+        generate_payload!("ru", with_builtin)
     );
 }
 
@@ -179,7 +179,7 @@ lazy_static! {
 #[cfg(feature = "uk")]
 lazy_static! {
     pub static ref UK: ParsedData = ParsedData::from(
-        generate_payload!("uk")
+        generate_payload!("uk", with_builtin)
     );
 }
 
