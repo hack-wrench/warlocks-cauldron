@@ -7,6 +7,7 @@ mod spec;
 pub use spec::{
     da::DenmarkSpecProvider,
     en::{USASpecProvider, TrackingService},
+    it::ItalySpecProvider,
 };
 
 mod address;
