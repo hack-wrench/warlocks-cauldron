@@ -14,7 +14,7 @@ pub fn randbigint(a: u128, b: u128) -> num_bigint::BigUint {
     num_bigint::BigUint::from_bytes_be(&randint(a, b).to_be_bytes())
 }
 
-/// Get random i32 in range from a to b
+/// Get random int in range from a to b
 /// 
 /// # Arguments
 /// * `a` - Minimum value of range
@@ -28,13 +28,13 @@ pub fn rand_bool(p: f64) -> bool {
     StdRng::from_entropy().gen_bool(p)
 }
 
-/// Generate vec of random i32
+/// Generate vec of random int
 /// 
 /// # Arguments
 /// * `amount` - Amount of elements
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
-pub fn randints(amount: usize, a: i32, b: i32) -> Vec<i32> {
+pub fn randints<T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd + Copy>(a: T, b: T, amount: usize) -> Vec<T> {
     (0..amount).map(|_| randint(a, b)).collect()
 }
 

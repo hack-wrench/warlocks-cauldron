@@ -191,10 +191,7 @@ impl Internet {
     /// 
     /// return example: some-slug-here
     pub fn slug(parts_count: Option<usize>) -> String {
-        let parts = match parts_count {
-            Some(p) => p,
-            None => randint(2, 12),
-        };
+        let parts = parts_count.unwrap_or_else(|| randint(2, 12));
 
         if parts > 12 {
             panic!("Slug's parts count must be <= 12");
@@ -292,10 +289,7 @@ impl Internet {
     /// * `length` - Query params count
     pub fn query_parameters(length: Option<usize>) -> Vec<(&'static str, &'static String)> {
         let text = &Text(Locale::RU);
-        let length = match length {
-            Some(len) => len,
-            None => randint(1, 10),
-        };
+        let length = length.unwrap_or_else(|| randint(1, 10));
 
         if length > 32 {
             panic!("Length should be less than 32!")

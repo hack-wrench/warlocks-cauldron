@@ -9,6 +9,7 @@ pub use spec::{
     en::{USASpecProvider, TrackingService},
     it::ItalySpecProvider,
     nl::NetherlandsSpecProvider,
+    pl::PolandSpecProvider,
 };
 
 mod address;
@@ -35,7 +36,7 @@ pub use address::{Address, Coordinates, FloatNumber};
 pub use choice::Choice;
 pub use code::Code;
 pub use cryptographic::{Cryptographic, Uuid};
-pub use date::{Datetime, DateTime, Local, Utc, Duration, TimestampType};
+pub use date::{Datetime, TimestampType, NaiveDate, DateTime, Local, Utc, Duration};
 pub use file::File;
 pub use internet::{Internet, IPAddress, StockType};
 pub use development::Development;

@@ -88,15 +88,8 @@ impl Person {
     ///
     /// You can also use symbols to separate the different part of the username: **.** **_** **-**
     pub fn username(mask: Option<&str>, drange: Option<(u32, u32)>) -> String {
-        let mask = match mask {
-            Some(m) => m,
-            None => "l_d",
-        };
-
-        let drange = match drange {
-            Some(dr) => dr,
-            None => (1800, 2100),
-        };
+        let mask = mask.unwrap_or_else(|| "l_d");
+        let drange = drange.unwrap_or_else(|| (1800, 2100));
 
         let mut output = String::new();
         for tag in Regex::new(r"[CUld.\-_]").unwrap().find_iter(mask) {
@@ -240,11 +233,7 @@ impl Person {
     /// Arguments:
     /// * `mask` - The mask. Here ``@`` is a placeholder for characters and ``#`` is placeholder for digits
     pub fn telephone(&self, mask: Option<&str>) -> String {
-        let mask = match mask {
-            None => get_random_element(self.data().person.telephone_fmt.iter()),
-            Some(m) => m,
-        };
-
+        let mask = mask.unwrap_or_else(|| get_random_element(self.data().person.telephone_fmt.iter()));
         custom_code(mask, '@', '#')
     }
 
@@ -253,11 +242,7 @@ impl Person {
     /// Arguments:
     /// * `mask` - The mask. Here ``@`` is a placeholder for characters and ``#`` is placeholder for digits
     pub fn identifier(&self, mask: Option<&str>) -> String {
-        let mask = match mask {
-            None => "##-##/##",
-            Some(m) => m,
-        };
-
+        let mask = mask.unwrap_or_else(|| "##-##/##");
         custom_code(mask, '@', '#')
     }
 }

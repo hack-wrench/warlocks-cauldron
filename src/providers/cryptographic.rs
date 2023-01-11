@@ -29,14 +29,9 @@ impl Cryptographic {
     /// # Arguments
     /// * `algorithm` - Enum object
     pub fn hash(fmt: Option<Algorithm>) -> String {
-        let algorithm = match fmt {
-            Some(a) => a,
-            None => get_random_element(Algorithm::variants().into_iter()),
-        };
-
         let uuid = Self::uuid().as_bytes().to_vec();
 
-        let bytes = match algorithm {
+        let bytes = match validate_variant(fmt, None) {
             Algorithm::MD5 => md5::Md5::new_with_prefix(uuid).finalize().to_vec(),
             Algorithm::SHA1 => sha1::Sha1::new_with_prefix(uuid).finalize().to_vec(),
             Algorithm::SHA224 => sha2::Sha224::new_with_prefix(uuid).finalize().to_vec(),

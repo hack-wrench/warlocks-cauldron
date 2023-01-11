@@ -10,4 +10,8 @@ fn main() {
     println!("Italy fiscal code: {}", ItalySpecProvider::fiscal_code(Some(Gender::MALE)));
 
     println!("Netherlands BSN: {}", NetherlandsSpecProvider::bsn());
+
+    println!("Poland NIP: {}", PolandSpecProvider::nip());
+    println!("Poland PESEL: {}", PolandSpecProvider::pesel(None, None));
+    println!("Poland REGON: {}", PolandSpecProvider::regon());
 }

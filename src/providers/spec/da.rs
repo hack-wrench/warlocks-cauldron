@@ -10,17 +10,11 @@ impl DenmarkSpecProvider {
     fn calculate_century_selector(year: i32) -> i32 {
         if 1858 <= year && year < 1900 {
             return randint(5, 8);
-        }
-
-        if 1900 <= year && year < 1937 {
+        } else if 1900 <= year && year < 1937 {
             return randint(0, 3);
-        }
-
-        if 1937 <= year && year < 2000 {
+        } else if 1937 <= year && year < 2000 {
             return get_random_element(vec![4, 9].into_iter());
-        }
-
-        if 2000 <= year && year < 2037 {
+        } else if 2000 <= year && year < 2037 {
             return randint(4, 9);
         }
 

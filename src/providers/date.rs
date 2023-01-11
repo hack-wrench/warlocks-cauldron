@@ -150,11 +150,7 @@ impl Datetime {
     /// * `start` - Minimum value of year 
     /// * `end` - Maximum value of year
     pub fn formatted_date(&self, fmt: Option<&str>, start: i32, end: i32) -> String {
-        let fmt = match fmt {
-            Some(f) => f,
-            None => &self.data().datetime.formats.date,
-        };
-
+        let fmt = fmt.unwrap_or_else(|| &self.data().datetime.formats.date);
         Self::date(start, end).format(fmt).to_string()
     }
 
@@ -173,11 +169,7 @@ impl Datetime {
     /// # Arguments
     /// * `fmt` - The format of time, if None then use standard accepted in the current locale
     pub fn formatted_time(&self, fmt: Option<&str>) -> String {
-        let fmt = match fmt {
-            Some(f) => f,
-            None => &self.data().datetime.formats.time,
-        };
-
+        let fmt = fmt.unwrap_or_else(|| &self.data().datetime.formats.time);
         Self::time().format(fmt).to_string()
     }
 
@@ -233,11 +225,7 @@ impl Datetime {
             format!("{} {}", &data.datetime.formats.date, &data.datetime.formats.time)
         };
 
-        let fmt = match fmt {
-            Some(f) => f,
-            None => &full_format,
-        };
-
+        let fmt = fmt.unwrap_or_else(|| &full_format);
         Self::datetime(start, end).format(fmt).to_string()
     }
 
