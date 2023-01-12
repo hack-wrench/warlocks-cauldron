@@ -226,7 +226,7 @@ impl Internet {
 
     /// Generate random URL
     ///
-    /// return example: https://sub.domain.com:8000/
+    /// return example: <https://sub.domain.com:8000/>
     ///
     /// # Arguments
     /// * `scheme` - URLScheme provide url scheme

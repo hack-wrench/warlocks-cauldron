@@ -12,7 +12,7 @@ impl UkraineSpecProvider {
 
         let gender = validate_enum(gender, None);
 
-        get_random_element(patronymics.get(gender).expect("It is impossible to find a patronymic with the given gender!")
+        get_random_element(patronymics.get(gender).expect("Cannot find a patronymic with the given gender!")
             .as_array().unwrap().into_iter()
                 .map(|i| i.as_str())).unwrap()
                     .to_string()
