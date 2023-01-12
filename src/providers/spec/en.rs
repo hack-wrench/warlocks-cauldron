@@ -20,6 +20,7 @@ rust_enum! {
 }
 
 
+/// Methods collection provides special data for USA (en)
 pub struct USASpecProvider;
 
 impl USASpecProvider {
@@ -36,6 +37,6 @@ impl USASpecProvider {
             other => other,
         };
 
-        format!("{:03}-{:02}-{:04}", area, randint(1, 99), randint(1, 9999))
+        format!("{area:03}-{:02}-{:04}", randint(1, 99), randint(1, 9999))
     }
 }

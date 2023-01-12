@@ -1,11 +1,9 @@
 use std::iter::zip;
 
-use chrono::{NaiveDate, Datelike};
-
-use super::super::dependencies::*;
-use crate::Datetime;
+use super::super::{Datetime, NaiveDate, Datelike, Local, dependencies::*};
 
 
+/// Methods collection provides special data for Poland (pl)
 pub struct PolandSpecProvider;
 
 impl PolandSpecProvider {
@@ -32,7 +30,10 @@ impl PolandSpecProvider {
 
     /// Generate random 11-digit PESEL
     pub fn pesel(birth_date: Option<NaiveDate>, gender: Option<Gender>) -> String {
-        let birth_date = birth_date.unwrap_or_else(|| Datetime::date(1940, 2023));
+        let birth_date = birth_date.unwrap_or_else(|| {
+            let now = Local::now().year();
+            Datetime::date(now - 100, now)
+        });
 
         let year = birth_date.year();
         let mut month = birth_date.month();

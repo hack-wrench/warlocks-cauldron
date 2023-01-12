@@ -1,9 +1,9 @@
-use chrono::Datelike;
-
-use super::super::{Datetime, dependencies::*};
 use std::iter::zip;
 
+use super::super::{Datetime, Datelike, Local, dependencies::*};
 
+
+/// Methods collection provides special data for Denmark (da)
 pub struct DenmarkSpecProvider;
 
 impl DenmarkSpecProvider {
@@ -52,7 +52,8 @@ impl DenmarkSpecProvider {
 
     /// Generate a random CPR number (Central Person Registry)
     pub fn cpr() -> String {
-        let date = Datetime::date(1858, 2023);
+        let now = Local::now().year();
+        let date = Datetime::date(now - 100, now);
         let cpr_date = date.format("%d%m%y").to_string();
         let century_selector = Self::calculate_century_selector(date.year());
         let cpr_century = format!("{cpr_date}{century_selector}");

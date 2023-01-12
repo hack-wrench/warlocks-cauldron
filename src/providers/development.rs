@@ -1,6 +1,6 @@
 use crate::Internet;
 
-use super::dependencies::*;
+use super::{Local, Datelike, dependencies::*};
 
 
 /// Methods collection for getting fake data for Developers
@@ -37,7 +37,10 @@ impl Development {
     /// * `pre_release` - Locale code from enum
     pub fn version(calver: bool, pre_release: bool) -> String {
         let (major, minor, patch) = match calver {
-            true => (randint(2016, 2018), randint(1, 10), randint(1, 10)),
+            true => {
+                let now = Local::now().year();
+                (randint(now - 6, now), randint(1, 10), randint(1, 10))
+            },
             false => (randint(1, 10), randint(1, 10), randint(1, 10)),
         };
 

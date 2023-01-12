@@ -1,8 +1,7 @@
-use crate::data::parsed::IT;
-
 use super::super::dependencies::*;
 
 
+/// Methods collection provides special data for Italy (it)
 pub struct ItalySpecProvider;
 
 impl ItalySpecProvider {
@@ -11,7 +10,7 @@ impl ItalySpecProvider {
         let mut code = generate_string("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 6);
         code.push_str(&custom_code("##", '@', '#'));
 
-        let fiscal_code = IT.builtin.get("fiscal_code").unwrap()
+        let fiscal_code = crate::data::parsed::IT.builtin.get("fiscal_code").unwrap()
             .as_object().unwrap();
         
         code.push_str(

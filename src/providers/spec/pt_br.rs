@@ -3,6 +3,7 @@ use std::iter::zip;
 use super::super::dependencies::*;
 
 
+/// Methods collection provides special data for Brazil (pt-br)
 pub struct BrazilSpecProvider;
 
 impl BrazilSpecProvider {
@@ -47,9 +48,7 @@ impl BrazilSpecProvider {
             _ => panic!("Invalid peso!"),
         };
 
-        let soma: u32 = zip(cnpj, peso_list).map(|(c, p)| c * p).sum();
-
-        let resto = soma % 11;
+        let resto = zip(cnpj, peso_list).map(|(c, p)| c * p).sum::<u32>() % 11;
 
         if resto < 2 {
             0

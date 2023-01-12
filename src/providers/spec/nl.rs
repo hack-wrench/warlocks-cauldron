@@ -1,6 +1,7 @@
 use super::super::dependencies::*;
 
 
+/// Methods collection provides special data for Netherlands (nl)
 pub struct NetherlandsSpecProvider;
 
 impl NetherlandsSpecProvider {

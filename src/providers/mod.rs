@@ -11,6 +11,7 @@ pub use spec::{
     nl::NetherlandsSpecProvider,
     pl::PolandSpecProvider,
     pt_br::BrazilSpecProvider,
+    ru::RussiaSpecProvider,
 };
 
 mod address;
@@ -37,7 +38,7 @@ pub use address::{Address, Coordinates, FloatNumber};
 pub use choice::Choice;
 pub use code::Code;
 pub use cryptographic::{Cryptographic, Uuid};
-pub use date::{Datetime, TimestampType, NaiveDate, DateTime, Local, Utc, Duration};
+pub use date::{Datetime, TimestampType, NaiveDate, DateTime, Datelike, Local, Utc, Duration};
 pub use file::File;
 pub use internet::{Internet, IPAddress, StockType};
 pub use development::Development;

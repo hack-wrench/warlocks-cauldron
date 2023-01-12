@@ -34,14 +34,14 @@ fn main() {
     println!("Increment 1=1: {}", Numeric::increment(1));
     println!("Increment a+1: {}", Numeric::increment("a"));
 
-    println!("Project path: {}", Path::new(PlatformType::detect()).project_dir());
+    println!("Project path: {}",  Path::new(PlatformType::detect()).project_dir());
 
     println!("Card struct: {:?}", Payment::credit_card());
 
     // gender, reverse fullname
-    println!("Fullname: {}", Person(Locale::EN).full_name(Some(Gender::MALE), false));
+    println!("Fullname: {}",  Person(Locale::EN).full_name(Some(Gender::MALE), false));
     println!("Telephone: {}", Person(Locale::EN).telephone(None));
-    println!("Username: {}", Person::username(Some("C.U.l.d"), Some((666, 777))));
+    println!("Username: {}",  Person::username(Some("C.U.l.d"), Some((666, 777))));
 
     // length of sequence
     println!("DNA sequence: {}", Science::dna_sequence(10));
