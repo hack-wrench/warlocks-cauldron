@@ -3,7 +3,7 @@ name    = "warlocks-cauldron"
 version = "0.2.26"
 edition = "2021"
 
-description = "Fake Data Generator - fully inspired by https://mimesis.name"
+description = "Fake Data Generator written in Rust - fully inspired by https://mimesis.name"
 
 repository = "https://github.com/hack-wrench/warlocks-cauldron/"
 homepage   = "https://github.com/hack-wrench/warlocks-cauldron/"
