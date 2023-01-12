@@ -10,6 +10,7 @@ pub use spec::{
     it::ItalySpecProvider,
     nl::NetherlandsSpecProvider,
     pl::PolandSpecProvider,
+    pt_br::BrazilSpecProvider,
 };
 
 mod address;

@@ -14,4 +14,7 @@ fn main() {
     println!("Poland NIP: {}", PolandSpecProvider::nip());
     println!("Poland PESEL: {}", PolandSpecProvider::pesel(None, None));
     println!("Poland REGON: {}", PolandSpecProvider::regon());
+
+    println!("Brazil CPF: {}", BrazilSpecProvider::cpf(true));
+    println!("Brazil CNPJ: {}", BrazilSpecProvider::cnpj(true));
 }
