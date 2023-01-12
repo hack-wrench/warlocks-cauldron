@@ -15,6 +15,20 @@ There are currently 26 languages available: `cs, da, de, el, en, es, et, fa, fi,
 
 ## Examples
 Visit [`/examples`](https://github.com/hack-wrench/warlocks-cauldron/tree/main/examples) for detailed examples. In the process of development it was decided to make the workflow as close to [mimesis](https://mimesis.name) as possible, most of the methods and namespace were taken from there.
+``` rust
+use warlocks_cauldron::*;
+
+fn main() {
+    let complex = ComplexProvider::new(Locale::EN);
+    println!("Person: {}", complex.person.full_name(None, false));
+    println!("Telephone: {}", complex.person.telephone(None));
+    println!("Address: {}", complex.address.full_address());
+    println!("Birthday: {}", Datetime::date(1940, 2000));
+    println!("Weight: {} kg", Person::weight(30, 90));
+    println!("Height: {} m", Person::height(1.5, 2.0));
+}
+```
+
 
 ## License
 This project is licensed under the [GPL-3.0 license](https://github.com/tokio-rs/tokio/blob/master/LICENSE)
