@@ -5,7 +5,7 @@
 All localizations are enabled by default feature, you can specify localizations in features!
 ```toml
 [dependencies.warlocks-cauldron]
-version = "0.26.2"
+version = "0.26.3"
 # git = "https://github.com/hack-wrench/warlocks-cauldron"
 # features = ["en"] # For example to use only english localization
 ```
@@ -36,4 +36,4 @@ fn main() {
 
 
 ## License
-This project is licensed under the [GPL-3.0 license](https://github.com/tokio-rs/tokio/blob/master/LICENSE)
+This project is licensed under the [GPL-3.0 license](https://github.com/hack-wrench/warlocks-cauldron/blob/main/LICENSE)
