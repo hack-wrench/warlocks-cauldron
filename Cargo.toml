@@ -1,6 +1,6 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.2.25"
+version = "0.2.26"
 edition = "2021"
 
 description = "Fake Data Generator - fully inspired by https://mimesis.name"

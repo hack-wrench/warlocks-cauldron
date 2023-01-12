@@ -12,6 +12,7 @@ pub use spec::{
     pl::PolandSpecProvider,
     pt_br::BrazilSpecProvider,
     ru::RussiaSpecProvider,
+    uk::UkraineSpecProvider,
 };
 
 mod address;

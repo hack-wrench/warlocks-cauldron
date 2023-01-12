@@ -25,4 +25,6 @@ fn main() {
     println!("Russian OGRN: {}", RussiaSpecProvider::ogrn());
     println!("Russian BIC: {}", RussiaSpecProvider::bic());
     println!("Russian KPP: {}", RussiaSpecProvider::kpp());
+
+    println!("Ukrainian patronymic: {}", RussiaSpecProvider::patronymic(None));
 }
