@@ -1,11 +1,11 @@
-# 🦀 Warlock's Cauldron 🧙‍♀️
-Fake Data Generator written in Rust - fully inspired by https://mimesis.name 🐍
+# 🧙‍♀️ Warlock's Cauldron
+🦀 Fake Data Generator written in Rust - fully inspired by https://mimesis.name 🐍
 
 ## Installation
 All localizations are enabled by default feature, you can specify localizations in features!
 ```toml
 [dependencies.warlocks-cauldron]
-version = "0.2.26"
+version = "0.26.2"
 # git = "https://github.com/hack-wrench/warlocks-cauldron"
 # features = ["en"] # For example to use only english localization
 ```

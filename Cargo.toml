@@ -1,14 +1,14 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.2.26"
+version = "0.26.2"
 edition = "2021"
 
-description = "Fake Data Generator written in Rust - fully inspired by https://mimesis.name"
+description = "🦀 Fake Data Generator written in Rust - fully inspired by https://mimesis.name 🐍"
 
 repository = "https://github.com/hack-wrench/warlocks-cauldron/"
 homepage   = "https://github.com/hack-wrench/warlocks-cauldron/"
 authors    = ["H-W <github.com/hack-wrench>"]
-keywords   = ["faker", "data", "generator", "random"]
+keywords   = ["testing", "mock", "data-science", "fixtures", "generator", "fake", "faker", "dummy", "api-mock", "synthetic-data"]
 
 readme  = "README.md"
 license = "GNU General Public License v3.0"
