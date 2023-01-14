@@ -302,8 +302,8 @@ impl Address {
     /// * `abbr` - Use DMS format
     pub fn coordinates(dms: bool) -> Coordinates {
         match (dms, Self::latitude(dms), Self::longitude(dms)) {
-            (true, FloatNumber::DMS(lng), FloatNumber::DMS(lat)) => Coordinates::DMS(lng, lat),
-            (false, FloatNumber::Raw(lng), FloatNumber::Raw(lat)) => Coordinates::Raw(lng, lat),
+            (true, FloatNumber::DMS(lat), FloatNumber::DMS(lng)) => Coordinates::DMS(lat, lng),
+            (false, FloatNumber::Raw(lat), FloatNumber::Raw(lng)) => Coordinates::Raw(lat, lng),
             _ => panic!("In theory, it shouldn't break :D"),
         }
     }
