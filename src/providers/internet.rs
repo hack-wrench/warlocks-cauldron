@@ -148,7 +148,7 @@ impl Internet {
     /// # Arguments
     /// * `quantity` - The quantity of hashtags
     pub fn hashtags(quantity: i32) -> Vec<String> {
-        let locale = Text(Locale::EN);
+        let locale = Text(&Locale::EN);
         (0..quantity).map(|_| format!("#{}", locale.word())).collect()
     }
 
@@ -201,7 +201,7 @@ impl Internet {
             panic!("Slug must contain more than 2 parts");
         }
 
-        Text(Locale::EN).words(parts).iter().join("-")
+        Text(&Locale::EN).words(parts).iter().join("-")
     }
 
     /// Generate a random hostname without scheme
@@ -288,7 +288,7 @@ impl Internet {
     /// # Arguments
     /// * `length` - Query params count
     pub fn query_parameters(length: Option<usize>) -> Vec<(&'static str, &'static String)> {
-        let text = &Text(Locale::RU);
+        let text = &Text(&Locale::RU);
         let length = length.unwrap_or_else(|| randint(1, 10));
 
         if length > 32 {

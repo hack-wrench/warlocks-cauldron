@@ -10,9 +10,9 @@ use super::dependencies::*;
 pub enum SexType<'a> { ISO5218(u8), String(&'a str) }
 
 /// Struct for generating personal data
-pub struct Person(pub Locale);
+pub struct Person<'a>(pub &'a Locale);
 
-impl Person {
+impl<'a> Person<'a> {
     /// Private. Return global parsed data from own locale
     fn data(&self) -> &ParsedData { self.0.get_data() }
 

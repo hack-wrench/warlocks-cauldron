@@ -2,9 +2,9 @@ use super::dependencies::*;
 
 
 /// A struct for generating finance data
-pub struct Finance(pub Locale);
+pub struct Finance<'a>(pub &'a Locale);
 
-impl Finance {
+impl<'a> Finance<'a> {
     /// Private. Return global parsed data from own locale
     fn data(&self) -> &ParsedData { self.0.get_data() }
 

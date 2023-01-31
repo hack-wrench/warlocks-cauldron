@@ -41,9 +41,9 @@ impl std::fmt::Display for Coordinates {
 /// Struct for generate fake address data.
 ///
 /// This struct provides all the data related to geographical location.
-pub struct Address(pub Locale);
+pub struct Address<'a>(pub &'a Locale);
 
-impl Address {
+impl<'a> Address<'a> {
     /// Private. Return global parsed data from own locale
     fn data(&self) -> &ParsedData { self.0.get_data() }
 

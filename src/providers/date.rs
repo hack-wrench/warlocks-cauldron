@@ -9,9 +9,9 @@ pub enum TimestampType {
 }
 
 /// Struct for generating data related to the date and time
-pub struct Datetime(pub Locale);
+pub struct Datetime<'a>(pub &'a Locale);
 
-impl Datetime {
+impl<'a> Datetime<'a> {
     /// Private. Return global parsed data from own locale
     fn data(&self) -> &ParsedData { self.0.get_data() }
 

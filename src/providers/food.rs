@@ -2,9 +2,9 @@ use super::dependencies::*;
 
 
 /// Struct for generating data related to food
-pub struct Food(pub Locale);
+pub struct Food<'a>(pub &'a Locale);
 
-impl Food {
+impl<'a> Food<'a> {
     /// Private. Return global parsed data from own locale
     fn data(&self) -> &ParsedData { self.0.get_data() }
 

@@ -2,9 +2,9 @@ use super::dependencies::*;
 
 
 /// A struct for generating text data
-pub struct Text(pub Locale);
+pub struct Text<'a>(pub &'a Locale);
 
-impl Text {
+impl<'a> Text<'a> {
     /// Private. Return global parsed data from own locale
     fn data(&self) -> &ParsedData { self.0.get_data() }
     

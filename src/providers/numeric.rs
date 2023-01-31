@@ -53,6 +53,11 @@ impl Numeric {
         *INCREMENTS.lock().unwrap() = Counter::new();
     }
 
+    /// Generate random number in range [start, end]
+    pub fn number<T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd>(start: T, end: T) -> T {
+        randint(start, end)
+    }
+
     /// Generate random float number in range [start, end]
     pub fn float_number(start: f32, end: f32) -> f32 {
         uniform(start, end)

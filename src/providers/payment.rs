@@ -97,7 +97,7 @@ impl Payment {
         CreditCard {
             number: Self::credit_card_number(None),
             expiration_date: Self::credit_card_expiration_date(16, 25),
-            owner: Person(Locale::EN).full_name(None, false).to_uppercase(),
+            owner: Person(&Locale::EN).full_name(None, false).to_uppercase(),
             cvv: Self::cvv(),
         }
     }

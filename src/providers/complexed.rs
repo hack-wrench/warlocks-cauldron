@@ -4,24 +4,24 @@ use super::{
 };
 
 /// Collection of every provider, which uses locales
-pub struct ComplexProvider {
-    pub address: Address,
-    pub date: Datetime,
-    pub finance: Finance,
-    pub food: Food,
-    pub person: Person,
-    pub text: Text,
+pub struct ComplexProvider<'a> {
+    pub address: Address<'a>,
+    pub date: Datetime<'a>,
+    pub finance: Finance<'a>,
+    pub food: Food<'a>,
+    pub person: Person<'a>,
+    pub text: Text<'a>,
 }
 
-impl ComplexProvider {
-    pub fn new(locale: Locale) -> Self {
+impl<'a> ComplexProvider<'a> {
+    pub fn new(locale: &'a Locale) -> Self {
         Self {
-            address: Address(locale.clone()),
-            date: Datetime(locale.clone()),
-            finance: Finance(locale.clone()),
-            food: Food(locale.clone()),
-            person: Person(locale.clone()),
-            text: Text(locale.clone()),
+            address: Address(locale),
+            date: Datetime(locale),
+            finance: Finance(locale),
+            food: Food(locale),
+            person: Person(locale),
+            text: Text(locale),
         }
     }
 }

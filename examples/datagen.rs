@@ -2,7 +2,7 @@ use warlocks_cauldron::*;
 
 
 fn main() {
-    println!("Address: {}", Address(Locale::EN).full_address());
+    println!("Address: {}", Address(&Locale::EN).full_address());
 
     println!("IMEI: {}", Code::imei());
 
@@ -18,9 +18,9 @@ fn main() {
 
     println!("Mac: {}", Internet::mac());
 
-    println!("Company: {}", Finance(Locale::EN).company());
+    println!("Company: {}", Finance(&Locale::EN).company());
 
-    println!("Drink: {}", Food(Locale::EN).drink());
+    println!("Drink: {}", Food(&Locale::EN).drink());
 
     println!("Manufacturer: {}", Hardware::manufacturer());
 
@@ -39,15 +39,15 @@ fn main() {
     println!("Card struct: {:?}", Payment::credit_card());
 
     // gender, reverse fullname
-    println!("Fullname: {}",  Person(Locale::EN).full_name(Some(Gender::MALE), false));
-    println!("Telephone: {}", Person(Locale::EN).telephone(None));
+    println!("Fullname: {}",  Person(&Locale::EN).full_name(Some(Gender::MALE), false));
+    println!("Telephone: {}", Person(&Locale::EN).telephone(None));
     println!("Username: {}",  Person::username(Some("C.U.l.d"), Some((666, 777))));
 
     // length of sequence
     println!("DNA sequence: {}", Science::dna_sequence(10));
 
     // words count
-    println!("Words: {:?}", Text(Locale::EN).words(5));
+    println!("Words: {:?}", Text(&Locale::EN).words(5));
 
     // None or Some(locale) for random or locale get transport code
     println!("USA transport code: {}", Transport::vehicle_registration_code(Some(Locale::EN)));

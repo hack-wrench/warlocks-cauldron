@@ -42,7 +42,7 @@ impl File {
     /// * `file_type` - FileType enum
     pub fn file_name(file_type: Option<FileType>) -> String {
         let replacer = get_random_element(vec!["_", "-"].into_iter());
-        let word = Text(Locale::EN).word().trim();
+        let word = Text(&Locale::EN).word().trim();
         
         let re = Regex::new(r"\s+").unwrap();
         let name = re.replace_all(word, replacer);
