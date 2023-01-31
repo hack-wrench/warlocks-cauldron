@@ -1,6 +1,6 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.26.4"
+version = "0.26.5"
 edition = "2021"
 
 description = "🦀 Fake Data Generator written in Rust - fully inspired by https://mimesis.name 🐍"
@@ -16,7 +16,7 @@ license = "GPL-3.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-valued-enums = "1.1.4"
+valued-enums = "1.1.8"
 counter = "0.5.7"
 itertools = "0.10.5"
 lazy_static = "1.4.0"
