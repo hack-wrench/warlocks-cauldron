@@ -12,5 +12,5 @@ fn main() {
 
     // But you can also use single providers
     let russian_person = Person(&Locale::RU);
-    println!("Their Russian friend: {}", russian_person.full_name(None, false));
+    println!("Their Russian friend: {}", russian_person.full_name(Some(Gender::MALE), false));
 }
