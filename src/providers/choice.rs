@@ -4,6 +4,10 @@ use crate::random::*;
 pub struct Choice;
 
 impl Choice {
+    pub fn get<T, V: Iterator<Item = T>>(iter: V) -> T {
+        get_random_element(iter)
+    }
+
     /// Generate a randomly-chosen sequence or bare element from a sequence
     pub fn pick<'a, T>(items: &'a Vec<T>, length: usize) -> Vec<&'a T> {
         get_random_elements(items.iter(), length)
