@@ -4,8 +4,14 @@ use crate::random::*;
 pub struct Choice;
 
 impl Choice {
+    /// Get a randomly-chosen item from iter
     pub fn get<T, V: Iterator<Item = T>>(iter: V) -> T {
         get_random_element(iter)
+    }
+
+    /// Get a bool with a probability p of being true.
+    fn prob(p: f64) -> bool {
+        rand_bool(p)
     }
 
     /// Generate a randomly-chosen sequence or bare element from a sequence
