@@ -10,7 +10,7 @@ impl Choice {
     }
 
     /// Get a bool with a probability p of being true.
-    fn prob(p: f64) -> bool {
+    pub fn prob(p: f64) -> bool {
         rand_bool(p)
     }
 
