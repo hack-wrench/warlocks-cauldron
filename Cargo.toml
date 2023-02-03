@@ -1,6 +1,6 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.26.6"
+version = "0.26.7"
 edition = "2021"
 
 description = "🦀 Fake Data Generator written in Rust - fully inspired by https://mimesis.name 🐍"
