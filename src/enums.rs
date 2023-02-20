@@ -86,7 +86,7 @@ pub enum Locale {
 }
 
 impl Locale {
-    pub(crate) fn get_data(&self) -> &'static ParsedData {
+    pub fn get_data(&self) -> &'static ParsedData {
         match self {
             #[cfg(feature = "cs")]
             Self::CS => &CS,
