@@ -1,6 +1,6 @@
 [package]
 name    = "warlocks-cauldron"
-version = "0.26.9"
+version = "0.26.10"
 edition = "2021"
 
 description = "🦀 Fake Data Generator written in Rust - fully inspired by https://mimesis.name 🐍"
@@ -36,7 +36,6 @@ chrono-tz = "0.8.1"
 chrono = "0.4.23"
 
 urlencoding = "2.1.2"
-num-bigint = "0.1.44"
 ipaddress = "0.1.2"
 regex = "1.7.0"
 luhn = "1.0.1"

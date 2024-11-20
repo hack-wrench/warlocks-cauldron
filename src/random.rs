@@ -10,8 +10,8 @@ use rand::prelude::*;
 /// # Arguments
 /// * `a` - Minimum value of range
 /// * `b` - Maximum value of range
-pub fn randbigint(a: u128, b: u128) -> num_bigint::BigUint {
-    num_bigint::BigUint::from_bytes_be(&randint(a, b).to_be_bytes())
+pub fn randbigint(a: u128, b: u128) -> num::BigUint {
+    num::BigUint::from_bytes_be(&randint(a, b).to_be_bytes())
 }
 
 /// Get random int in range from a to b
