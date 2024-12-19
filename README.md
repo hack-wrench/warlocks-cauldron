@@ -5,7 +5,7 @@
 All localizations are enabled by default feature, you can specify localizations in features!
 ```toml
 [dependencies.warlocks-cauldron]
-version = "0.26.9"
+version = "0.26.10"
 # git = "https://github.com/hack-wrench/warlocks-cauldron"
 # features = ["en"] # For example to use only english localization
 ```
